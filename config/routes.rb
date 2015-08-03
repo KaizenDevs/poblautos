@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'opinions/index'
-
-  get 'opinions/show'
-
-  get 'opinions/new'
-
-  get 'opinions/edit'
 
   devise_for :users
 
@@ -31,6 +24,8 @@ Rails.application.routes.draw do
   get 'motorcycles/new_motorcycles'
 
   get 'motorcycles/used'
+
+  resources :opinions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
