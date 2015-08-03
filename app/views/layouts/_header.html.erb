@@ -12,9 +12,14 @@
       </div>
       <div class="topnav dd-menu">
           <ul class="top-navigation sf-menu">
-              <li><a href="results-list.html"><i class="fa fa-car"></i> Compra Ahora</a></li>
-              <li><a href="#"  data-toggle="modal" data-target="#loginModal"><i class="fa fa-folder-open"></i> Trámites</a></li>
-              <li><a href="joinus.html"><i class="fa fa-user"></i> Subscríbete</a></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Opiniones" %></li>
+                <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+                <li><a href="results-list.html"><i class="fa fa-car"></i> Compra Ahora</a></li>
+                <li><a href="#"  data-toggle="modal" data-target="#loginModal"><i class="fa fa-folder-open"></i> Trámites</a></li>
+                <li><a href="joinus.html"><i class="fa fa-user"></i> Subscríbete</a></li>
+              <% end %>
           </ul>
       </div>
     </div>
