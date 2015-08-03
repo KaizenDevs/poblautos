@@ -24,12 +24,15 @@
 <body>
 
 
-  <!-- Start Site Header -->
-  <div class="site-header-wrapper">
-    <%= render 'layouts/header' %>
-    <!-- End Site Header -->
-    <%= render 'layouts/nav_bar' %>
-  </div>
+<!-- Start Site Header -->
+<div class="site-header-wrapper">
+  <%= render 'layouts/header' %>
+  <!-- End Site Header -->
+  <%= render 'layouts/nav_bar' %>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 
