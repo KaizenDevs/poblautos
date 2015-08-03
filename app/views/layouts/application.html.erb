@@ -17,9 +17,18 @@
   <%= stylesheet_link_tag "extralayers.css", media: "screen" %>
   <%= stylesheet_link_tag "settings.css", media: "screen" %>
   <%= stylesheet_link_tag "color1.css" %>
+  <%= javascript_include_tag "modernizr.js" %>
+
 
 </head>
 <body>
+
+  <!-- Start Site Header -->
+  <div class="site-header-wrapper">
+    <?php include("includes/header.php"); ?>
+    <!-- End Site Header -->
+    <?php include("includes/menu.php"); ?>
+  </div>
 
 <%= yield %>
 

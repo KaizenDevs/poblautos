@@ -18,6 +18,7 @@ Rails.application.config.assets.precompile += %w( owl.theme.css )
 Rails.application.config.assets.precompile += %w( extralayers.css )
 Rails.application.config.assets.precompile += %w( settings.css )
 Rails.application.config.assets.precompile += %w( color1.css )
+Rails.application.config.assets.precompile += %w( modernizr.js )
 
 
 
