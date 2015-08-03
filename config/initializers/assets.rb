@@ -12,3 +12,12 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( bootstrap.css )
 Rails.application.config.assets.precompile += %w( bootstrap-theme.css )
 Rails.application.config.assets.precompile += %w( style.css )
+Rails.application.config.assets.precompile += %w( prettyPhoto.css )
+Rails.application.config.assets.precompile += %w( owl.carousel.css )
+Rails.application.config.assets.precompile += %w( owl.theme.css )
+Rails.application.config.assets.precompile += %w( extralayers.css )
+Rails.application.config.assets.precompile += %w( settings.css )
+Rails.application.config.assets.precompile += %w( color1.css )
+
+
+
