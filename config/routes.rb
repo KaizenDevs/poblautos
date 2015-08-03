@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'opinions/index'
+
+  get 'opinions/show'
+
+  get 'opinions/new'
+
+  get 'opinions/edit'
+
   devise_for :users
 
   devise_scope :user do
