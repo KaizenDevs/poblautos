@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804161805) do
+ActiveRecord::Schema.define(version: 20150804165508) do
 
   create_table "opinions", force: :cascade do |t|
     t.text     "opinion"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150804161805) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "number"
+    t.boolean  "visible"
   end
 
   create_table "users", force: :cascade do |t|
