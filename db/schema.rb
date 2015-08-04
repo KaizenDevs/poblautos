@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804223144) do
+ActiveRecord::Schema.define(version: 20150804230946) do
 
   create_table "opinions", force: :cascade do |t|
     t.text     "opinion"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150804223144) do
     t.integer  "price"
     t.integer  "transmission"
     t.integer  "gas"
-    t.string   "model"
+    t.string   "vehicle_model"
     t.string   "engine"
     t.integer  "mileage"
     t.string   "upholstery"
