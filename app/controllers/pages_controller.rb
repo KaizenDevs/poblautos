@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @opinions = Opinion.where(visible: true).order(:number)
   end
 
   def company
