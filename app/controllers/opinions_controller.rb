@@ -33,7 +33,7 @@ class OpinionsController < ApplicationController
       flash[:notice] = "La opinión ha sido actualizada con éxito."
       redirect_to opinions_path
     else
-      flash[:alert] = "Ha ocurrido un erro y no se ha actualizado la opinión. Inténtalo de nuevo."
+      flash[:alert] = "Ha ocurrido un error y no se ha actualizado la opinión. Inténtalo de nuevo."
       render 'edit'
     end
   end
@@ -47,6 +47,6 @@ class OpinionsController < ApplicationController
   private
 
   def opinion_params
-    params.require(:opinion).permit(:opinion, :name, :position, :avatar)
+    params.require(:opinion).permit(:opinion, :name, :position, :avatar, :number)
   end
 end

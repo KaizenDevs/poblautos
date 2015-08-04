@@ -1,34 +1,18 @@
-<%= form_for @opinion, :url => opinions_path, :html => { :multipart => true } do |f| %>
+<%= bootstrap_form_for @opinion, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
-        <p>
-          <%= f.label "Agrega una imagen:" %>
-          <%= f.file_field :avatar %>
-        </p>
-
-        <p>
-          <%= f.label "Número (Recuerda que en la página inicial aparecerán los primeros 3):" %> <br>
-          <%= f.number_field :number %>
-        </p>
-
-        <p>
-          <%= f.label "Nombre:" %> <br>
-          <%= f.text_field :name %>
-        </p>
-
-        <p>
-          <%= f.label "Cargo:" %> <br>
-          <%= f.text_field :position %>
-        </p>
-
-        <p>
-          <%= f.label "Opinión:" %> <br>
-          <%= f.text_area :opinion %>
-        </p>
-
-        <p>
-          <%= f.submit new_form %>
-        </p>
+          <%= f.file_field :avatar, label: "Agrega una imagen:" %>
+          <%= f.number_field :number, label: "Número (Recuerda que en la página inicial aparecerán los primeros 3):" %>
+          <%= f.text_field :name, label: "Nombre Completo:" %>
+          <%= f.text_field :position, label: "Cargo:" %>
+          <%= f.text_area :opinion, label: "Opinión:" %>
+          <%= f.submit form_submit %>
       </div>
     </div>
-  <% end %>
+<% end %>
+
+<hr>
+
+<%= link_to opinions_path do %>
+  <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>
