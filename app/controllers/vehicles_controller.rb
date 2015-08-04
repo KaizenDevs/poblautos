@@ -52,4 +52,10 @@ class VehiclesController < ApplicationController
     @vehicle.destroy
     redirect_to vehicles_path
   end
+
+  private
+
+  def vehicle_params
+    params.require(:vehicles).permit(:name, :year, :state, :price, :transmission, :gas, :model, :engine, :mileage, :upholstery, :type, :used, :video, :color, :license_plate, :comments, :air_conditioning, :shield, :image)
+  end
 end
