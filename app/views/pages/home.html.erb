@@ -457,7 +457,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                               <div class="testimonial-avatar"><%= image_tag(opinion.avatar.url(:thumb), class: 'avatar') %></div>
                               <div class="testimonial-info">
                                 <div class="testimonial-info-in">
-                                  <strong>Arthur Henry</strong><span>Carsales Inc</span>
+                                  <strong><%= opinion.name %></strong><span><%= opinion.position %></span>
                                 </div>
                               </div>
                             </div>
@@ -530,7 +530,6 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                 </form>
                 <hr>
                 <h4><i class="fa fa-twitter"></i> Síguenos en Twitter</h4>
-                <div class="twitter-widget" data-tweets-count="2"></div>
               </section>
             </div>
           </div>
