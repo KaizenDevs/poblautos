@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804220253) do
+ActiveRecord::Schema.define(version: 20150804223144) do
 
   create_table "opinions", force: :cascade do |t|
     t.text     "opinion"
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150804220253) do
     t.integer  "year"
     t.string   "state"
     t.integer  "price"
-    t.string   "transmission"
-    t.string   "gas"
+    t.integer  "transmission"
+    t.integer  "gas"
     t.string   "model"
     t.string   "engine"
     t.integer  "mileage"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20150804220253) do
     t.boolean  "used"
     t.string   "video"
     t.string   "color"
-    t.string   "license_plate"
+    t.integer  "license_plate"
     t.text     "comments"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20150804220253) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "air_conditioning"
+    t.boolean  "shield"
   end
 
 end
