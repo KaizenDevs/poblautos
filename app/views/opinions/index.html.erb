@@ -17,6 +17,7 @@
       <th>Nombre</th>
       <th>Cargo</th>
       <th>Opinión</th>
+      <th>Visible</th>
       <th colspan="2"></th>
     </tr>
     <% @opinions.each do |opinion| %>
@@ -26,6 +27,7 @@
         <td><%= opinion.name %></td>
         <td><%= opinion.position %></td>
         <td><%= opinion.opinion %></td>
+        <td><%= opinion.visible? ? "Sí" : "No" %></td>
         <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_opinion_path(opinion) %></td>
         <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, opinion_path(opinion), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta pregunta?' } %></td>
       </tr>
