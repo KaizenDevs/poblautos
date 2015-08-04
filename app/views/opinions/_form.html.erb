@@ -1,0 +1,25 @@
+<%= form_for @opinion, :url => opinions_path, :html => { :multipart => true } do |f| %>
+    <p>
+      <%= f.label "Agrega una imagen:" %>
+      <%= f.file_field :avatar %>
+    </p>
+
+    <p>
+      <%= f.label "Nombre:" %> <br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label "Cargo:" %> <br>
+      <%= f.text_field :position %>
+    </p>
+
+    <p>
+      <%= f.label "Opinión:" %> <br>
+      <%= f.text_area :opinion %>
+    </p>
+
+    <p>
+      <%= f.submit new_form %>
+    </p>
+  <% end %>

@@ -11,6 +11,7 @@ class OpinionsController < ApplicationController
   end
 
   def edit
+    @opinion = Opinion.find(params[:id])
   end
 
   def create
@@ -26,9 +27,21 @@ class OpinionsController < ApplicationController
   end
 
   def update
+    @opinion = Opinion.find(params[:id])
+
+    if @opinion.update(opinion_params)
+      flash[:notice] = "La opinión ha sido actualizada con éxito."
+      redirect_to opinions_path
+    else
+      flash[:alert] = "Ha ocurrido un erro y no se ha actualizado la opinión. Inténtalo de nuevo."
+      render 'edit'
+    end
   end
 
   def destroy
+    @opinion = Opinion.find(params[:id])
+    @opinion.destroy
+    redirect_to opinions_path
   end
 
   private
