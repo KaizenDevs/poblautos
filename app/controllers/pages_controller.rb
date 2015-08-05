@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @vehicles = Vehicle.all
+    @new_vehicles = Vehicle.where(used: false)
     @opinions = Opinion.where(visible: true).order(:number)
   end
 

@@ -1,3 +1,9 @@
+<style>
+  .vehicle-image {
+    width: 100px;
+  }
+</style>
+
 <div class="navbar">
   <div class="container sp-cont">
     <div class="search-function">
@@ -32,14 +38,9 @@
                   <div class="mm-col col-md-5">
                     <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                     <ul class="make-widget">
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                      <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                      <% Vehicle.where(used: false).each do |vehicle| %>
+                        <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.image, class: "vehicle-image", width: "100") %></a></li>
+                      <% end %>
                     </ul>
                     <%= link_to "Ver Todo", vehicles_new_vehicles_path %>
                   </div>
@@ -47,14 +48,9 @@
                   <div class="mm-col col-md-5">
                    <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                    <ul class="make-widget">
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
-                    <li class="item"> <a href="results-list.html"><img src="http://placehold.it/100x100&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                    <% Vehicle.where(used: true).each do |vehicle| %>
+                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.image, class: "vehicle-image", width: "100") %></a></li>
+                    <% end %>
                   </ul>
                   <%= link_to "Ver Todo", vehicles_used_path %>
                 </div>
