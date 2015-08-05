@@ -17,6 +17,7 @@
           <%= f.select :vehicle_type, options_for_select(Vehicle.vehicle_types.keys), label: "Tipo de vehículo:" %>
           <%= f.text_field :video, label: "Link de video (si lo hay):" %>
           <%= f.text_field :color, label: "Color:" %>
+          <%= f.text_field :license_plate_city, label: "Ciudad de la placa:" %>
           <%= f.number_field :license_plate, label: "Placa (último dígito):" %>
           <%= f.text_area :comments, label: "Comentarios:" %>
           <label for="radio">Usado:</label>

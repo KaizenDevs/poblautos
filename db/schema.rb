@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805012327) do
+ActiveRecord::Schema.define(version: 20150805153236) do
 
   create_table "opinions", force: :cascade do |t|
     t.text     "opinion"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150805012327) do
     t.datetime "image_updated_at"
     t.boolean  "air_conditioning"
     t.boolean  "shield"
+    t.string   "license_plate_city"
   end
 
 end
