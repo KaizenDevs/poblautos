@@ -5,6 +5,7 @@ class VehiclesController < ApplicationController
   end
 
   def used
+    @vehicles = Vehicle.where(used: true)
   end
 
   def index
