@@ -1,3 +1,5 @@
+<%= puts @vehicle %>
+
 <%= bootstrap_form_for @vehicle, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
@@ -6,12 +8,12 @@
           <%= f.number_field :year, label: "Año:" %>
           <%= f.text_field :state, label: "Estado:" %>
           <%= f.number_field :price, label: "Precio:" %>
-          <%= f.collection_select :transmission, options_for_select(Vehicle.gas.keys), label: "Tipo de combustible:" %>
+          <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys), label: "Tipo de tansmisión:" %>
           <%= f.select :gas, options_for_select(Vehicle.gas.keys), label: "Tipo de combustible:" %>
           <%= f.text_field :engine, label: "Motor:" %>
           <%= f.number_field :mileage, label: "Kilometraje:" %>
           <%= f.text_field :upholstery, label: "Cojinería" %>
-          <%= f.select :type, options_for_select(Vehicle.type.keys), label: "Tipo de vehículo:" %>
+          <%= f.select :vehicle_type, options_for_select(Vehicle.vehicle_types.keys), label: "Tipo de vehículo:" %>
           <%= f.text_field :video, label: "Link de video (si lo hay):" %>
           <%= f.text_field :color, label: "Color:" %>
           <%= f.number_field :license_plate, label: "Placa (último dígito):" %>
@@ -20,11 +22,11 @@
           <%= f.radio_button :used, true, label: "Sí" %>
           <%= f.radio_button :used, false, label: "No" %>
           <label for="radio">Aire Acondicionado:</label>
-          <%= f.radio_button :used, true, label: "Sí" %>
-          <%= f.radio_button :used, false, label: "No" %>
+          <%= f.radio_button :air_conditioning, true, label: "Sí" %>
+          <%= f.radio_button :air_conditioning, false, label: "No" %>
           <label for="radio">Blindado:</label>
-          <%= f.radio_button :used, true, label: "Sí" %>
-          <%= f.radio_button :used, false, label: "No" %>
+          <%= f.radio_button :shield, true, label: "Sí" %>
+          <%= f.radio_button :shield, false, label: "No" %>
           <%= f.submit form_submit %>
       </div>
     </div>
@@ -32,6 +34,6 @@
 
 <hr>
 
-<%= link_to opinions_path do %>
+<%= link_to vehicles_path do %>
   <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
 <% end %>

@@ -6,26 +6,31 @@
   <table class="table">
     <tr>
       <th>Nombre</th>
-      <th>Imagén</th>
-      <th>Nombre</th>
-      <th>Cargo</th>
-      <th>Opinión</th>
-      <th>Visible</th>
+      <th>Imagen</th>
+      <th>Tipo de Vehículo</th>
+      <th>Año</th>
+      <th>Estado</th>
+      <th>Precio</th>
+      <th>Transmisión</th>
+      <th>Combustible</th>
+      <th>Motor</th>
+      <th>Comentarios</th>
       <th colspan="2"></th>
     </tr>
     <% @vehicles.each do |vehicle| %>
       <tr>
         <td><%= vehicle.name %></td>
-        <td><%= image_tag(vehicle.image.url(:thumb), class: 'avatar') %></td>
+        <td><%= image_tag(vehicle.image.url(:thumb), class: 'avatar', width: "50px") %></td>
+        <td><%= vehicle.vehicle_type.capitalize %></td>
         <td><%= vehicle.year %></td>
         <td><%= vehicle.state %></td>
         <td><%= vehicle.price %></td>
-        <td><%= vehicle.transmission %></td>
-        <td><%= vehicle.gas %></td>
-        <td><%= vehicle.model %></td>
-        <td><%= opinion.visible? ? "Sí" : "No" %></td>
-        <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_opinion_path(opinion) %></td>
-        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, opinion_path(opinion), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta pregunta?' } %></td>
+        <td><%= vehicle.transmission.capitalize %></td>
+        <td><%= vehicle.gas.capitalize %></td>
+        <td><%= vehicle.engine %></td>
+        <td><%= vehicle.comments %></td>
+        <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_vehicle_path(vehicle) %></td>
+        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, vehicle_path(vehicle), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta pregunta?' } %></td>
       </tr>
     <% end %>
   </table>

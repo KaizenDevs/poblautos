@@ -25,7 +25,7 @@ class VehiclesController < ApplicationController
   def create
     @vehicle = Vehicle.new(vehicle_params)
 
-    if @vehicle.create
+    if @vehicle.save
       flash[:notice] = "El vehículo ha sido creado éxitosamente."
       redirect_to vehicles_path
     else
@@ -56,6 +56,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicles).permit(:name, :year, :state, :price, :transmission, :gas, :model, :engine, :mileage, :upholstery, :type, :used, :video, :color, :license_plate, :comments, :air_conditioning, :shield, :image)
+    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :comments, :air_conditioning, :shield, :image)
   end
 end

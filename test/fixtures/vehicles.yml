@@ -9,11 +9,11 @@
 #  price              :integer
 #  transmission       :integer
 #  gas                :integer
-#  model              :string
+#  vehicle_model      :string
 #  engine             :string
 #  mileage            :integer
 #  upholstery         :string
-#  type               :integer
+#  vehicle_type       :integer
 #  used               :boolean
 #  video              :string
 #  color              :string

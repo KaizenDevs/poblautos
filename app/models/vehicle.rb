@@ -9,11 +9,11 @@
 #  price              :integer
 #  transmission       :integer
 #  gas                :integer
-#  model              :string
+#  vehicle_model      :string
 #  engine             :string
 #  mileage            :integer
 #  upholstery         :string
-#  type               :integer
+#  vehicle_type       :integer
 #  used               :boolean
 #  video              :string
 #  color              :string
@@ -33,7 +33,7 @@ class Vehicle < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   enum transmission: [:mecánico, :automático]
-  enum gas: [:gasolina, :gas, :eléctrico]
-  enum type: [:camioneta, :sedan, :coupe, :convertible]
+  enum gas: [:gasolina, :"a gas", :eléctrico]
+  enum vehicle_type: [:camioneta, :sedan, :coupe, :convertible]
 
 end

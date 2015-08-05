@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804230946) do
+ActiveRecord::Schema.define(version: 20150805012327) do
 
   create_table "opinions", force: :cascade do |t|
     t.text     "opinion"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150804230946) do
     t.string   "engine"
     t.integer  "mileage"
     t.string   "upholstery"
-    t.integer  "type"
+    t.integer  "vehicle_type"
     t.boolean  "used"
     t.string   "video"
     t.string   "color"
