@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'categories/index'
+
+  get 'categories/show'
+
+  get 'categories/new'
+
+  get 'categories/edit'
+
   devise_for :users
 
   devise_scope :user do
@@ -27,6 +35,7 @@ Rails.application.routes.draw do
 
   resources :opinions
   resources :vehicles
+  resources :categories
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

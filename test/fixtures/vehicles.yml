@@ -27,6 +27,7 @@
 #  image_updated_at   :datetime
 #  air_conditioning   :boolean
 #  shield             :boolean
+#  license_plate_city :string
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
