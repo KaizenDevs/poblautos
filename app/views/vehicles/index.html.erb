@@ -30,7 +30,7 @@
         <td><%= vehicle.engine %></td>
         <td><%= vehicle.comments %></td>
         <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, vehicle_path(vehicle), method: :delete, data: { confirm: '¿Esta seguro que desea elminar esta pregunta?' } %></td>
+        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, vehicle_path(vehicle), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar esta pregunta?' } %></td>
       </tr>
     <% end %>
   </table>

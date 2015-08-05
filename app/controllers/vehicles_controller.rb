@@ -19,7 +19,7 @@ class VehiclesController < ApplicationController
   end
 
   def edit
-    @vehicle = Vehicle.find(params[:ids])
+    @vehicle = Vehicle.find(params[:id])
   end
 
   def create
