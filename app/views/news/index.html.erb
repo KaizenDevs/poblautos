@@ -14,6 +14,7 @@
       <th>Título</th>
       <th>Fecha</th>
       <th>Imagen</th>
+      <th>Categoría</th>
       <th>Content</th>
       <th>Destacada</th>
       <th colspan="2"></th>
@@ -23,6 +24,7 @@
         <td><%= news.title %></td>
         <td><%= news.created_at.strftime("%b %d, %Y") %></td>
         <td><%= image_tag(news.image.url(:thumb), class: 'avatar') %></td>
+        <td><%= news.category.name %></td>
         <td><%= news.content %></td>
         <td><%= news.highlight? ? "Sí" : "No" %></td>
         <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_news_path(news) %></td>

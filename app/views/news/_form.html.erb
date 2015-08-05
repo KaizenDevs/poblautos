@@ -1,7 +1,7 @@
 <%= bootstrap_form_for @news, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
-          <%= f.collection_select( :category_id, Category.all, :id, :name), label: "Categoría" %>
+          <%= f.collection_select( :category_id, Category.all, :id, :name, label: "Categoría:")%>
           <%= f.text_field :title, label: "Título:" %>
           <%= f.file_field :image, label: "Agrega una imagen:" %>
           <%= f.text_area :content, label: "Contenido:" %>
