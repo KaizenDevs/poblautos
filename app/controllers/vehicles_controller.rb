@@ -1,6 +1,7 @@
 class VehiclesController < ApplicationController
 
   def new_vehicles
+    @vehicles = Vehicle.where(used: false)
   end
 
   def used
