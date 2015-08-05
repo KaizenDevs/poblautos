@@ -33,6 +33,8 @@ gem 'bootstrap_form'
 
 gem 'annotate'
 
+gem 'bootstrap-wysihtml5-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
