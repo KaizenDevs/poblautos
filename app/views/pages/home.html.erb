@@ -269,104 +269,35 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
               <div class="carousel-wrapper">
                 <div class="row">
                   <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="4" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="4" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
-                    <li class="item">
+                    <% @vehicles.each do |vehicle| %>
+                      <li class="item">
                       <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
+                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.image.url, width: "600", height: "400") %></a>
                         <div class="vehicle-block-content">
-                          <span class="label label-default vehicle-age">2014</span>
-                          <span class="label label-success premium-listing">Premium Listing</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Mercedes-benz SL 300</a></h5>
-                          <span class="vehicle-meta">Mercedes, Grey color, by <abbr class="user-type" title="Listed by an individual user">Individual</abbr></span>
-                          <a href="vehicle-details.php" title="View all Sedans" class="vehicle-body-type"><img src="images/body-types/sedan.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$48500</span>
+                          <span class="label label-default vehicle-age"><%= vehicle.year %></span>
+                          <% if vehicle.used? %>
+                            <span class="label label-success premium-listing">Usado</span>
+                          <% else %>
+                            <span class="label label-success premium-listing">Nuevo</span>
+                          <% end %>
+                          <h5 class="vehicle-title"><a href="<%= vehicle_url(vehicle) %>"><%= vehicle.name %></a></h5>
+                          <span class="vehicle-meta">Mercedes, <%= vehicle.color %>. </span>
+                          <a href="<%= vehicle_url(vehicle) %>" class="vehicle-body-type">
+                          <% if vehicle.vehicle_type == "camioneta" %>
+                            <%= image_tag("body-types/suv.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "sedan" %>
+                            <%= image_tag("body-types/sedan.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "coupe" %>
+                            <%= image_tag("body-types/coupe.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "convertible" %>
+                            <%= image_tag("body-types/convertible.png", width: "30") %>
+                          <% end %>
+                          </a>
+                          <span class="vehicle-cost">$<%= vehicle.price %></span>
                         </div>
                       </div>
                     </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-primary vehicle-age">Brand New</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Nissan Terrano first hand</a></h5>
-                          <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by an dealer">Dealer</abbr></span>
-                          <a href="vehicle-details.php" title="View all SUVs" class="vehicle-body-type"><img src="images/body-types/suv.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$28000</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-default vehicle-age">2013</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Mercedes Benz E Class</a></h5>
-                          <span class="vehicle-meta">Mercedes, Silver Blue, by <abbr class="user-type" title="Listed by an individual">Individual</abbr></span>
-                          <a href="vehicle-details.php" title="View all convertibles" class="vehicle-body-type"><img src="images/body-types/convertible.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$76000</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-default vehicle-age">2014</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Newly launched Nissan Sunny</a></h5>
-                          <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by Autostars">Autostars</abbr></span>
-                          <a href="vehicle-details.php" title="View all coupes" class="vehicle-body-type"><img src="images/body-types/coupe.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$31999</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-default vehicle-age">2014</span>
-                          <span class="label label-success premium-listing">Premium Listing</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Mercedes-benz SL 300</a></h5>
-                          <span class="vehicle-meta">Mercedes, Grey color, by <abbr class="user-type" title="Listed by an individual user">Individual</abbr></span>
-                          <a href="vehicle-details.php" title="View all Sedans" class="vehicle-body-type"><img src="images/body-types/sedan.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$48500</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-primary vehicle-age">Brand New</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Nissan Terrano first hand</a></h5>
-                          <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by an dealer">Dealer</abbr></span>
-                          <a href="vehicle-details.php" title="View all SUVs" class="vehicle-body-type"><img src="images/body-types/suv.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$28000</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-default vehicle-age">2013</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Mercedes Benz E Class</a></h5>
-                          <span class="vehicle-meta">Mercedes, Silver Blue, by <abbr class="user-type" title="Listed by an individual">Individual</abbr></span>
-                          <a href="vehicle-details.php" title="View all convertibles" class="vehicle-body-type"><img src="images/body-types/convertible.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$76000</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li class="item">
-                      <div class="vehicle-block format-standard">
-                        <a href="vehicle-details.php" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                        <div class="vehicle-block-content">
-                          <span class="label label-default vehicle-age">2014</span>
-                          <h5 class="vehicle-title"><a href="vehicle-details.php">Newly launched Nissan Sunny</a></h5>
-                          <span class="vehicle-meta">Nissan, Brown beige, by <abbr class="user-type" title="Listed by Autostars">Autostars</abbr></span>
-                          <a href="vehicle-details.php" title="View all coupes" class="vehicle-body-type"><img src="images/body-types/coupe.png" width="30" alt=""></a>
-                          <span class="vehicle-cost">$31999</span>
-                        </div>
-                      </div>
-                    </li>
+                    <% end %>
                   </ul>
                 </div>
               </div>
