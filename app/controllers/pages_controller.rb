@@ -4,6 +4,7 @@ class PagesController < ApplicationController
     @new_vehicles = Vehicle.where(used: false)
     @opinions = Opinion.where(visible: true).order(:number)
     @news = News.all.reverse
+    @most_voted = News.order(:rating).reverse
   end
 
   def company
@@ -15,6 +16,7 @@ class PagesController < ApplicationController
   def news
     @news = News.all.reverse
     @categories = Category.all
+    @most_voted = News.order(:rating).reverse
   end
 
   def contact

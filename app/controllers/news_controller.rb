@@ -44,6 +44,19 @@ class NewsController < ApplicationController
     redirect_to news_index_path
   end
 
+  def rate
+    @news = News.find(params[:id])
+    if @news.rating == nil
+     @news.update(rating: params[:rating])
+     @news.update(raters: 1)
+   else
+     @news.update(raters: @news.raters + 1)
+     average_rating = (@news.rating + params[:rating]) / @news.raters
+     @news.update(rating: average_rating)
+   end
+    render json: {'body' => 'success'}.to_json, status: 201
+  end
+
   private
   def news_params
     params.require(:news).permit(:image, :title, :content, :category_id, :highlight)

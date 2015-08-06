@@ -394,45 +394,20 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                   <h3>Lo más votado</h3>
                 </div>
                 <div class="listing-container">
-                  <div class="post-block post-review-block">
-                    <div class="review-status">
-                      <strong>3.6</strong>
-                      <span>Out of 5</span>
-                    </div>
-                    <h3 class="post-title"><a href="blog.php">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-                    <div class="post-content">
-                      <div class="post-actions">
-                        <div class="post-date">Noviembre 29, 2014</div>
-                        <div class="comment-count"><i class="fa fa-thumbs-o-up"></i> 3 <i class="fa fa-thumbs-o-down"></i> 0</div>
+                  <% @most_voted.each do |news| %>
+                    <div class="post-block post-review-block">
+                      <div class="review-status">
+                        <strong><%= news.rating %></strong>
+                        <span>de 5</span>
+                      </div>
+                      <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
+                      <div class="post-content">
+                        <div class="post-actions">
+                          <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="post-block post-review-block">
-                    <div class="review-status">
-                      <strong>4.1</strong>
-                      <span>Out of 5</span>
-                    </div>
-                    <h3 class="post-title"><a href="blog.php">Curabitur nec nulla lectus, non hendrerit lorem porttitor</a></h3>
-                    <div class="post-content">
-                      <div class="post-actions">
-                        <div class="post-date">Noviembre 14, 2014</div>
-                        <div class="comment-count"><i class="fa fa-thumbs-o-up"></i> 7 <i class="fa fa-thumbs-o-down"></i> 1</div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="post-block post-review-block">
-                    <div class="review-status">
-                      <strong>5.0</strong>
-                      <span>Out of 5</span>
-                    </div>
-                    <h3 class="post-title"><a href="blog.php">2014 Proin enim quam, vulputate at lobortis quis</a></h3>
-                    <div class="post-content">
-                      <div class="post-actions">
-                        <div class="post-date">Octubre 31, 2014</div>
-                        <div class="comment-count"><i class="fa fa-thumbs-o-up"></i> 11 <i class="fa fa-thumbs-o-down"></i> 0</div>
-                      </div>
-                    </div>
-                  </div>
+                  <% end %>
                 </div>
               </section>
               <div class="spacer-40"></div>

@@ -71,27 +71,20 @@
           </div>
           <div class="widget sidebar-widget widget_recent_reviews">
             <h3 class="widgettitle">Latest Reviews</h3>
-            <div class="post-block post-review-block">
-              <div class="review-status">
-                <strong>3.6</strong>
-                <span>Out of 5</span>
+            <% @most_voted.each do |news| %>
+              <div class="post-block post-review-block">
+                <div class="review-status">
+                  <strong><%= news.rating %></strong>
+                  <span>de 5</span>
+                </div>
+                <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
+                <div class="post-content">
+                  <div class="post-actions">
+                    <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
+                  </div>
+                </div>
               </div>
-              <h3 class="post-title"><a href="single-review-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-            </div>
-            <div class="post-block post-review-block">
-              <div class="review-status">
-                <strong>4.1</strong>
-                <span>Out of 5</span>
-              </div>
-              <h3 class="post-title"><a href="single-review-post.html">Curabitur nec nulla lectus, non hendrerit lorem porttitor eget</a></h3>
-            </div>
-            <div class="post-block post-review-block">
-              <div class="review-status">
-                <strong>5.0</strong>
-                <span>Out of 5</span>
-              </div>
-              <h3 class="post-title"><a href="single-review-post.html">2014 Proin enim quam, vulputate at lobortis quis, condimentum at justo</a></h3>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -43,6 +43,13 @@
             <div class="featured-image"> <%= image_tag(@news.image) %> </div>
             <%=raw @news.content %>
             <div class="post-meta"> <i class="fa fa-tags"></i> <a href="#"><%= @news.category.name %></a></div>
+            <div class="" id="rating-interface">
+              <div class="row lead">
+                <div id="stars" class="starrr"></div>
+                Vas a dar una calificación de <span id="count">0</span> estrella(s)
+              </div>
+              <button class="btn btn-default">Calificar!</button>
+            </div>
             <!-- Pagination -->
             <ul class="pager">
               <li class="pull-left"><a href="#">&larr; Prev Post</a></li>
@@ -106,3 +113,22 @@
 <!-- End site footer -->
 <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
 </div>
+
+<script>
+
+    $('.btn').on("click", function(){
+    console.log("I'm going to submit stuff!")
+    var rating = { rating: $("#count").html() };
+    $.ajax({
+      url: "/news/<%= @news.id %>/rate",
+      type: "GET",
+      data: rating,
+    }).done(function(response){
+      $("#rating-interface").html("<h3>¡Gracias por dar tu calificación!</h3>")
+      $("#rating-interface").append("<p><%=j link_to 'Regresar al inicio', root_path %></p>")
+    });
+  })
+
+</script>
+
+<%= render 'news/rating/star_script' %>
