@@ -7,6 +7,14 @@ Rails.application.routes.draw do
 
   get 'page_contents/edit'
 
+  get 'procedures/index'
+
+  get 'procedures/new'
+
+  get 'procedures/show'
+
+  get 'procedures/edit'
+
   devise_for :users
 
   devise_scope :user do
