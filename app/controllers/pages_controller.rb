@@ -5,6 +5,8 @@ class PagesController < ApplicationController
     @opinions = Opinion.where(visible: true).order(:number)
     @news = News.all.reverse
     @most_voted = News.order(:rating).reverse
+    @welcome_title = PageContent.find_by(title: "Título Bienvenida").html
+    @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios").html
   end
 
   def company
