@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805223717) do
+ActiveRecord::Schema.define(version: 20150806034011) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20150805223717) do
     t.datetime "avatar_updated_at"
     t.integer  "number"
     t.boolean  "visible"
+  end
+
+  create_table "page_contents", force: :cascade do |t|
+    t.string   "title"
+    t.string   "html"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
