@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'page_contents/index'
+
+  get 'page_contents/edit'
+
   devise_for :users
 
   devise_scope :user do
@@ -27,6 +31,7 @@ Rails.application.routes.draw do
   resources :opinions
   resources :vehicles
   resources :categories
+  resources :page_contents
   resources :news do
     get 'rate', on: :member
   end

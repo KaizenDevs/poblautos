@@ -6,13 +6,21 @@ class PagesController < ApplicationController
     @news = News.all.reverse
     @most_voted = News.order(:rating).reverse
     @welcome_title = PageContent.find_by(title: "Título Bienvenida").html
-    @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios").html
+    @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios", page: "Inicio").html
   end
 
   def company
+    @about = PageContent.find_by(title: "Quiénes Somos").html
+    @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios", page: "Empresa").html
   end
 
   def services
+    @technical_service = PageContent.find_by(title: "Servicio Técnico").html
+    @car_insurance = PageContent.find_by(title: "Seguros de Carro").html
+    @poblautos_procedures = PageContent.find_by(title: "Trámites Poblautos").html
+    @video01 = PageContent.find_by(title: "Video 01").html
+    @video02 = PageContent.find_by(title: "Video 02").html
+    @video03 = PageContent.find_by(title: "Video 03").html
   end
 
   def news
