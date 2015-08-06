@@ -23,10 +23,21 @@ class PageContentsController < ApplicationController
   def save_page
     page = PageContent.find(params[:id])
     page.title = params[:content][:page_title][:value]
+    page.title1 = params[:content][:page_title][:value]
     page.content = params[:content][:page_content][:value]
+    page.content1 = params[:content][:page_content1][:value]
+    page.content2 = params[:content][:page_content2][:value]
+    page.content3 = params[:content][:page_content3][:value]
+    page.content4 = params[:content][:page_content4][:value]
+    page.content5 = params[:content][:page_content5][:value]
+    page.content6 = params[:content][:page_content6][:value]
     page.save!
 
     render text: ''
+  end
+
+  def save_company_page
+
   end
 
   private

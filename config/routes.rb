@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
-  get 'pages/company'
+  get 'pages/company', id: '2'
 
   get 'pages/services'
 
@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get 'motorcycles/used'
 
   put '/', to: 'page_contents#save_page', id: '1'
+  put '/pages/company', to: 'page_contents#save_page', id: '2'
 
   resources :opinions
   resources :vehicles

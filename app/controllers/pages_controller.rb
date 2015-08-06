@@ -11,8 +11,7 @@ class PagesController < ApplicationController
   end
 
   def company
-    @about = PageContent.find_by(title: "Quiénes Somos").html
-    @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios", page: "Empresa").html
+    @page = PageContent.find(params[:id])
   end
 
   def services

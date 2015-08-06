@@ -52,10 +52,14 @@ ActiveRecord::Schema.define(version: 20150806034011) do
 
   create_table "page_contents", force: :cascade do |t|
     t.string   "title"
+    t.string   "title1"
     t.string   "content"
     t.string   "content1"
     t.string   "content2"
     t.string   "content3"
+    t.string   "content4"
+    t.string   "content5"
+    t.string   "content6"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
