@@ -1,0 +1,30 @@
+<%= bootstrap_form_for @news, :html => { :multipart => true } do |f| %>
+    <div class="row">
+      <div class="col-md-12">
+          <%= f.collection_select( :category_id, Category.all, :id, :name, label: "Categoría:")%>
+          <%= f.text_field :title, label: "Título:" %>
+          <%= f.file_field :image, label: "Agrega una imagen:" %>
+          <%= f.text_area :content, label: "Contenido:" %> <br>
+          <label for="radio">Destacada (aparecerá en la página principal):</label>
+          <%= f.radio_button :highlight, true, label: "Sí" %>
+          <%= f.radio_button :highlight, false, label: "No" %>
+          <%= f.submit form_submit %>
+      </div>
+    </div>
+<% end %>
+
+<hr>
+
+<%= link_to news_index_path do %>
+  <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('#news_content').each(function(i, elem) {
+      $(elem).wysihtml5();
+    });
+
+  })
+</script>

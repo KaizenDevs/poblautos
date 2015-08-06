@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  devise_scope :user do
+    get "/admin" => "devise/sessions#new"
+    get "/sign_up" => "devise/registrations#new"
+  end
+
   get 'pages/home'
 
   get 'pages/company'
@@ -16,6 +23,13 @@ Rails.application.routes.draw do
   get 'motorcycles/new_motorcycles'
 
   get 'motorcycles/used'
+
+  resources :opinions
+  resources :vehicles
+  resources :categories
+  resources :news do
+    get 'rate', on: :member
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

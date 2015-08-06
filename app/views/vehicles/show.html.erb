@@ -1,0 +1,94 @@
+<style>
+.main-vehicle {
+  max-width: 890px;
+  max-height: 600px;
+}
+</style>
+
+<div class="page-header parallax" style="background-image:url(http://placehold.it/1200x250&amp;text=IMAGE+PLACEHOLDER); margin-top: 150px">
+  <div class="container">
+    <h1 class="page-title">Vehicle Details</h1>
+  </div>
+</div>
+<!-- Utiity Bar -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-8">
+        <ol class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active"><%= @vehicle.name %></li>
+        </ol>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-4">
+        <span class="share-text"><i class="icon-share"></i> Share this</span>
+        <ul class="utility-icons social-icons social-icons-colored">
+          <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+          <li class="delicious"><a href="#"><i class="fa fa-delicious"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Start Body Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <!-- Vehicle Details -->
+      <article class="single-vehicle-details">
+        <div class="single-vehicle-title">
+          <% if @vehicle.used? %>
+          <span class="badge-premium-listing">Usado</span>
+          <% else %>
+          <span class="badge-premium-listing">Nuevo</span>
+          <% end %>
+          <h2 class="post-title"><%= @vehicle.name %></h2>
+        </div>
+        <div class="single-listing-actions">
+          <div class="btn btn-info price">$<%= @vehicle.price %></div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class="single-listing-images">
+              <div class="featured-image format-image">
+                <a href="http://placehold.it/890x600&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(@vehicle.image.url, class: "main-vehicle") %></a>
+              </div>
+              <div class="additional-images">
+                <ul class="owl-carousel" data-columns="4" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
+                  <li class="item format-video"> <a href="https://www.youtube.com/watch?v=P5mvnA4BV7Y" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                  <li class="item format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                  <li class="item format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                  <li class="item format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                  <li class="item format-image"> <a href="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="sidebar-widget widget">
+              <ul class="list-group">
+                <li class="list-group-item"> <span class="badge">Año</span> <%= @vehicle.year %></li>
+                <li class="list-group-item"> <span class="badge">Marca</span> Nissan</li>
+                <li class="list-group-item"> <span class="badge">Modelo</span> <%= @vehicle.vehicle_model %></li>
+                <li class="list-group-item"> <span class="badge">Tipo</span> <%= @vehicle.vehicle_type.capitalize %></li>
+                <li class="list-group-item"> <span class="badge">Kilometraje</span> <%= @vehicle.mileage %>km</li>
+                <li class="list-group-item"> <span class="badge">Transmisión</span> <%= @vehicle.transmission.capitalize %></li>
+                <li class="list-group-item"> <span class="badge">Condición</span> <%= @vehicle.state %></li>
+                <li class="list-group-item"> <span class="badge">Motor</span> <%= @vehicle.engine %></li>
+                <li class="list-group-item"> <span class="badge">Combustible</span> <%= @vehicle.gas.capitalize %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="spacer-50"></div>
+      </article>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+<a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
