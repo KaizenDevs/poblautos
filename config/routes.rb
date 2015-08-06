@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Mercury::Engine => '/'
   get 'page_contents/index'
 
   get 'page_contents/edit'
@@ -28,6 +29,8 @@ Rails.application.routes.draw do
 
   get 'motorcycles/used'
 
+  put '/', to: 'page_contents#save_page', id: '1'
+
   resources :opinions
   resources :vehicles
   resources :categories
@@ -40,7 +43,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pages#home', id: '1'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

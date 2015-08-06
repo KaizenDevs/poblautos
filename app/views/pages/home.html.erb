@@ -72,7 +72,7 @@
             data-endelementdelay="0.1"
             data-endspeed="500"
             data-endeasing="Power4.easeIn"
-            style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Details matter, it's worth<br/>waiting to get it right.<br/><span style="font-size:24px;font-weight:400;">― Steve Jobs</span>
+            style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_title"><%= @page.content1.html_safe %>
           </div>
 
           <!-- LAYER NR. 3 -->
@@ -247,16 +247,11 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
     <div class="container">
       <!-- Welcome Content and Services overview -->
       <div class="row">
-        <div class="col-md-6">
-          <h1 class="uppercase strong">Bienvenido a<br>
-            <span class="accent-color">Poblautos</span></h1>
-            <p class="lead">Nos dedicamos a la compra y venta de <br>vehículos nuevos y usados de <span class="accent-color">Alta Gama</span></p>
+        <div class="col-md-6" data-mercury="full" id="page_title">
+          <%= @page.title.html_safe %>
           </div>
-          <div class="col-md-6">
-            <p>Dentro de los productos que ofrecemos se encuentran marcas como Mercedes, BMW, Audi, Toyota, Land Rover, Hummer, Mini Cooper, Porsche, Mazda, Chevrolet, Kia, Yamaha, Bombardier, Suzuki y las diferentes marcas de vehículos y motocicletas de todo el mundo</p>
-            <p>También contamos con un área de vehículos recreativos y todoterreno especializada en la importación y comercializacion de vehículos anfibios, FourTracks y motocicletas de alto cilindraje.</p>
-            <p>Estamos ubicados en la ciudad de Medellín sobre la Avenida el Poblado. <br>
-              <span class="accent-color">¡Siempre seremos último modelo!</span></p>
+          <div class="col-md-6" data-mercury="full" id="page_content">
+            <%= @page.content.html_safe %>
             </div>
           </div>
           <div class="spacer-75"></div>

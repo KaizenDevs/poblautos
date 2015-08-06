@@ -20,6 +20,15 @@ class PageContentsController < ApplicationController
     end
   end
 
+  def save_page
+    page = PageContent.find(params[:id])
+    page.title = params[:content][:page_title][:value]
+    page.content = params[:content][:page_content][:value]
+    page.save!
+
+    render text: ''
+  end
+
   private
   def page_content_params
     params.require(:page_content).permit(:title, :html, :page)
