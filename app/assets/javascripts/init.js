@@ -1,7 +1,19 @@
 jQuery(function($){
+
+
 	"use strict";
 
 var AUTOSTARS = window.AUTOSTARS || {};
+
+var verifyCheckBoxes = function () {
+  var checkboxes = $('.modal-body .checkbox');
+  var inputs = checkboxes.find('input');
+  var first = inputs.first()[0];
+  inputs.on('change', function () { this.setCustomValidity('');});
+  first.setCustomValidity(checkboxes.find('input:checked').length === 0 ? 'Choose one' : '');
+}
+
+$('#submit').click(verifyCheckBoxes);
 
 /* ==================================================
 	Contact Form Validations

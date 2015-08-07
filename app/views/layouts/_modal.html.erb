@@ -1,0 +1,58 @@
+<div class="modal fade" id="procedures" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4>SOLICITUD DE TRÁMITES</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for @procedure do |f| %>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <%= f.text_field :name, class: 'form-control', placeholder: "Nombre", required: "required" %>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+          <%= f.email_field :email, class: 'form-control', placeholder: "Email", required: "required" %>
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-phone-square"></i></span>
+          <%= f.phone_field :phone, class: 'form-control', placeholder: "Teléfono", required: "required",  pattern:".{7,10}", title:"Mínimo 7 dígitos"  %>
+        </div>
+
+         <h5><strong> Selecciona los trámites que desea realizar:</strong></h5>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">
+               <%= f.check_box(:startinglicence) %>
+              Matrículas Iniciales
+            </label><br>
+            <label>
+              <%= f.check_box(:taxpayment) %>
+              Pagos de Impuesto
+            </label><br>
+            <label>
+              <%= f.check_box(:historial) %>
+              Historiales
+            </label><br>
+            <label>
+              <%= f.check_box(:transfer) %>
+              Traspasos
+            </label><br>
+            <label>
+              <%= f.check_box(:phototicket) %>
+              Pagos fotomultas
+            </label><br>
+            <label>
+              <%= f.check_box(:soat) %>
+              Soat
+            </label><br>
+          </div>
+        <%= f.submit "Enviar", id: "submit" %>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>

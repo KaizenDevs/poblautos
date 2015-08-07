@@ -1,13 +1,15 @@
 class Procedure < ActiveRecord::Base
   after_initialize :init
 
+  enum status: [:start,:ongoing, :finished]
+
   def init
-      self.startinglicence  ||= false
-      self.taxpayment  ||= false
-      self.historial  ||= false
-      self.transfer  ||= false
-      self.phototicket  ||= false
-      self.soat  ||= false
+     self.status ||= 0
+     startinglicence  ||= false
+     taxpayment  ||= false
+     historial  ||= false
+     transfer  ||= false
+     phototicket  ||= false
+     soat  ||= false
   end
 end
-

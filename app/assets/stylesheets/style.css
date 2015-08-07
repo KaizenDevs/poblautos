@@ -1,3 +1,20 @@
+/* .table.procedures  > tbody > tr > th {
+	text-align: center;
+	background: #333;
+	color: #FFF;
+}*/
+
+.table.procedures > tbody > tr > td {
+	/*border-left: 1px dotted #EFEFEF;
+	border-top: 1px dotted #EFEFEF;*/
+	text-align: center;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover{ background: none; border:none;}
+.table.procedures > tbody > tr > td span { color: white;}
+.table.procedures > tbody > tr > td i.active { color: #454545;}
+
+
 /*------------------------------------------------------------------
 [Master Stylesheet]
 Project:	AutoStars
