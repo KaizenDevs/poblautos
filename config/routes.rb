@@ -37,6 +37,7 @@ Rails.application.routes.draw do
   put '/pages/services', to: 'page_contents#save_page', id: '3'
 
   resources :opinions
+  resources :contacts
   resources :vehicles
   resources :categories
   resources :page_contents
