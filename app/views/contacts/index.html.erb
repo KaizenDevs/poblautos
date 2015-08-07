@@ -1,0 +1,26 @@
+<div class="container-fluid" style="margin-top: 150px">
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-bordered table-hover table-condensed"> 
+				<tr>
+					<th class="text-center">Nombre</th>
+					<th class="text-center">Apellidos</th>
+					<th class="text-center">Email</th>
+					<th class="text-center">Telefono</th>					
+					<th class="text-center">Mensaje</th>
+					<th class="text-center">Eliminar Registro</th>
+				</tr>
+				<% @contacts.each do |contact| %>
+					<tr class="text-center">
+						<td class="vert-align"><%= contact.name %></td>
+						<td class="vert-align"><%= contact.lastname %></td>
+						<td class="vert-align"><%= contact.email %></td>
+						<td class="vert-align"><%= contact.phone %></td>					
+						<td class="text-left vert-align" style="width:30%;"><%= contact.message %></td>
+						<td class="vert-align"><%= link_to contact_path(contact.id), method: :delete, title: "Eliminar Solicitud", data: { confirm: '¿Esta seguro que desea eliminar esta solicitud de contacto?' }, class: "btn btn btn-danger" do %><i class="fa fa-trash"></i><% end %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
