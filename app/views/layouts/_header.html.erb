@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="container sp-cont">
     <div class="site-logo">
-      <h1><a href="index.html"><%= image_tag("logo_01.png", alt: "Poblautos") %></a></h1>
+      <h1><a href="/"><%= image_tag("logo_01.png", alt: "Poblautos") %></a></h1>
       <span class="site-tagline"><br>
           <span class="accent-color"></span>
       </span>
@@ -19,10 +19,11 @@
                 <li><%= link_to "Categorías", categories_path %></li>
                 <li><%= link_to "Vehículos", vehicles_path %></li>
                 <li><%= link_to "Opiniones", opinions_path %></li>
+                <li><%= link_to "<i class='fa fa-folder-open'></i> Trámites Admin</a>".html_safe , procedures_path %></li>
                 <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
               <% else %>
                 <li><a href="results-list.html"><i class="fa fa-car"></i> Compra Ahora</a></li>
-                <li><a href="#"  data-toggle="modal" data-target="#loginModal"><i class="fa fa-folder-open"></i> Trámites</a></li>
+                <li><a data-toggle="modal" data-target="#procedures"><i class="fa fa-folder-open"></i> Trámites</a></li>
                 <li><a href="joinus.html"><i class="fa fa-user"></i> Subscríbete</a></li>
               <% end %>
           </ul>

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-    namespace :mercury do
-      resources :images
-    end
-  mount Mercury::Engine => '/'
-  get 'page_contents/index'
 
+  namespace :mercury do
+    resources :images
+  end
+
+  mount Mercury::Engine => '/'
+
+  get 'page_contents/index'
   get 'page_contents/edit'
 
   devise_for :users
@@ -15,27 +17,20 @@ Rails.application.routes.draw do
   end
 
   get 'pages/home'
-
   get 'pages/company', id: '2'
-
   get 'pages/services', id: '3'
-
   get 'pages/news'
-
   get 'pages/contact'
-
   get 'vehicles/new_vehicles'
-
   get 'vehicles/used'
-
   get 'motorcycles/new_motorcycles'
-
   get 'motorcycles/used'
 
   put '/', to: 'page_contents#save_page', id: '1'
   put '/pages/company', to: 'page_contents#save_page', id: '2'
   put '/pages/services', to: 'page_contents#save_page', id: '3'
 
+  resources :procedures
   resources :opinions
   resources :contacts
   resources :vehicles

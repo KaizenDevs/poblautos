@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807141437) do
+
+ActiveRecord::Schema.define(version: 20150807143122) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -69,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150807141437) do
     t.boolean  "visible"
   end
 
+
   create_table "page_contents", force: :cascade do |t|
     t.string   "title"
     t.string   "title1"
@@ -115,6 +117,21 @@ ActiveRecord::Schema.define(version: 20150807141437) do
     t.string   "image8"
     t.string   "image9"
     t.string   "image10"
+  end
+
+  create_table "procedures", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "phone",           limit: 10
+    t.string   "email"
+    t.boolean  "startinglicence"
+    t.boolean  "taxpayment"
+    t.boolean  "historial"
+    t.boolean  "transfer"
+    t.boolean  "phototicket"
+    t.boolean  "soat"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "status"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,46 @@
+<div class="container" style="margin-top: 140px">
+
+  <h1>Trámites</h1>
+  <p>Listado de clientes</p>
+
+
+  <table id="procedures" class="table procedures">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+       <th>Teléfono</th>
+       <th>Email</th>
+       <th>Matrículas</th>
+       <th>Impuesto</th>
+       <th>Historiales</th>
+       <th>Traspasos</th>
+       <th>Fotomultas</th>
+       <th>Soat</th>
+       <th>Estado</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <% @procedures.each do |procedure| %>
+      <tr>
+        <td><%= procedure.name  %></td>
+        <td><%= procedure.phone  %></td>
+        <td><%= procedure.email  %></td>
+        <td><%= procedure.startinglicence == true ? '<i class="fa fa-check-circle-o"></i><span>1</span>'.html_safe : '<i class="fa fa-circle-o"></i><span>0</span>'.html_safe %></td>
+        <td><%= procedure.taxpayment == true ? '<i class="fa fa-check-circle-o"></i><span>1</span>'.html_safe : '<i class="fa fa-circle-o"></i><span>0</span>'.html_safe %></td>
+        <td><%= procedure.historial == true ? '<i class="fa fa-check-circle-o"></i><span>1</span>'.html_safe : '<i class="fa fa-circle-o"></i><span>0</span>'.html_safe %></td>
+        <td><%= procedure.transfer == true ? '<i class="fa fa-check-circle-o"></i><span>1</span>'.html_safe : '<i class="fa fa-circle-o"></i><span>0</span>'.html_safe %></td>
+        <td><%= procedure.phototicket == true ? '<i class="fa fa-check-circle-o"></i><span>1</span>'.html_safe : '<i class="fa fa-circle-o"></i><span>0</span>'.html_safe %></td>
+        <td><%= procedure.soat == true ? '<i class="fa fa-check-circle-o"></i><span>1</span>'.html_safe : '<i class="fa fa-circle-o"></i><span>0</span>'.html_safe %></td>
+        <td><%= procedure.status.first(3) %> <%= link_to "<i class='fa fa fa-edit'></i".html_safe , edit_procedure_path(procedure) %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+ <script>
+    $(document).ready(function() {
+      $('#procedures').dataTable();
+    } );
+  </script>

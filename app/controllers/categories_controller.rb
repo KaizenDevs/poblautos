@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :modal_procedure_new
   def index
     @categories = Category.all
   end

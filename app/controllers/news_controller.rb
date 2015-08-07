@@ -1,4 +1,5 @@
 class NewsController < ApplicationController
+  before_action :modal_procedure_new
   def index
     @news = News.all
   end
@@ -54,11 +55,11 @@ class NewsController < ApplicationController
      average_rating = (@news.rating + params[:rating]) / @news.raters
      @news.update(rating: average_rating)
    end
-    render json: {'body' => 'success'}.to_json, status: 201
-  end
+   render json: {'body' => 'success'}.to_json, status: 201
+ end
 
-  private
-  def news_params
-    params.require(:news).permit(:image, :title, :content, :category_id, :highlight)
-  end
+ private
+ def news_params
+  params.require(:news).permit(:image, :title, :content, :category_id, :highlight)
+end
 end
