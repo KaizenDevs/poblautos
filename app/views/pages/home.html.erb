@@ -38,7 +38,7 @@
       <div class="tp-banner-container">
         <div class="tp-banner">
           <ul>  <!-- SLIDE  -->
-            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 1">
+            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="on"  data-title="Slide 1">
               <!-- MAIN IMAGE -->
               <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
               <!-- LAYERS -->
@@ -56,7 +56,7 @@
               data-endelementdelay="0.1"
               data-endspeed="500"
               data-endeasing="Power4.easeIn"
-              style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">OUR CREDO
+              style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content1"><%= @page.content1.html_safe %>
             </div>
 
             <!-- LAYER NR. 2 -->
@@ -72,7 +72,7 @@
             data-endelementdelay="0.1"
             data-endspeed="500"
             data-endeasing="Power4.easeIn"
-            style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Details matter, it's worth<br/>waiting to get it right.<br/><span style="font-size:24px;font-weight:400;">― Steve Jobs</span>
+            style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content2"><%= @page.content2.html_safe %>
           </div>
 
           <!-- LAYER NR. 3 -->
@@ -110,7 +110,7 @@
         data-endelementdelay="0.1"
         data-endspeed="500"
         data-endeasing="Power4.easeIn"
-        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">JUST A BLUR
+        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content3s"><%= @page.content3.html_safe %>
       </div>
 
       <!-- LAYER NR. 2 -->
@@ -126,7 +126,7 @@
       data-endelementdelay="0.1"
       data-endspeed="500"
       data-endeasing="Power4.easeIn"
-      style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">You only live once, but if<br/>you do it right, once is enough.<br/><span style="font-size:24px;font-weight:400;">―  Mae West</span>
+      style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content4"><%= @page.content4.html_safe %>
     </div>
 
     <!-- LAYER NR. 3 -->
@@ -164,7 +164,7 @@
   data-endelementdelay="0.1"
   data-endspeed="500"
   data-endeasing="Power4.easeIn"
-  style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">SKY HIGH
+  style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content5"><%= @page.content5.html_safe %>
 </div>
 
 <!-- LAYER NR. 2 -->
@@ -180,7 +180,7 @@ data-elementdelay="0.01"
 data-endelementdelay="0.1"
 data-endspeed="500"
 data-endeasing="Power4.easeIn"
-style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">Imperfection is beauty, madness<br/> is genius and it's better to be<br/> absolutely ridiculous than<br/> absolutely boring.<br/><span style="font-size:24px;font-weight:400;">―  Marilyn Monroe</span>
+style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content6"><%= @page.content6.html_safe %>
 </div>
 
 <!-- LAYER NR. 3 -->
@@ -247,16 +247,11 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
     <div class="container">
       <!-- Welcome Content and Services overview -->
       <div class="row">
-        <div class="col-md-6">
-          <h1 class="uppercase strong">Bienvenido a<br>
-            <span class="accent-color">Poblautos</span></h1>
-            <p class="lead">Nos dedicamos a la compra y venta de <br>vehículos nuevos y usados de <span class="accent-color">Alta Gama</span></p>
+        <div class="col-md-6" data-mercury="full" id="page_title">
+          <%= @page.title.html_safe %>
           </div>
-          <div class="col-md-6">
-            <p>Dentro de los productos que ofrecemos se encuentran marcas como Mercedes, BMW, Audi, Toyota, Land Rover, Hummer, Mini Cooper, Porsche, Mazda, Chevrolet, Kia, Yamaha, Bombardier, Suzuki y las diferentes marcas de vehículos y motocicletas de todo el mundo</p>
-            <p>También contamos con un área de vehículos recreativos y todoterreno especializada en la importación y comercializacion de vehículos anfibios, FourTracks y motocicletas de alto cilindraje.</p>
-            <p>Estamos ubicados en la ciudad de Medellín sobre la Avenida el Poblado. <br>
-              <span class="accent-color">¡Siempre seremos último modelo!</span></p>
+          <div class="col-md-6" data-mercury="full" id="page_content">
+            <%= @page.content.html_safe %>
             </div>
           </div>
           <div class="spacer-75"></div>
@@ -316,22 +311,6 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                   <div class="carousel-wrapper">
                     <div class="row">
                       <ul class="owl-carousel" id="news-slider" data-columns="2" data-autoplay="" data-pagination="yes" data-arrows="yes" data-single-item="no" data-items-desktop="2" data-items-desktop-small="1" data-items-tablet="2" data-items-mobile="1">
-                        <li class="item">
-                          <div class="post-block format-standard">
-                            <a href="blog.php" class="media-box post-image"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                            <div class="post-actions">
-                              <div class="post-date">Diciembre 05, 2015</div>
-                              <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 12</a></div>
-                            </div>
-                            <h3 class="post-title"><a href="blog.php">Suspendisse eget ligula in nulla iaculis interdum nec</a></h3>
-                            <div class="post-content">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus...</p>
-                            </div>
-                            <div class="post-meta">
-                              Posteado en: <a href="blog-masonry.html">Nuevos</a>
-                            </div>
-                          </div>
-                        </li>
                         <% @news.each do |news| %>
                           <li class="item">
                             <div class="post-block format-standard">
@@ -345,7 +324,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                                 <p><%= raw news.content.split(" ").first(12).join(" ") %>...</p>
                               </div>
                               <div class="post-meta">
-                                Posteado en: <a href="blog-masonry.html">Nuevos</a>
+                                Posteado en: <a href="#"><%= @news.category %></a>
                               </div>
                             </div>
                           </li>

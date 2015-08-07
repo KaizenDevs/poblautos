@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805223717) do
+ActiveRecord::Schema.define(version: 20150807041339) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "mercury_images", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "news", force: :cascade do |t|
@@ -48,6 +57,54 @@ ActiveRecord::Schema.define(version: 20150805223717) do
     t.datetime "avatar_updated_at"
     t.integer  "number"
     t.boolean  "visible"
+  end
+
+  create_table "page_contents", force: :cascade do |t|
+    t.string   "title"
+    t.string   "title1"
+    t.string   "content"
+    t.string   "content1"
+    t.string   "content2"
+    t.string   "content3"
+    t.string   "content4"
+    t.string   "content5"
+    t.string   "content6"
+    t.string   "content7"
+    t.string   "content8"
+    t.string   "content9"
+    t.string   "content10"
+    t.string   "content11"
+    t.string   "content12"
+    t.string   "content13"
+    t.string   "content14"
+    t.string   "content15"
+    t.string   "content16"
+    t.string   "content17"
+    t.string   "content18"
+    t.string   "content19"
+    t.string   "content20"
+    t.string   "content21"
+    t.string   "content22"
+    t.string   "content23"
+    t.string   "content24"
+    t.string   "content25"
+    t.string   "content26"
+    t.string   "content27"
+    t.string   "content28"
+    t.string   "content29"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
+    t.string   "image4"
+    t.string   "image5"
+    t.string   "image6"
+    t.string   "image7"
+    t.string   "image8"
+    t.string   "image9"
+    t.string   "image10"
   end
 
   create_table "users", force: :cascade do |t|

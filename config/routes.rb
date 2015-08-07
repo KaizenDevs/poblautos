@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+    namespace :mercury do
+      resources :images
+    end
+  mount Mercury::Engine => '/'
+  get 'page_contents/index'
+
+  get 'page_contents/edit'
+
   devise_for :users
 
   devise_scope :user do
@@ -8,9 +16,9 @@ Rails.application.routes.draw do
 
   get 'pages/home'
 
-  get 'pages/company'
+  get 'pages/company', id: '2'
 
-  get 'pages/services'
+  get 'pages/services', id: '3'
 
   get 'pages/news'
 
@@ -24,9 +32,14 @@ Rails.application.routes.draw do
 
   get 'motorcycles/used'
 
+  put '/', to: 'page_contents#save_page', id: '1'
+  put '/pages/company', to: 'page_contents#save_page', id: '2'
+  put '/pages/services', to: 'page_contents#save_page', id: '3'
+
   resources :opinions
   resources :vehicles
   resources :categories
+  resources :page_contents
   resources :news do
     get 'rate', on: :member
   end
@@ -35,7 +48,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pages#home', id: '1'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

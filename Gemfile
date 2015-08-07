@@ -27,13 +27,13 @@ gem 'font-awesome-rails'
 
 gem 'devise'
 
-gem "paperclip", "~> 4.3"
-
 gem 'bootstrap_form'
 
 gem 'annotate'
 
 gem 'bootstrap-wysihtml5-rails'
+
+gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -55,3 +55,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'paperclip'

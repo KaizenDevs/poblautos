@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/jejacks0n/mercury.git
+  revision: 1cc637b0bccea19085f824d2881c6513ed5ee8ae
+  specs:
+    mercury-rails (0.9.0)
+      coffee-rails (>= 3.2.2)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -180,7 +188,8 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (~> 4.3)
+  mercury-rails!
+  paperclip
   rails (= 4.2.3)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
