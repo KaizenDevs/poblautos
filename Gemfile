@@ -27,8 +27,6 @@ gem 'font-awesome-rails'
 
 gem 'devise'
 
-gem "paperclip", "~> 4.3"
-
 gem 'bootstrap_form'
 
 gem 'annotate'
@@ -57,3 +55,4 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'paperclip'
