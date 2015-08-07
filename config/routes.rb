@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-
-
+  mount Mercury::Engine => '/'
 
   namespace :mercury do
     resources :images
   end
-
-  mount Mercury::Engine => '/'
 
   get 'page_contents/index'
   get 'page_contents/edit'
@@ -39,6 +36,7 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :categories
   resources :page_contents
+  resources :brands
   resources :news do
     get 'rate', on: :member
   end

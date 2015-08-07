@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 20150810144618) do
     t.datetime "logo_updated_at"
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -187,6 +193,10 @@ ActiveRecord::Schema.define(version: 20150810144618) do
     t.boolean  "air_conditioning"
     t.boolean  "shield"
     t.string   "license_plate_city"
+    t.integer  "brand_id"
+    t.integer  "vehicle_class"
   end
+
+  add_index "vehicles", ["brand_id"], name: "index_vehicles_on_brand_id"
 
 end

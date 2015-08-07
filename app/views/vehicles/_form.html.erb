@@ -1,12 +1,10 @@
-<%= puts @vehicle %>
-
 <%= bootstrap_form_for @vehicle, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
           <%= f.file_field :image, label: "Agrega una imagen:" %>
+          <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:")%>
           <%= f.text_field :name, label: "Nombre del vehículo:" %>
-          <%= f.text_field :vehicle_model, label: "Modelo:" %>
-          <%= f.number_field :year, label: "Año:" %>
+          <%= f.number_field :year, label: "Modelo:" %>
           <%= f.text_field :state, label: "Estado:" %>
           <%= f.number_field :price, label: "Precio:" %>
           <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys), label: "Tipo de tansmisión:" %>
