@@ -7,7 +7,7 @@
     <tr>
       <th>Nombre y Marca</th>
       <th>Imagen</th>
-      <th>Tipo de Vehículo</th>
+      <th>Carro/Moto</th>
       <th>Año</th>
       <th>Estado</th>
       <th>Precio</th>
@@ -21,7 +21,7 @@
       <tr>
         <td><%= vehicle.name %> <%= vehicle.brand.name %></td>
         <td><%= image_tag(vehicle.image.url(:thumb), class: 'avatar', width: "50px") %></td>
-        <td><%= vehicle.vehicle_type.capitalize %></td>
+        <td><%= vehicle.vehicle_class.capitalize %></td>
         <td><%= vehicle.year %></td>
         <td><%= vehicle.state %></td>
         <td><%= vehicle.price %></td>

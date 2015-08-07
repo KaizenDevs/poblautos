@@ -1,6 +1,7 @@
 <%= bootstrap_form_for @vehicle, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
+          <%= f.select :vehicle_class, options_for_select(Vehicle.vehicle_classes.keys), label: "Carro o moto:" %>
           <%= f.file_field :image, label: "Agrega una imagen:" %>
           <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:")%>
           <%= f.text_field :name, label: "Nombre del vehículo:" %>

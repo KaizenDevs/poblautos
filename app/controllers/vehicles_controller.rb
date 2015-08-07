@@ -1,12 +1,12 @@
 class VehiclesController < ApplicationController
 
   def new_vehicles
-    @vehicles = Vehicle.where(used: false)
+    @vehicles = Vehicle.where(used: false, vehicle_class: 0)
     @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
   end
 
   def used
-    @vehicles = Vehicle.where(used: true)
+    @vehicles = Vehicle.where(used: true, vehicle_class: 0)
     @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
   end
 
@@ -60,6 +60,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :license_plate_city, :comments, :air_conditioning, :shield, :image, :brand_id)
+    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :license_plate_city, :comments, :air_conditioning, :shield, :image, :brand_id, :vehicle_class)
   end
 end
