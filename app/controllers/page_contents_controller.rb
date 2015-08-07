@@ -32,17 +32,17 @@ class PageContentsController < ApplicationController
     page.content4 = params[:content][:page_content4][:value] if page.content4 != nil
     page.content5 = params[:content][:page_content5][:value] if page.content5 != nil
     page.content6 = params[:content][:page_content6][:value] if page.content6 != nil
-    page.image = params[:content][:page_image][:attributes][:src] if params[:content] && params[:content][:page_image][:attributes]
-    page.image1 = params[:content][:page_image1][:attributes][:src] if params[:content] && params[:content][:page_image1][:attributes]
-    page.image2 = params[:content][:page_image2][:attributes][:src] if params[:content] && params[:content][:page_image2][:attributes]
-    page.image3 = params[:content][:page_image3][:attributes][:src] if params[:content] && params[:content][:page_image3][:attributes]
-    page.image4 = params[:content][:page_image4][:attributes][:src] if params[:content] && params[:content][:page_image4][:attributes]
-    page.image5 = params[:content][:page_image5][:attributes][:src] if params[:content] && params[:content][:page_image5][:attributes]
-    page.image6 = params[:content][:page_image6][:attributes][:src] if params[:content] && params[:content][:page_image6][:attributes]
-    page.image7 = params[:content][:page_image7][:attributes][:src] if params[:content] && params[:content][:page_image7][:attributes]
-    page.image8 = params[:content][:page_image8][:attributes][:src] if params[:content] && params[:content][:page_image8][:attributes]
-    page.image9 = params[:content][:page_image9][:attributes][:src] if params[:content] && params[:content][:page_image9][:attributes]
-    page.image10 = params[:content][:page_image10][:attributes][:src] if params[:content] && params[:content][:page_image10][:attributes]
+    page.image = params[:content][:page_image][:attributes][:src] if params[:content] && params[:content][:page_image] && params[:content][:page_image][:attributes]
+    page.image1 = params[:content][:page_image1][:attributes][:src] if params[:content] && params[:content][:page_image1] && params[:content][:page_image1][:attributes]
+    page.image2 = params[:content][:page_image2][:attributes][:src] if params[:content] && params[:content][:page_image2] && params[:content][:page_image2][:attributes]
+    page.image3 = params[:content][:page_image3][:attributes][:src] if params[:content] && params[:content][:page_image3] && params[:content][:page_image3][:attributes]
+    page.image4 = params[:content][:page_image4][:attributes][:src] if params[:content] && params[:content][:page_image4] && params[:content][:page_image4][:attributes]
+    page.image5 = params[:content][:page_image5][:attributes][:src] if params[:content] && params[:content][:page_image5] && params[:content][:page_image5][:attributes]
+    page.image6 = params[:content][:page_image6][:attributes][:src] if params[:content] && params[:content][:page_image6] && params[:content][:page_image6][:attributes]
+    page.image7 = params[:content][:page_image7][:attributes][:src] if params[:content] && params[:content][:page_image7] && params[:content][:page_image7][:attributes]
+    page.image8 = params[:content][:page_image8][:attributes][:src] if params[:content] && params[:content][:page_image8] && params[:content][:page_image8][:attributes]
+    page.image9 = params[:content][:page_image9][:attributes][:src] if params[:content] && params[:content][:page_image9] && params[:content][:page_image9][:attributes]
+    page.image10 = params[:content][:page_image10][:attributes][:src] if params[:content] && params[:content][:page_image10] && params[:content][:page_image10][:attributes]
     page.save!
 
 

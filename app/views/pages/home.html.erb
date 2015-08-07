@@ -38,9 +38,9 @@
       <div class="tp-banner-container">
         <div class="tp-banner">
           <ul>  <!-- SLIDE  -->
-            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="on"  data-title="Slide 1">
+            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="on"  data-title="Slide 1" data-mercury="image" id="page_image">
               <!-- MAIN IMAGE -->
-              <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+              <img src="<%= @page.image %>"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
               <!-- LAYERS -->
 
               <!-- LAYER NR. 1 -->
@@ -92,9 +92,9 @@
         </div>
       </li>
       <!-- SLIDE  -->
-      <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 2">
+      <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 2" data-mercury="image" id="page_image1">
         <!-- MAIN IMAGE -->
-        <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+        <img src="<%= @page.image1 %>"  alt="fullslide2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
         <!-- LAYERS -->
 
         <!-- LAYER NR. 1 -->
@@ -110,7 +110,7 @@
         data-endelementdelay="0.1"
         data-endspeed="500"
         data-endeasing="Power4.easeIn"
-        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content3s"><%= @page.content3.html_safe %>
+        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content3"><%= @page.content3.html_safe %>
       </div>
 
       <!-- LAYER NR. 2 -->
@@ -146,9 +146,9 @@
   </div>
 </li>
 <!-- SLIDE  -->
-<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 3">
+<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 3" data-mercury="image" id="page_image2">
   <!-- MAIN IMAGE -->
-  <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide6"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+  <img src="<%= @page.image2 %>"  alt="fullslide6"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
   <!-- LAYERS -->
 
   <!-- LAYER NR. 1 -->
