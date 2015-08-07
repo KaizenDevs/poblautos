@@ -11,11 +11,11 @@
 				</tr>
 				<% @contacts.each do |contact| %>
 					<tr class="text-center">
-						<td><%= contact.name %></td>
-						<td><%= contact.lastname %></td>
-						<td><%= contact.email %></td>
-						<td><%= contact.phone %></td>					
-						<td class="text-left" style="width:30%;"><%= contact.message %></td>
+						<td class="vert-align"><%= contact.name %></td>
+						<td class="vert-align"><%= contact.lastname %></td>
+						<td class="vert-align"><%= contact.email %></td>
+						<td class="vert-align"><%= contact.phone %></td>					
+						<td class="text-left vert-align" style="width:30%;"><%= contact.message %></td>
 					</tr>
 				<% end %>
 			</table>
