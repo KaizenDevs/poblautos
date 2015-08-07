@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 20150810144618) do
 
   create_table "procedures", force: :cascade do |t|
     t.string   "name"
-    t.integer  "phone",           limit: 10
+    t.integer  "phone"
     t.string   "email"
     t.boolean  "startinglicence"
     t.boolean  "taxpayment"
@@ -138,8 +138,8 @@ ActiveRecord::Schema.define(version: 20150810144618) do
     t.boolean  "transfer"
     t.boolean  "phototicket"
     t.boolean  "soat"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "status"
   end
 
