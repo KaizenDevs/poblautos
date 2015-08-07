@@ -13,7 +13,7 @@
       <div class="topnav dd-menu">
           <ul class="top-navigation sf-menu">
               <% if user_signed_in? %>
-                <li><%= link_to "Contactos", "#" %></li>
+                <li><%= link_to "Contactos", contacts_path %></li>
                 <li><%= link_to "Textos", page_contents_path %></li>
                 <li><%= link_to "Noticias", news_index_path %></li>
                 <li><%= link_to "Categorías", categories_path %></li>

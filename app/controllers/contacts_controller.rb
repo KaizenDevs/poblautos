@@ -10,7 +10,11 @@ class ContactsController < ApplicationController
     	render :action => 'new'
   	end
 	end
-	
+
+	def index
+		@contacts = Contact.all
+	end
+
 	private
 		def contact_params
   		params.require(:contact).permit(:name,:lastname,:email,:phone,:message)
