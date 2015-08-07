@@ -60,3 +60,9 @@ PageContent.create(id: 3, content: 'SERVICIO TÉCNICO', content1: 'Lorem ipsum d
 #     <span class="vehicle-cost">Mejor servicio de la ciudad</span>
 # </div>', page: "Servicio")
 
+# Vehicle.create(name: "Toyota", year: 2011, state: "Nuevo", price: 50000, transmission: 0, gas: 0, vehicle_model: "Prado", engine: "1600", mileage: 45000, upholstery: "Cuero", vehicle_type: 0, used: false, video: "", color: "Verde", license_plate: 3, comments: "añkldjfñladjf", created_at: "2015-08-07 16:36:54", updated_at: "2015-08-07 17:04:22", image_file_name: "l.jpg", image_content_type: "image/jpeg", image_file_size: 21679, image_updated_at: "2015-08-07 16:36:53", air_conditioning: true, shield: false, license_plate_city: "Medellin")
+
+
+
+
+

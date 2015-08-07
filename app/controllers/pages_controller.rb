@@ -22,8 +22,10 @@ class PagesController < ApplicationController
 
   def news
     @news = News.all.reverse
+    @news = News.paginate(:page => params[:page], :per_page => 4)
     @categories = Category.all
     @most_voted = News.order(:rating).reverse
+
   end
 
   def contact
