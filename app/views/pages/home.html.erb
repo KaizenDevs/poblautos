@@ -311,22 +311,6 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                   <div class="carousel-wrapper">
                     <div class="row">
                       <ul class="owl-carousel" id="news-slider" data-columns="2" data-autoplay="" data-pagination="yes" data-arrows="yes" data-single-item="no" data-items-desktop="2" data-items-desktop-small="1" data-items-tablet="2" data-items-mobile="1">
-                        <li class="item">
-                          <div class="post-block format-standard">
-                            <a href="blog.php" class="media-box post-image"><img src="http://placehold.it/600x400&amp;text=IMAGE+PLACEHOLDER" alt=""></a>
-                            <div class="post-actions">
-                              <div class="post-date">Diciembre 05, 2015</div>
-                              <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 12</a></div>
-                            </div>
-                            <h3 class="post-title"><a href="blog.php">Suspendisse eget ligula in nulla iaculis interdum nec</a></h3>
-                            <div class="post-content">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus...</p>
-                            </div>
-                            <div class="post-meta">
-                              Posteado en: <a href="blog-masonry.html">Nuevos</a>
-                            </div>
-                          </div>
-                        </li>
                         <% @news.each do |news| %>
                           <li class="item">
                             <div class="post-block format-standard">
@@ -340,7 +324,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                                 <p><%= raw news.content.split(" ").first(12).join(" ") %>...</p>
                               </div>
                               <div class="post-meta">
-                                Posteado en: <a href="blog-masonry.html">Nuevos</a>
+                                Posteado en: <a href="#"><%= @news.category %></a>
                               </div>
                             </div>
                           </li>

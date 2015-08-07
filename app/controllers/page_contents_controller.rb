@@ -38,7 +38,13 @@ class PageContentsController < ApplicationController
     page.image3 = params[:content][:page_image3][:attributes][:src] if params[:content] && params[:content][:page_image3][:attributes]
     page.image4 = params[:content][:page_image4][:attributes][:src] if params[:content] && params[:content][:page_image4][:attributes]
     page.image5 = params[:content][:page_image5][:attributes][:src] if params[:content] && params[:content][:page_image5][:attributes]
+    page.image6 = params[:content][:page_image6][:attributes][:src] if params[:content] && params[:content][:page_image6][:attributes]
+    page.image7 = params[:content][:page_image7][:attributes][:src] if params[:content] && params[:content][:page_image7][:attributes]
+    page.image8 = params[:content][:page_image8][:attributes][:src] if params[:content] && params[:content][:page_image8][:attributes]
+    page.image9 = params[:content][:page_image9][:attributes][:src] if params[:content] && params[:content][:page_image9][:attributes]
+    page.image10 = params[:content][:page_image10][:attributes][:src] if params[:content] && params[:content][:page_image10][:attributes]
     page.save!
+
 
     render text: ''
   end
