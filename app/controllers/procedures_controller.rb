@@ -1,29 +1,22 @@
 class ProceduresController < ApplicationController
-  before_action :modal_procedure_new, :except => [:create]
+
   def index
     @procedures = Procedure.all
-    @procedure = Procedure.new
   end
-
-  # def new
-  #   @procedure = Procedure.new
-  # end
 
   def create
     @procedure = Procedure.new(procedure_params)
-
     @procedure.save
     redirect_to @procedure
   end
 
   def show
-
-
   end
 
   def edit
     @procedure = Procedure.find(params[:id])
   end
+
   def update
     @procedure = Procedure.find(params[:id])
 

@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  before_action :modal_procedure_new
+
   def index
     @news = News.all
   end

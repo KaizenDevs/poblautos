@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :modal_procedure_new
+
   def home
     @vehicles = Vehicle.all
     @new_vehicles = Vehicle.where(used: false)
