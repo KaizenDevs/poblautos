@@ -1,3 +1,4 @@
+<%= @procedure = Procedure.new %>
 <div class="modal fade" id="procedures" tabindex="-1" role="dialog"  aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -48,7 +49,9 @@
               Soat
             </label><br>
           </div>
-        <%= f.submit "Enviar", id: "submit" %>
+          <div class="text-center">
+          <%= f.submit "Enviar", id: "submit", class: "btn btn-primary" %>
+          </div>
         <% end %>
 
 

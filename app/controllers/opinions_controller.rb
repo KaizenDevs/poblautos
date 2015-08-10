@@ -1,5 +1,5 @@
 class OpinionsController < ApplicationController
-  before_action :modal_procedure_new
+
   def index
     @opinions = Opinion.all
   end

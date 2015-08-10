@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-  before_action :modal_procedure_new
+
   def new_vehicles
     @vehicles = Vehicle.where(used: false)
   end
