@@ -1,0 +1,12 @@
+<div style="margin:10em auto 6em auto;" class="container">
+  <div class="row">
+
+    <%= form_for @ally do | f | %>
+    <%= f.text_field :name, placeholder: 'Nombre' %><br/>
+    <%= f.text_field :link, placeholder: 'Link' %><br/>
+    <%= f.label :logo %>
+    <%= f.file_field :logo %>
+    <%= f.submit "Actualizar aliado", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
