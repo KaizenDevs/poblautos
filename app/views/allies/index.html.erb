@@ -1,0 +1,41 @@
+
+<div class="container" style="margin: 160px auto 70px auto;">
+  <h1>Aliados</h1>
+  <p>Listado de aliados</p>
+  <%= link_to "Nuevo aliado", new_ally_path, class: "btn btn-primary" %>
+  <table id="procedures" class="table allies">
+    <thead>
+      <tr>
+       <th>Fecha</th>
+       <th>Nombre</th>
+       <th>Link</th>
+       <th>Logo</th>
+       <th>Editar</th>
+     </tr>
+   </thead>
+   <tbody>
+    <% @allies.each do |ally| %>
+    <tr>
+     <td><%= ally.created_at.strftime("%d-%m-%Y") %></td>
+     <td><%= ally.name %></td>
+     <td><%= ally.link %></td>
+     <td><%= image_tag ally.logo.url(:thumb) %></td>
+     <td><%= link_to "<i class='fa fa-edit'></i>".html_safe , edit_ally_path(ally) %> <%= link_to "<i class='fa fa-trash red'></i>".html_safe , ally_path(ally), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar este ingreso?' } %></td>
+   </tr>
+   <% end %>
+ </tbody>
+</table>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#allies').dataTable( {
+      "order": [[ 0, "desc" ]]
+    });
+  } );
+</script>
+<style>
+  .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+    line-height:100px;
+  }
+</style>

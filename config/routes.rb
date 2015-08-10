@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   namespace :mercury do
     resources :images
   end
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   put '/pages/company', to: 'page_contents#save_page', id: '2'
   put '/pages/services', to: 'page_contents#save_page', id: '3'
 
+  resources :allies, :except => [:show]
   resources :procedures
   resources :opinions
   resources :contacts

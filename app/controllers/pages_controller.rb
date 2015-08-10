@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     # @welcome_title = PageContent.find_by(title: "Título Bienvenida").html
     # @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios", page: "Inicio").html
     @page = PageContent.find(params[:id])
+    @allies = Ally.all
   end
 
   def company
