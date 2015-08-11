@@ -23,11 +23,15 @@ class PagesController < ApplicationController
   end
 
   def news
-    @news = News.all.reverse
-    @news = News.paginate(:page => params[:page], :per_page => 4)
+    if params.has_key?(:id)
+      @news = News.where(category: Category.find(params[:id])).reverse
+      @news = News.paginate(:page => params[:page], :per_page => 4)
+    else
+      @news = News.all.reverse
+      @news = News.paginate(:page => params[:page], :per_page => 4)
+    end
     @categories = Category.all
     @most_voted = News.order(:rating).reverse
-
   end
 
   def contact
