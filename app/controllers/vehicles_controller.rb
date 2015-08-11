@@ -7,6 +7,7 @@ class VehiclesController < ApplicationController
     end
     @vehicles = Vehicle.where(used: false, vehicle_class: 0)
     @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
+    @page = PageContent.find(params[:id])
   end
 
   def used
@@ -16,6 +17,7 @@ class VehiclesController < ApplicationController
     if params.has_key?(:vehicle_class)
       redirect_to vehicles_search_filter_path(search_params)
     end
+    @page = PageContent.find(params[:id])
   end
 
   def search_filter
@@ -42,7 +44,7 @@ class VehiclesController < ApplicationController
     end
 
     params.each do |k, v|
-      if v != "Todos" && v != "search_filter" && v !=  "BUSCAR" && v != "vehicles" && v != "1"
+      if v != "Todos" && v != "search_filter" && v !=  "BUSCAR" && v != "vehicles" && k != "id"
         if v == "true"
           search_params[k] = true
         elsif v == "false"
@@ -66,6 +68,7 @@ class VehiclesController < ApplicationController
       @vehicles = Vehicle.where(search_params)
       puts @vehicles
     end
+    @page = PageContent.find(params[:id])
   end
 
   def index
