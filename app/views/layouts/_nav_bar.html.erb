@@ -114,96 +114,69 @@
           <div class="row">
             <div class="col-md-6">
               <label>Marca</label>
-              <select name="Make" class="form-control selectpicker">
+              <select name="brand" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>KIA</option>
-                <option>BMW</option>
-                <option>Mercedes</option>
-                <option>Porsche</option>
-                <option>Nissan</option>
-                <option>Mazda</option>
-                <option>Toyota</option>
-                <option>Audi</option>
+                <% Brand.all.each do |brand| %>
+                  <option value="<%= brand.id %>"><%= brand.name %></option>
+                <% end %>
               </select>
             </div>
             <div class="col-md-6">
               <label>Color</label>
-              <select name="Body Type" class="form-control selectpicker">
+              <select name="color" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>Plateado</option>
-                <option>Negro</option>
-                <option>Blanco</option>
-                <option>Rojo</option>
-                <option>Azul</option>
+                <% Vehicle.uniq.pluck(:color).each do |color| %>
+                  <option><%= color %></option>
+                <% end %>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <label>Blindaje</label>
-              <select name="Make" class="form-control selectpicker">
+              <select name="shield" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>Si</option>
-                <option>No</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
               </select>
             </div>
             <div class="col-md-6">
               <label>Modelo</label>
-              <select name="Model" class="form-control selectpicker">
+              <select name="model" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>2010</option>
-                <option>2011</option>
-                <option>2012</option>
-                <option>2013</option>
-                <option>2014</option>
-                <option>2015</option>
-                <option>2016</option>
-                <option>2017</option>
-                <option>2018</option>
+                <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
+                  <option><%= year %></option>
+                <% end %>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <label>Precio Min</label>
-              <select name="Min Price" class="form-control selectpicker">
+              <select name="min-price" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>$10000</option>
-                <option>$20000</option>
-                <option>$30000</option>
-                <option>$40000</option>
-                <option>$50000</option>
-                <option>$60000</option>
-                <option>$70000</option>
-                <option>$80000</option>
-                <option>$90000</option>
-                <option>$100000</option>
+                <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
+                  <option><%= price %></option>
+                <% end %>
               </select>
             </div>
             <div class="col-md-6">
               <label>Precio Máx</label>
-              <select name="Max Price" class="form-control selectpicker">
+              <select name="max-price" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>$10000</option>
-                <option>$20000</option>
-                <option>$30000</option>
-                <option>$40000</option>
-                <option>$50000</option>
-                <option>$60000</option>
-                <option>$70000</option>
-                <option>$80000</option>
-                <option>$90000</option>
-                <option>$100000</option>
+                <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
+                  <option><%= price %></option>
+                <% end %>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox1" value="option1"> Solo Nuevos
+                <input type="checkbox" id="inlineCheckbox1" value="Todos"> Solo Nuevos
               </label>
               <label class="checkbox-inline">
-                <input type="checkbox" id="inlineCheckbox2" value="option2"> Certificados
+                <input type="checkbox" id="inlineCheckbox2" value="Todos"> Certificados
               </label>
             </div>
           </div>
@@ -212,41 +185,27 @@
           <div class="row">
             <div class="col-md-6">
               <label>Año Min</label>
-              <select name="Min Year" class="form-control selectpicker">
+              <select name="min-year" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>2005</option>
-                <option>2006</option>
-                <option>2007</option>
-                <option>2008</option>
-                <option>2009</option>
-                <option>2010</option>
-                <option>2011</option>
-                <option>2012</option>
-                <option>2013</option>
-                <option>2014</option>
+                <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
+                  <option><%= year %></option>
+                <% end %>
               </select>
             </div>
             <div class="col-md-6">
               <label>Año Máx</label>
-              <select name="Max Year" class="form-control selectpicker">
+              <select name="max-year" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>2005</option>
-                <option>2006</option>
-                <option>2007</option>
-                <option>2008</option>
-                <option>2009</option>
-                <option>2010</option>
-                <option>2011</option>
-                <option>2012</option>
-                <option>2013</option>
-                <option>2014</option>
+                <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
+                  <option><%= year %></option>
+                <% end %>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
               <label>Combustible</label>
-              <select name="Min Mileage" class="form-control selectpicker">
+              <select name="gas" class="form-control selectpicker">
                 <option selected>Todos</option>
                 <option>Gasolina</option>
                 <option>Gas</option>
@@ -255,7 +214,7 @@
             </div>
             <div class="col-md-6">
               <label>Pico y Placa</label>
-              <select name="Max Mileage" class="form-control selectpicker">
+              <select name="license_plate" class="form-control selectpicker">
                 <option selected>Todos</option>
                 <option>Par</option>
                 <option>Impar</option>
@@ -276,26 +235,28 @@
           <div class="row">
             <div class="col-md-6">
               <label>Transmisión</label>
-              <select name="Transmission" class="form-control selectpicker">
+              <select name="transmission" class="form-control selectpicker">
                 <option selected>Todos</option>
                 <option>Mecánico</option>
-                <option> Automático</option>
+                <option>Automático</option>
 
               </select>
             </div>
             <div class="col-md-6">
               <label>Aire Acondicionado</label>
-              <select name="Body Color" class="form-control selectpicker">
+              <select name="air_conditioning" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <option>Si</option>
-                <option>No</option>
+                <option value="true">Si</option>
+                <option value="false">No</option>
 
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <input type="submit" class="btn btn-block btn-info btn-lg" value="BUSCAR">
+              <%= link_to vehicles_search_filter_path do %>
+                <%= submit_tag "BUSCAR", class: "btn btn-block btn-info btn-lg search_submit" %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -305,3 +266,11 @@
 </div>
 </div>
 </div>
+
+<script>
+  // $(document).ready(function() {
+  //   $(".search_submit").on("click", function(e) {
+  //     e.preventDefault();
+  //   })
+  // })
+</script>

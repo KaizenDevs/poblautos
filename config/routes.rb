@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'pages/contact'
   get 'vehicles/new_vehicles'
   get 'vehicles/used'
+  get 'vehicles/search_filter'
   get 'motorcycles/new_motorcycles'
   get 'motorcycles/used'
 

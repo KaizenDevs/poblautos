@@ -6,10 +6,12 @@ class PagesController < ApplicationController
     @opinions = Opinion.where(visible: true).order(:number)
     @news = News.all.reverse
     @most_voted = News.order(:rating).reverse
-    # @welcome_title = PageContent.find_by(title: "Título Bienvenida").html
-    # @secondary_paragraphs = PageContent.find_by(title: "Párrafos Secundarios", page: "Inicio").html
     @page = PageContent.find(params[:id])
     @allies = Ally.all
+    search_params = params
+    if params.has_key?(:brand)
+      redirect_to vehicles_search_filter_path(search_params)
+    end
   end
 
   def company
