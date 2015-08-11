@@ -18,13 +18,21 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <%= will_paginate @news, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
+    </div>
+  </div>
+</div>
 <!-- Start Body Content -->
 <div class="main" role="main">
   <div id="content" class="content full">
-    <div class="container">
+    <div class="container">      
       <div class="row">
         <div class="col-md-9 posts-archive">
-
+          
           <% @news.each do |news| %>
             <article class="post format-standard">
               <div class="row">
@@ -40,15 +48,6 @@
               </div>
             </article>
           <% end %>
-          <ul class="pagination">
-            <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
-          </ul>
         </div>
         <!-- Start Sidebar -->
         <div class="col-md-3 sidebar">
@@ -86,6 +85,11 @@
               </div>
             <% end %>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-9">
+          <%= will_paginate @news, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
         </div>
       </div>
     </div>

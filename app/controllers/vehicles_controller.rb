@@ -2,10 +2,12 @@ class VehiclesController < ApplicationController
 
   def new_vehicles
     @vehicles = Vehicle.where(used: false)
+    @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
   end
 
   def used
     @vehicles = Vehicle.where(used: true)
+    @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
   end
 
   def index

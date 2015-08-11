@@ -34,3 +34,7 @@ table.table.table-hover tbody>tr>td.vert-align{
   vertical-align: middle;
 }
 /*-------------------------------*/
+
+.pagination {
+	margin-top: 8px!important;
+}
