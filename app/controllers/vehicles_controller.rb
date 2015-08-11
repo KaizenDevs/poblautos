@@ -1,6 +1,10 @@
 class VehiclesController < ApplicationController
 
   def new_vehicles
+    search_params = params
+    if params.has_key?(:vehicle_class)
+      redirect_to vehicles_search_filter_path(search_params)
+    end
     @vehicles = Vehicle.where(used: false, vehicle_class: 0)
     @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
   end
@@ -8,15 +12,24 @@ class VehiclesController < ApplicationController
   def used
     @vehicles = Vehicle.where(used: true, vehicle_class: 0)
     @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
+    search_params = params
+    if params.has_key?(:vehicle_class)
+      redirect_to vehicles_search_filter_path(search_params)
+    end
   end
 
   def search_filter
-    search_params = {brand: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil}
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts params
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+    search_params = {brand: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
+
     if params["max-year"] != "Todos" && params["min-year"] == "Todos"
       search_params[:year] = -Float::INFINITY..params["max-year"].to_i
     elsif params["min-year"] != "Todos" && params["max-year"] == "Todos"
       search_params[:year] = params["min-year"].to_i..Float::INFINITY
-    elsif params["min-year"] != "Todos" && params["max-year"] != "Todos"
+    elsif params["min-year"] != "Todos" && params["max-year"] != "Todos" && params.has_key?("min-year")
       search_params[:year] = params["min-year"].to_i..params["max-year"].to_i
     end
 
@@ -24,7 +37,7 @@ class VehiclesController < ApplicationController
       search_params[:price] = -Float::INFINITY..params["max-price"].to_i
     elsif params["min-price"] != "Todos" && params["max-price"] == "Todos"
       search_params[:price] = params["min-price"].to_i..Float::INFINITY
-    elsif params["min-price"] != "Todos" && params["max-price"] != "Todos"
+    elsif params["min-price"] != "Todos" && params["max-price"] != "Todos" && params.has_key?("min-price")
       search_params[:price] = params["min-price"].to_i..params["max-price"].to_i
     end
 
@@ -44,10 +57,14 @@ class VehiclesController < ApplicationController
       end
     end
     search_params.delete_if { |k, v| v.nil? || k == "max-year" || k == "min-year" || k == "max-price" || k == "min-price" }
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts search_params
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     if search_params.count == 0
       @vehicles = Vehicle.all
     else
       @vehicles = Vehicle.where(search_params)
+      puts @vehicles
     end
   end
 

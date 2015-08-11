@@ -167,41 +167,35 @@
                 <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne">Año<i class="fa fa-angle-down"></i> </a> </div>
                 <div id="collapseOne" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    <div class="form-inline">
+                    <form class="form-inline">
                       <div class="form-group">
                         <label>Min Año</label>
-                        <select name="Min Year" class="form-control selectpicker">
+                        <select name="min-year" class="form-control selectpicker">
                           <option selected>Todos</option>
-                          <option>2005</option>
-                          <option>2006</option>
-                          <option>2007</option>
-                          <option>2008</option>
-                          <option>2009</option>
-                          <option>2010</option>
-                          <option>2011</option>
-                          <option>2012</option>
-                          <option>2013</option>
-                          <option>2014</option>
+                          <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
+                            <option><%= year %></option>
+                          <% end %>
                         </select>
                       </div>
                       <div class="form-group last-child">
                         <label>Max año</label>
-                        <select name="Max Year" class="form-control selectpicker">
+                        <select name="max-year" class="form-control selectpicker">
                           <option selected>Todos</option>
-                          <option>2005</option>
-                          <option>2006</option>
-                          <option>2007</option>
-                          <option>2008</option>
-                          <option>2009</option>
-                          <option>2010</option>
-                          <option>2011</option>
-                          <option>2012</option>
-                          <option>2013</option>
-                          <option>2014</option>
+                          <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
+                            <option><%= year %></option>
+                          <% end %>
+                        </select>
+                        <select name="vehicle_class" class="form-control selectpicker hidden">
+                          <option selected><%= params_vehicle_class %></option>
+                        </select>
+                        <select name="used" class="form-control selectpicker hidden">
+                          <option selected><%= is_used %></option>
                         </select>
                       </div>
-                      <button type="submit" class="btn btn-default btn-sm pull-right">Filtro</button>
-                    </div>
+                      <%= link_to vehicles_search_filter_path do %>
+                        <button type="submit" class="btn btn-default btn-sm pull-right">Filtro</button>
+                      <% end %>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -211,14 +205,9 @@
                 <div id="collapseTwo" class="accordion-body collapse">
                   <div class="accordion-inner">
                     <ul class="filter-options-list list-group">
-                      <li class="list-group-item"><span class="badge">4</span><a href="#">Bentley</a></li>
-                      <li class="list-group-item"><span class="badge">23</span><a href="#">Nissan</a></li>
-                      <li class="list-group-item"><span class="badge">41</span><a href="#">Mercedes</a></li>
-                      <li class="list-group-item"><span class="badge">6</span><a href="#">Ford</a></li>
-                      <li class="list-group-item"><span class="badge">54</span><a href="#">Honda</a></li>
-                      <li class="list-group-item"><span class="badge">9</span><a href="#">Mazda</a></li>
-                      <li class="list-group-item"><span class="badge">38</span><a href="#">Toyota</a></li>
-                      <li class="list-group-item"><span class="badge">45</span><a href="#">BMW</a></li>
+                      <% Brand.all.each do |brand| %>
+                        <li class="list-group-item"><span class="badge"><%= brand.vehicles.count %></span><a href="#"><%= link_to brand.name, vehicles_search_filter_path(brand: brand, vehicle_class: params_vehicle_class, used: is_used) %></a></li>
+                      <% end %>
                     </ul>
                   </div>
                 </div>
@@ -229,15 +218,9 @@
                 <div id="collapseThird" class="accordion-body collapse">
                   <div class="accordion-inner">
                     <ul class="filter-options-list list-group">
-                      <li class="list-group-item"><span class="badge">38</span><a href="#">Alpina</a></li>
-                      <li class="list-group-item"><span class="badge">6</span><a href="#">M3</a></li>
-                      <li class="list-group-item"><span class="badge">54</span><a href="#">M5</a></li>
-                      <li class="list-group-item"><span class="badge">9</span><a href="#">M6</a></li>
-                      <li class="list-group-item"><span class="badge">4</span><a href="#">X1</a></li>
-                      <li class="list-group-item"><span class="badge">23</span><a href="#">X3</a></li>
-                      <li class="list-group-item"><span class="badge">41</span><a href="#">X5</a></li>
-                      <li class="list-group-item"><span class="badge">38</span><a href="#">Z3</a></li>
-                      <li class="list-group-item"><span class="badge">38</span><a href="#">Z4</a></li>
+                      <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
+                        <li class="list-group-item"><a href="#"><%= link_to year, vehicles_search_filter_path(year: year, vehicle_class: params_vehicle_class, used: is_used) %></a></li>
+                      <% end %>
                     </ul>
                   </div>
                 </div>
@@ -249,41 +232,35 @@
                 <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Precio <i class="fa fa-angle-down"></i> </a> </div>
                 <div id="collapseEight" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    <div class="form-inline">
+                    <form class="form-inline">
                       <div class="form-group">
                         <label>Precio Min</label>
-                        <select name="Min Price" class="form-control selectpicker">
+                        <select name="min-price" class="form-control selectpicker">
                           <option selected>Todos</option>
-                          <option>$10000</option>
-                          <option>$20000</option>
-                          <option>$30000</option>
-                          <option>$40000</option>
-                          <option>$50000</option>
-                          <option>$60000</option>
-                          <option>$70000</option>
-                          <option>$80000</option>
-                          <option>$90000</option>
-                          <option>$100000</option>
+                          <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
+                            <option><%= price %></option>
+                          <% end %>
                         </select>
                       </div>
                       <div class="form-group last-child">
                         <label>Precio Max</label>
-                        <select name="Max Price" class="form-control selectpicker">
+                        <select name="max-price" class="form-control selectpicker">
                           <option selected>Todos</option>
-                          <option>$10000</option>
-                          <option>$20000</option>
-                          <option>$30000</option>
-                          <option>$40000</option>
-                          <option>$50000</option>
-                          <option>$60000</option>
-                          <option>$70000</option>
-                          <option>$80000</option>
-                          <option>$90000</option>
-                          <option>$100000</option>
+                          <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
+                            <option><%= price %></option>
+                          <% end %>
+                        </select>
+                        <select name="vehicle_class" class="form-control selectpicker hidden">
+                          <option selected><%= params_vehicle_class %></option>
+                        </select>
+                        <select name="used" class="form-control selectpicker hidden">
+                          <option selected><%= is_used %></option>
                         </select>
                       </div>
-                      <button type="submit" class="btn btn-default btn-sm pull-right">Filter</button>
-                    </div>
+                      <%= link_to vehicles_search_filter_path do %>
+                        <button type="submit" class="btn btn-default btn-sm pull-right">Filtro</button>
+                      <% end %>
+                    </form>
                   </div>
                 </div>
               </div>
