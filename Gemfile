@@ -17,6 +17,7 @@ gem 'mercury-rails', :git => 'git://github.com/jejacks0n/mercury.git'
 gem 'will_paginate', '~> 3.0.6'
 gem 'hirb'
 gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'
