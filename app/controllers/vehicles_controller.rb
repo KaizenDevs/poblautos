@@ -81,6 +81,7 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
+    5.times { @vehicle.vehicle_images.build }
   end
 
   def edit
@@ -121,6 +122,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :license_plate_city, :comments, :air_conditioning, :shield, :image, :brand_id, :vehicle_class)
+    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :license_plate_city, :comments, :air_conditioning, :shield, :image, :brand_id, :vehicle_class, vehicle_images_attributes: [:id, :vehicle_id, :image, :done, :_destroy])
   end
 end

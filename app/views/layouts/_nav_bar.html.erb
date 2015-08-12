@@ -39,7 +39,7 @@
                     <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                     <ul class="make-widget">
                       <% Vehicle.where(used: false, vehicle_class: 0).each do |vehicle| %>
-                        <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.image, class: "vehicle-image", width: "100") %></a></li>
+                        <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                       <% end %>
                     </ul>
                     <%= link_to "Ver Todo", vehicles_new_vehicles_path %>
@@ -49,7 +49,7 @@
                    <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                    <ul class="make-widget">
                     <% Vehicle.where(used: true, vehicle_class: 0).each do |vehicle| %>
-                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.image, class: "vehicle-image", width: "100") %></a></li>
+                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                     <% end %>
                   </ul>
                   <%= link_to "Ver Todo", vehicles_used_path %>
@@ -78,7 +78,7 @@
                   <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                   <ul class="make-widget">
                     <% Vehicle.where(used: false, vehicle_class: 1).each do |vehicle| %>
-                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.image, class: "vehicle-image", width: "100") %></a></li>
+                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                     <% end %>
                   </ul>
                   <%= link_to "Ver Todo", motorcycles_new_motorcycles_path %>
@@ -88,7 +88,7 @@
                  <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                  <ul class="make-widget">
                   <% Vehicle.where(used: true, vehicle_class: 1).each do |vehicle| %>
-                    <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.image, class: "vehicle-image", width: "100") %></a></li>
+                    <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                   <% end %>
                 </ul>
                 <%= link_to "Ver Todo", motorcycles_used_path  %>

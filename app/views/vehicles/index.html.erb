@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 100px">
+<div class="container" style="margin-top: 150px">
   <h1>Listando Vehículos</h1>
   <%= link_to new_vehicle_path do %>
     <button class="btn-success" style="margin-bottom: 5px"><span class="fa fa-plus"> Nuevo Vehículo</span></button>
@@ -20,7 +20,7 @@
     <% @vehicles.each do |vehicle| %>
       <tr>
         <td><%= vehicle.name %> <%= vehicle.brand.name %></td>
-        <td><%= image_tag(vehicle.image.url(:thumb), class: 'avatar', width: "50px") %></td>
+        <td><%= image_tag(vehicle.vehicle_images.first.image.url(:thumb), class: 'avatar', width: "50px") %></td>
         <td><%= vehicle.vehicle_class.capitalize %></td>
         <td><%= vehicle.year %></td>
         <td><%= vehicle.state %></td>

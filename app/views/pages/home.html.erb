@@ -267,7 +267,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                     <% @vehicles.each do |vehicle| %>
                       <li class="item">
                       <div class="vehicle-block format-standard">
-                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.image.url, width: "600", height: "400") %></a>
+                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url, width: "600", height: "400") %></a>
                         <div class="vehicle-block-content">
                           <span class="label label-default vehicle-age"><%= vehicle.year %></span>
                           <% if vehicle.used? %>
@@ -286,6 +286,8 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                             <%= image_tag("body-types/coupe.png", width: "30") %>
                           <% elsif vehicle.vehicle_type == "convertible" %>
                             <%= image_tag("body-types/convertible.png", width: "30") %>
+                          <% else %>
+
                           <% end %>
                           </a>
                           <span class="vehicle-cost">$<%= vehicle.price %></span>
