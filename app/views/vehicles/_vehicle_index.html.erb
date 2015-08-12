@@ -291,7 +291,7 @@
                 <!-- Result Item -->
                 <div class="result-item format-standard">
                   <div class="result-item-image">
-                    <a href="vehicle-details.html" class="media-box"><%= image_tag(vehicle.image) %></a>
+                    <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image) %></a>
                     <span class="label label-primary vehicle-age"><%= vehicle.year %></span>
                     <span class="label label-success premium-listing"><%= vehicle.used ? "usado" : "nuevo" %></span>
                     <div class="result-item-view-buttons disabled">
