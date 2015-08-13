@@ -3759,7 +3759,7 @@ h1.page-title{
 .selling-choice > .btn{
 	width:50%;
 	padding:40px 0;
-	text-transform:uppercase;!important;
+	text-transform:uppercase !important;
 }
 .selling-choice > .btn strong{
 	display:block;
