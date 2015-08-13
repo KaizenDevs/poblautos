@@ -5,8 +5,8 @@ class CreateVehicles < ActiveRecord::Migration
       t.integer :year
       t.string :state
       t.integer :price
-      t.string :transmission
-      t.string :gas
+      t.integer :transmission
+      t.integer :gas
       t.string :model
       t.string :engine
       t.integer :mileage
@@ -15,7 +15,7 @@ class CreateVehicles < ActiveRecord::Migration
       t.boolean :used
       t.string :video
       t.string :color
-      t.string :license_plate
+      t.integer :license_plate
       t.text :comments
 
       t.timestamps null: false
