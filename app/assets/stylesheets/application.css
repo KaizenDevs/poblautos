@@ -17,6 +17,7 @@
  *= require bootstrap-wysihtml5
  */
 
+ @charset "UTF-8"
 /*-------------------------------*/
 .table tbody>tr>td.vert-align{
   vertical-align: middle;
