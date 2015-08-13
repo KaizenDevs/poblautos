@@ -1,0 +1,14 @@
+<%= bootstrap_form_for @category do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+          <%= f.text_field :name, label: "Nombre:" %>
+          <%= f.submit form_submit %>
+      </div>
+    </div>
+<% end %>
+
+<hr>
+
+<%= link_to categories_path do %>
+  <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>

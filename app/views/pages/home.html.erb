@@ -1,0 +1,513 @@
+<!-- <!DOCTYPE HTML> -->
+<!-- <html class="no-js">
+  <head> -->
+<!-- Basic Page Needs
+  ================================================== -->
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content=""> -->
+<!-- Mobile Specific Metas
+  ================================================== -->
+  <!-- <meta name="format-detection" content="telephone=no"> -->
+<!-- CSS
+  ================================================== -->
+
+  <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
+  <!-- <link href="css/custom.css" rel="stylesheet" type="text/css"> --><!-- CUSTOM STYLESHEET FOR STYLING -->
+  <!-- Color Style -->
+<!-- SCRIPTS
+  ================================================== -->
+  <!-- </head> -->
+
+  <style>
+    .avatar {
+      width: 60px;
+    }
+
+  </style>
+  <body class="home">
+<!--[if lt IE 7]>
+  <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+  <![endif]-->
+  <div class="body">
+    <div class="hero-area">
+      <!-- START REVOLUTION SLIDER 4.5.0 fullwidth mode -->
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
+      <div class="tp-banner-container">
+        <div class="tp-banner">
+          <ul>  <!-- SLIDE  -->
+            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="on"  data-title="Slide 1" data-mercury="image" id="page_image">
+              <!-- MAIN IMAGE -->
+              <img src="<%= @page.image %>"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+              <!-- LAYERS -->
+
+              <!-- LAYER NR. 1 -->
+              <div class="tp-caption light_heavy_70_shadowed lfb ltt tp-resizeme"
+              data-x="center" data-hoffset="250"
+              data-y="center" data-voffset="-70"
+              data-speed="600"
+              data-start="800"
+              data-easing="Power4.easeOut"
+              data-splitin="none"
+              data-splitout="none"
+              data-elementdelay="0.01"
+              data-endelementdelay="0.1"
+              data-endspeed="500"
+              data-endeasing="Power4.easeIn"
+              style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content1"><%= @page.content1.html_safe %>
+            </div>
+
+            <!-- LAYER NR. 2 -->
+            <div class="tp-caption light_medium_30_shadowed lfb ltt tp-resizeme"
+            data-x="center" data-hoffset="225"
+            data-y="center" data-voffset="40"
+            data-speed="600"
+            data-start="900"
+            data-easing="Power4.easeOut"
+            data-splitin="none"
+            data-splitout="none"
+            data-elementdelay="0.01"
+            data-endelementdelay="0.1"
+            data-endspeed="500"
+            data-endeasing="Power4.easeIn"
+            style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content2"><%= @page.content2.html_safe %>
+          </div>
+
+          <!-- LAYER NR. 3 -->
+          <div class="tp-caption bignumbers_white lfb ltt tp-resizeme"
+          data-x="center" data-hoffset="-400"
+          data-y="center" data-voffset="-75"
+          data-speed="800"
+          data-start="600"
+          data-easing="Power4.easeOut"
+          data-splitin="none"
+          data-splitout="none"
+          data-elementdelay="0.01"
+          data-endelementdelay="0.1"
+          data-endspeed="500"
+          data-endeasing="Power4.easeIn"
+          style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">01
+        </div>
+      </li>
+      <!-- SLIDE  -->
+      <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 2" data-mercury="image" id="page_image1">
+        <!-- MAIN IMAGE -->
+        <img src="<%= @page.image1 %>"  alt="fullslide2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+        <!-- LAYERS -->
+
+        <!-- LAYER NR. 1 -->
+        <div class="tp-caption light_heavy_70_shadowed lfb ltt tp-resizeme"
+        data-x="center" data-hoffset="270"
+        data-y="center" data-voffset="-70"
+        data-speed="600"
+        data-start="800"
+        data-easing="Power4.easeOut"
+        data-splitin="none"
+        data-splitout="none"
+        data-elementdelay="0.01"
+        data-endelementdelay="0.1"
+        data-endspeed="500"
+        data-endeasing="Power4.easeIn"
+        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content3"><%= @page.content3.html_safe %>
+      </div>
+
+      <!-- LAYER NR. 2 -->
+      <div class="tp-caption light_medium_30_shadowed lfb ltt tp-resizeme"
+      data-x="center" data-hoffset="270"
+      data-y="center" data-voffset="40"
+      data-speed="600"
+      data-start="900"
+      data-easing="Power4.easeOut"
+      data-splitin="none"
+      data-splitout="none"
+      data-elementdelay="0.01"
+      data-endelementdelay="0.1"
+      data-endspeed="500"
+      data-endeasing="Power4.easeIn"
+      style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content4"><%= @page.content4.html_safe %>
+    </div>
+
+    <!-- LAYER NR. 3 -->
+    <div class="tp-caption bignumbers_white lfb ltt tp-resizeme"
+    data-x="center" data-hoffset="-400"
+    data-y="center" data-voffset="-75"
+    data-speed="800"
+    data-start="600"
+    data-easing="Power4.easeOut"
+    data-splitin="none"
+    data-splitout="none"
+    data-elementdelay="0.01"
+    data-endelementdelay="0.1"
+    data-endspeed="500"
+    data-endeasing="Power4.easeIn"
+    style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">02
+  </div>
+</li>
+<!-- SLIDE  -->
+<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 3" data-mercury="image" id="page_image2">
+  <!-- MAIN IMAGE -->
+  <img src="<%= @page.image2 %>"  alt="fullslide6"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+  <!-- LAYERS -->
+
+  <!-- LAYER NR. 1 -->
+  <div class="tp-caption light_heavy_70_shadowed lfb ltt tp-resizeme"
+  data-x="center" data-hoffset="215"
+  data-y="center" data-voffset="-70"
+  data-speed="600"
+  data-start="800"
+  data-easing="Power4.easeOut"
+  data-splitin="none"
+  data-splitout="none"
+  data-elementdelay="0.01"
+  data-endelementdelay="0.1"
+  data-endspeed="500"
+  data-endeasing="Power4.easeIn"
+  style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content5"><%= @page.content5.html_safe %>
+</div>
+
+<!-- LAYER NR. 2 -->
+<div class="tp-caption light_medium_30_shadowed lfb ltt tp-resizeme"
+data-x="center" data-hoffset="290"
+data-y="center" data-voffset="80"
+data-speed="600"
+data-start="900"
+data-easing="Power4.easeOut"
+data-splitin="none"
+data-splitout="none"
+data-elementdelay="0.01"
+data-endelementdelay="0.1"
+data-endspeed="500"
+data-endeasing="Power4.easeIn"
+style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content6"><%= @page.content6.html_safe %>
+</div>
+
+<!-- LAYER NR. 3 -->
+<div class="tp-caption bignumbers_white lfb ltt tp-resizeme"
+data-x="center" data-hoffset="-400"
+data-y="center" data-voffset="-75"
+data-speed="800"
+data-start="600"
+data-easing="Power4.easeOut"
+data-splitin="none"
+data-splitout="none"
+data-elementdelay="0.01"
+data-endelementdelay="0.1"
+data-endspeed="500"
+data-endeasing="Power4.easeIn"
+style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
+</div>
+</li>
+</ul>
+<div class="tp-bannertimer"></div>
+</div>
+</div>
+</div>
+<!-- Utiity Bar -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-8">
+        <div class="toggle-make">
+          <a href="#"><i class="fa fa-navicon"></i></a>
+          <span>Buscar por marcas</span>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-6 col-xs-4">
+        <ul class="utility-icons social-icons social-icons-colored">
+          <li class="facebook"><a href="https://www.facebook.com/poblautos.manejatupasion?fref=ts" TARGET="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li class="twitter"><a href="https://twitter.com/poblautos" TARGET="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li class="instagram"><a href="https://instagram.com/poblautos/" TARGET="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li class="youtube"><a href="https://www.youtube.com/channel/UC6ueq_kKTQDggWTjFeHUiJQ" TARGET="_blank"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="by-type-options">
+    <div class="container">
+      <div class="row">
+        <ul class="owl-carousel carousel-alt" data-columns="6" data-autoplay="" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="6" data-items-desktop-small="4" data-items-mobile="3" data-items-tablet="4">
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/wagon.png" alt=""> <span>Wagon</span></a></li>
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/minivan.png" alt=""> <span>Minivan</span></a></li>
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/coupe.png" alt=""> <span>Coupe</span></a></li>
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/convertible.png" alt=""> <span>Convertible</span></a></li>
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/crossover.png" alt=""> <span>Crossover</span></a></li>
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/suv.png" alt=""> <span>SUV</span></a></li>
+          <li class="item"> <a href="results-list.html#"><img src="images/body-types/minicar.png" alt=""> <span>Minicar</span></a></li>
+          <li class="item"> <a href="results-list.html"><img src="images/body-types/sedan.png" alt=""> <span>Sedan</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Start Body Content -->
+<div class="main" role="main">
+  <div id="content" class="content full padding-b0">
+    <div class="container">
+      <!-- Welcome Content and Services overview -->
+      <div class="row">
+        <div class="col-md-6" data-mercury="full" id="page_title">
+          <%= @page.title.html_safe %>
+          </div>
+          <div class="col-md-6" data-mercury="full" id="page_content">
+            <%= @page.content.html_safe %>
+            </div>
+          </div>
+          <div class="spacer-75"></div>
+          <!-- Recently Listed Vehicles -->
+          <section class="listing-block recent-vehicles">
+            <div class="listing-header">
+              <h3>Nuestros últimos vehículos</h3>
+            </div>
+            <div class="listing-container">
+              <div class="carousel-wrapper">
+                <div class="row">
+                  <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="4" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="4" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+                    <% @vehicles.each do |vehicle| %>
+                      <li class="item">
+                      <div class="vehicle-block format-standard">
+                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url, width: "600", height: "400") %></a>
+                        <div class="vehicle-block-content">
+                          <span class="label label-default vehicle-age"><%= vehicle.year %></span>
+                          <% if vehicle.used? %>
+                            <span class="label label-success premium-listing">Usado</span>
+                          <% else %>
+                            <span class="label label-success premium-listing">Nuevo</span>
+                          <% end %>
+                          <h5 class="vehicle-title"><a href="<%= vehicle_url(vehicle) %>"><%= vehicle.name %></a></h5>
+                          <span class="vehicle-meta">Mercedes, <%= vehicle.color %>. </span>
+                          <a href="<%= vehicle_url(vehicle) %>" class="vehicle-body-type">
+                          <% if vehicle.vehicle_type == "camioneta" %>
+                            <%= image_tag("body-types/suv.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "sedan" %>
+                            <%= image_tag("body-types/sedan.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "coupe" %>
+                            <%= image_tag("body-types/coupe.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "convertible" %>
+                            <%= image_tag("body-types/convertible.png", width: "30") %>
+                          <% else %>
+
+                          <% end %>
+                          </a>
+                          <span class="vehicle-cost">$<%= vehicle.price %></span>
+                        </div>
+                      </div>
+                    </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="spacer-60"></div>
+          <div class="row">
+            <!-- Latest News -->
+            <div class="col-md-8 col-sm-6">
+              <section class="listing-block latest-news">
+                <div class="listing-header">
+                  <a href="blog.php" class="btn btn-sm btn-default pull-right">Todas las noticias</a>
+                  <h3>Noticias Destacadas</h3>
+                </div>
+                <div class="listing-container">
+                  <div class="carousel-wrapper">
+                    <div class="row">
+                      <ul class="owl-carousel" id="news-slider" data-columns="2" data-autoplay="" data-pagination="yes" data-arrows="yes" data-single-item="no" data-items-desktop="2" data-items-desktop-small="1" data-items-tablet="2" data-items-mobile="1">
+                        <% @news.each do |news| %>
+                          <li class="item">
+                            <div class="post-block format-standard">
+                              <a href="blog.php" class="media-box post-image"><%= image_tag(news.image.url(:normal)) %></a>
+                              <div class="post-actions">
+                                <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
+                                <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 12</a></div>
+                              </div>
+                              <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
+                              <div class="post-content">
+                                <p><%= raw news.content.split(" ").first(12).join(" ") %>...</p>
+                              </div>
+                              <div class="post-meta">
+                                Posteado en: <a href="#"><%= news.category %></a>
+                              </div>
+                            </div>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <div class="spacer-40"></div>
+              <!-- Latest Testimonials -->
+              <section class="listing-block latest-testimonials">
+                <div class="listing-header">
+                  <h3>Opinión de nuestros clientes</h3>
+                </div>
+                <div class="listing-container">
+                  <div class="carousel-wrapper">
+                    <div class="row">
+                      <ul class="owl-carousel carousel-fw" id="testimonials-slider" data-columns="2" data-autoplay="5000" data-pagination="no" data-arrows="no" data-single-item="no" data-items-desktop="2" data-items-desktop-small="1" data-items-tablet="1" data-items-mobile="1">
+                        <% @opinions.each do |opinion| %>
+                          <li class="item">
+                            <div class="testimonial-block">
+                              <blockquote>
+                                <p><%= opinion.opinion %></p>
+                              </blockquote>
+                              <div class="testimonial-avatar"><%= image_tag(opinion.avatar.url(:thumb), class: 'avatar') %></div>
+                              <div class="testimonial-info">
+                                <div class="testimonial-info-in">
+                                  <strong><%= opinion.name %></strong><span><%= opinion.position %></span>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <!-- Latest Reviews -->
+            <div class="col-md-4 col-sm-6 sidebar">
+              <section class="listing-block latest-reviews">
+                <div class="listing-header">
+                  <a href="blog.php" class="btn btn-sm btn-default pull-right">Todas las noticias</a>
+                  <h3>Lo más votado</h3>
+                </div>
+                <div class="listing-container">
+                  <% @most_voted.each do |news| %>
+                    <div class="post-block post-review-block">
+                      <div class="review-status">
+                        <strong><%= news.rating %></strong>
+                        <span>de 5</span>
+                      </div>
+                      <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
+                      <div class="post-content">
+                        <div class="post-actions">
+                          <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </section>
+              <div class="spacer-40"></div>
+              <!-- Connect with us -->
+              <section class="connect-with-us widget-block">
+                <h4><i class="fa fa-rss"></i> Conéctese con nosotros</h4>
+                <form role="form">
+                  <label for="NewsletterInput" class="sr-only">Email</label>
+                  <input type="email" class="form-control" id="NewsletterInput" placeholder="Subscribirse">
+                  <button type="submit" class="btn btn-sm btn-primary"></button>
+                  <span class="meta-data">Subscríbase </span>
+                </form>
+                <hr>
+                <h4><i class="fa fa-twitter"></i> Síguenos en Twitter</h4>
+              </section>
+            </div>
+          </div>
+        </div>
+        <div class="spacer-50"></div>
+        <div class="lgray-bg make-slider">
+          <div class="container">
+            <!-- Search by make -->
+            <div class="row">
+              <div class="col-md-3 col-sm-4">
+                <h3 class="aliados" style="font-size: 1.17em;">Nuestros aliados</h3>
+              </div>
+              <div class="col-md-9 col-sm-8">
+                <div class="row">
+                  <ul class="owl-carousel" id="make-carousel" data-columns="5" data-autoplay="6000" data-pagination="no" data-arrows="no" data-single-item="no" data-items-desktop="5" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
+                    <% @allies.each do |ally| %>
+                    <li class="item"><a target="_blank" href="<%= ally.link %>"><%= image_tag ally.logo.url, alt: "#{ally.name}", width: '100px' %></a></li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Body Content -->
+    <!-- Start site footer -->
+    <!-- End site footer -->
+    <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+  </div>
+
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+    jQuery('.tp-banner').show().revolution(
+    {
+      dottedOverlay:"none",
+      delay:9000,
+      startwidth:1170,
+      startheight:550,
+      hideThumbs:200,
+
+      thumbWidth:100,
+      thumbHeight:50,
+      thumbAmount:5,
+
+      navigationType:"none",
+      navigationArrows:"solo",
+      navigationStyle:"preview2",
+
+      touchenabled:"on",
+      onHoverStop:"on",
+
+      swipe_velocity: 0.7,
+      swipe_min_touches: 1,
+      swipe_max_touches: 1,
+      drag_block_vertical: false,
+
+
+      keyboardNavigation:"on",
+
+      navigationHAlign:"center",
+      navigationVAlign:"bottom",
+      navigationHOffset:0,
+      navigationVOffset:20,
+
+      soloArrowLeftHalign:"left",
+      soloArrowLeftValign:"center",
+      soloArrowLeftHOffset:20,
+      soloArrowLeftVOffset:0,
+
+      soloArrowRightHalign:"right",
+      soloArrowRightValign:"center",
+      soloArrowRightHOffset:20,
+      soloArrowRightVOffset:0,
+
+      shadow:0,
+      fullWidth:"on",
+      fullScreen:"off",
+
+      spinner:"spinner0",
+
+      stopLoop:"off",
+      stopAfterLoops:-1,
+      stopAtSlide:-1,
+
+      shuffle:"off",
+
+      autoHeight:"off",
+      forceFullWidth:"off",
+
+
+
+      hideThumbsOnMobile:"off",
+      hideNavDelayOnMobile:1500,
+      hideBulletsOnMobile:"off",
+      hideArrowsOnMobile:"off",
+      hideThumbsUnderResolution:0,
+
+      hideSliderAtLimit:0,
+      hideCaptionAtLimit:0,
+      hideAllCaptionAtLilmit:0,
+      startWithSlide:0
+    });
+  }); //ready
+</script>
+</body>
+</html>

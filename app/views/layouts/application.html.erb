@@ -1,14 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Poblautos</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Poblautos - Manejamos tu pasión</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+  <!-- GOOGLE FONTS FOR SLIDER REVOLUTION -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "bootstrap.css" %>
+  <%= stylesheet_link_tag "bootstrap-theme.css" %>
+  <%= stylesheet_link_tag "style.css" %>
+  <%= stylesheet_link_tag "prettyPhoto.css" %>
+  <%= stylesheet_link_tag "owl.carousel.css" %>
+  <%= stylesheet_link_tag "owl.theme.css" %>
+  <%= stylesheet_link_tag "extralayers.css", media: "screen" %>
+  <%= stylesheet_link_tag "settings.css"%>
+  <%= stylesheet_link_tag "color1.css" %>
+  <%= javascript_include_tag "modernizr.js" %>
+
+
+
 </head>
 <body>
 
+
+<!-- Start Site Header -->
+
+<div class="site-header-wrapper">
+  <% if user_signed_in? %>
+    <%= render 'layouts/admin_nav_bar' %>
+  <% end %>
+  <%= render 'layouts/header' %>
+  <!-- End Site Header -->
+  <%= render 'layouts/nav_bar' %>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <%= yield %>
 
+<%= render 'layouts/footer' %>
+<%= render 'layouts/modal' %>
+
+<!-- <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script> --> <!-- Jquery Library Call -->
+<%= javascript_include_tag "prettyphoto.js" %>
+<%= javascript_include_tag "ui-plugins.js" %>
+<%= javascript_include_tag "helper-plugins.js" %>
+<%= javascript_include_tag "owl.carousel.min.js" %>
+<%= javascript_include_tag "password-checker.js" %>
+<%= javascript_include_tag "jquery.flexslider.js" %>
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<%= javascript_include_tag "jquery.themepunch.tools.min.js" %>
+<%= javascript_include_tag "jquery.themepunch.revolution.min.js" %>
+<!-- Data Table Plugin (to show clients)  -->
+<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
 </body>
 </html>

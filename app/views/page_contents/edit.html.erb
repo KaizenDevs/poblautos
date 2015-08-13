@@ -1,0 +1,20 @@
+<div class="container" style="margin-top: 150px; margin-bottom: 100px">
+  <h1>Editando Contenido - <%= @page_content.page %></h1>
+  <p>Recuerda editar el contenido dentro de sus tags (son los símbolos que aparecen entre los simbolos "&lt;" y ">") esto para que se mantengan los estilos de la página.</p>
+  <%= bootstrap_form_for @page_content, :html => { :multipart => true } do |f| %>
+      <div class="row">
+        <div class="col-md-12">
+            <%= f.text_field :title, label: "Título:" %>
+            <%= f.text_area :html, label: "Contenido:", rows: "10", class: "html-content" %> <br>
+            <%= f.submit "Editar Contenido" %>
+        </div>
+      </div>
+  <% end %>
+
+  <hr>
+
+  <%= link_to page_contents_path do %>
+    <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+  <% end %>
+
+</div>

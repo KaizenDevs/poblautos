@@ -1,0 +1,73 @@
+<%= bootstrap_form_for @vehicle, :html => { :multipart => true } do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+          <%= f.select :vehicle_class, options_for_select(Vehicle.vehicle_classes.keys), label: "Carro o moto:" %>
+          Puedes agregar hasta 5 imagenes por vehículos (sin embargo, no es obligatorio). En las vistas de vehículos se mostrará la primera foto que agregues.
+          <div class="row" id="image-for-article">
+            <% if current_page == "new" %>
+              <%= f.fields_for :vehicle_images do |vehicle_image| %>
+                <div class="form-group reg-email">
+                  <div>
+                    <%= vehicle_image.file_field :image, class: "input-file", label: "Imagen: " %>
+                  </div>
+                </div>
+              <% end %>
+            <% elsif current_page == "edit" %>
+              <table class="table">
+                <tr>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                </tr>
+                <tr>
+              <% @vehicle.vehicle_images.each do |vehicle_image| %>
+                <td><%= image_tag(vehicle_image.image.url(:medium)) %></td>
+              <% end %>
+                </tr>
+              </table>
+              <%= f.fields_for :vehicle_images do |vehicle_image| %>
+                <div class="form-group reg-email">
+                  <div>
+                    <%= vehicle_image.file_field :image, class: "input-file", label: "Imagen: " %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:")%>
+          <%= f.text_field :name, label: "Nombre del vehículo:" %>
+          <%= f.number_field :year, label: "Modelo:" %>
+          <%= f.text_field :state, label: "Estado:" %>
+          <%= f.number_field :price, label: "Precio:" %>
+          <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys), label: "Tipo de tansmisión:" %>
+          <%= f.select :gas, options_for_select(Vehicle.gas.keys), label: "Tipo de combustible:" %>
+          <%= f.text_field :engine, label: "Motor:" %>
+          <%= f.number_field :mileage, label: "Kilometraje:" %>
+          <%= f.text_field :upholstery, label: "Cojinería" %>
+          <%= f.select :vehicle_type, options_for_select(Vehicle.vehicle_types.keys), label: "Tipo de vehículo:" %>
+          <%= f.text_field :video, label: "Link de video (si lo hay):" %>
+          <%= f.text_field :color, label: "Color:" %>
+          <%= f.text_field :license_plate_city, label: "Ciudad de la placa:" %>
+          <%= f.number_field :license_plate, label: "Placa (último dígito):" %>
+          <%= f.text_area :comments, label: "Comentarios:" %>
+          <label for="radio">Usado:</label>
+          <%= f.radio_button :used, true, label: "Sí" %>
+          <%= f.radio_button :used, false, label: "No" %>
+          <label for="radio">Aire Acondicionado:</label>
+          <%= f.radio_button :air_conditioning, true, label: "Sí" %>
+          <%= f.radio_button :air_conditioning, false, label: "No" %>
+          <label for="radio">Blindado:</label>
+          <%= f.radio_button :shield, true, label: "Sí" %>
+          <%= f.radio_button :shield, false, label: "No" %>
+          <%= f.submit form_submit %>
+      </div>
+    </div>
+<% end %>
+
+<hr>
+
+<%= link_to vehicles_path do %>
+  <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>

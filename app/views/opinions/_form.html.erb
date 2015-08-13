@@ -1,0 +1,21 @@
+<%= bootstrap_form_for @opinion, :html => { :multipart => true } do |f| %>
+    <div class="row">
+      <div class="col-md-6">
+          <%= f.file_field :avatar, label: "Agrega una imagen:" %>
+          <%= f.number_field :number, label: "Número (Recuerda que en la página inicial aparecerán de menor a mayor):" %>
+          <%= f.text_field :name, label: "Nombre y Apellido Completo:" %>
+          <%= f.text_field :position, label: "Cargo:" %>
+          <%= f.text_area :opinion, label: "Opinión:" %>
+          <label for="radio">Visible:</label>
+          <%= f.radio_button :visible, true, label: "Sí" %>
+          <%= f.radio_button :visible, false, label: "No" %>
+          <%= f.submit form_submit %>
+      </div>
+    </div>
+<% end %>
+
+<hr>
+
+<%= link_to opinions_path do %>
+  <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>

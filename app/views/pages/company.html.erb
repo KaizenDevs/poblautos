@@ -1,0 +1,80 @@
+    <!-- Start Page header -->
+    <div class="page-header parallax" style="background-image:url(<%= asset_path(@page.image) %>); margin-top: 150px;" data-mercury="image" id="page_image">
+      <div class="container">
+        <h1 class="page-title" data-mercury="full" id="page_title"><%= @page.title.html_safe %></h1>
+      </div>
+    </div>
+    <!-- Utiity Bar -->
+    <div class="utility-bar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-8">
+            <ol class="breadcrumb">
+              <li><a href="index.html">Inicio</a></li>
+              <li class="active">Nosotros</li>
+            </ol>
+          </div>
+          <div class="col-md-4 col-sm-6 col-xs-4">
+            <ul class="utility-icons social-icons social-icons-colored">
+              <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Start Body Content -->
+    <div class="main" role="main">
+      <div id="content" class="content full">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6" data-mercury="full" id="page_title1">
+              <%= @page.title1.html_safe %>
+            </div>
+            <div class="col-md-6" data-mercury="full" id="page_content">
+                <%= @page.content.html_safe %>
+              </div>
+              <hr class="fw">
+              <div class="text-align-center"><h2 class="uppercase">Distribuidores Oficiales</h2></div>
+              <div class="spacer-20"></div>
+
+              <div class="row">
+                <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail">
+                    <div data-mercury="image" id="page_image1">
+                      <a href="#"><img src="<%= @page.image1 %>" alt="..."> </a>
+                    </div>
+                    <div class="caption">
+                      <p class="text-center accent-color" data-mercury="full" id="page_content1"><%= @page.content1.html_safe %></p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail" data-mercury="image" id="page_image2">
+                    <a href="#"><img src="<%= @page.image2 %>" alt="..."> </a>
+                    <div class="caption">
+                      <p class="text-center accent-color" data-mercury="full" id="page_content2"><%= @page.content2.html_safe %></p>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                  <div class="thumbnail" data-mercury="image" id="page_image3">
+                    <a href="#"><img src="<%= @page.image3 %>" alt="..."> </a>
+                    <div class="caption">
+                      <p class="text-center accent-color" data-mercury="full" id="page_content3"><%= @page.content3.html_safe %></p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

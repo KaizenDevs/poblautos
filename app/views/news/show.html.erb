@@ -1,0 +1,134 @@
+ <!-- Start Page header -->
+ <div class="page-header parallax" style="background-image:url(http://placehold.it/1200x300&amp;text=IMAGE+PLACEHOLDER); margin-top: 150px">
+  <div class="container">
+    <h1 class="page-title">Blog</h1>
+  </div>
+</div>
+<!-- Utiity Bar -->
+<div class="utility-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-8">
+        <ol class="breadcrumb">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li class="active"><%= @news.title %></li>
+        </ol>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-4">
+        <ul class="utility-icons social-icons social-icons-colored">
+          <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+          <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+          <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+          <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Start Body Content -->
+<div class="main" role="main">
+  <div id="content" class="content full">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 single-post">
+          <header class="single-post-header clearfix">
+            <div class="post-actions">
+              <div class="post-date"><%= @news.created_at.strftime("%B %d, %Y") %></div>
+              <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 20</a></div>
+            </div>
+            <h2 class="post-title"><%= @news.title %></h2>
+          </header>
+          <article class="post-content">
+            <div class="featured-image"> <%= image_tag(@news.image) %> </div>
+            <%=raw @news.content %>
+            <div class="post-meta"> <i class="fa fa-tags"></i> <a href="#"><%= @news.category.name %></a></div>
+            <div class="" id="rating-interface">
+              <div class="row lead">
+                <div id="stars" class="starrr"></div>
+                Vas a dar una calificación de <span id="count">0</span> estrella(s)
+              </div>
+              <button class="btn btn-default">Calificar!</button>
+            </div>
+            <!-- Pagination -->
+            <ul class="pager">
+              <li class="pull-left"><a href="#">&larr; Prev Post</a></li>
+              <li class="pull-right"><a href="#">Next Post &rarr;</a></li>
+            </ul>
+        </div>
+        <!-- Start Sidebar -->
+        <div class="col-md-3 sidebar">
+          <div class="widget sidebar-widget widget_recent_posts">
+            <h3 class="widgettitle">Recent Posts</h3>
+            <ul>
+              <li>
+                <a href="single-post.html"><img src="http://placehold.it/200x200&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"></a>
+                <h5><a href="single-post.html">2015 Proin enim quam, vulputate</a></h5>
+                <div class="post-actions"><div class="post-date">October 30, 2014</div></div>
+              </li>
+              <li>
+                <a href="single-post.html"><img src="http://placehold.it/200x200&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"></a>
+                <h5><a href="single-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h5>
+                <div class="post-actions"><div class="post-date">October 30, 2014</div></div>
+              </li>
+            </ul>
+          </div>
+          <div class="widget sidebar-widget widget_recent_reviews">
+            <h3 class="widgettitle">Latest Reviews</h3>
+            <div class="post-block post-review-block">
+              <div class="review-status">
+                <strong>3.6</strong>
+                <span>Out of 5</span>
+              </div>
+              <h3 class="post-title"><a href="single-post-review.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
+            </div>
+            <div class="post-block post-review-block">
+              <div class="review-status">
+                <strong>4.1</strong>
+                <span>Out of 5</span>
+              </div>
+              <h3 class="post-title"><a href="single-post-review.html">Curabitur nec nulla lectus, non hendrerit lorem porttitor eget</a></h3>
+            </div>
+            <div class="post-block post-review-block">
+              <div class="review-status">
+                <strong>5.0</strong>
+                <span>Out of 5</span>
+              </div>
+              <h3 class="post-title"><a href="single-post-review.html">2014 Proin enim quam, vulputate at lobortis quis, condimentum at justo</a></h3>
+            </div>
+          </div>
+          <div class="widget sidebar-widget widget_categories">
+            <h3 class="widgettitle">Post Categories</h3>
+            <ul>
+              <% @categories.each do |category| %>
+                <li><a href="#"><%= category.name %></a> (<%= category.news.count %>)</li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End site footer -->
+<a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+</div>
+
+<script>
+
+    $('.btn').on("click", function(){
+    console.log("I'm going to submit stuff!")
+    var rating = { rating: $("#count").html() };
+    $.ajax({
+      url: "/news/<%= @news.id %>/rate",
+      type: "GET",
+      data: rating,
+    }).done(function(response){
+      $("#rating-interface").html("<h3>¡Gracias por dar tu calificación!</h3>")
+      $("#rating-interface").append("<p><%=j link_to 'Regresar al inicio', root_path %></p>")
+    });
+  })
+
+</script>
+
+<%= render 'news/rating/star_script' %>

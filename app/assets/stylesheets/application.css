@@ -11,5 +11,30 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require line-icons
  *= require_self
+ *= require font-awesome
+ *= require rails_bootstrap_forms
+ *= require bootstrap-wysihtml5
  */
+
+/*-------------------------------*/
+.table tbody>tr>td.vert-align{
+  vertical-align: middle;
+}
+table.table.table-hover tbody>tr>td.vert-align{
+  vertical-align: middle;
+}
+/*-------------------------------*/
+/*-----Table format -------------*/
+.table tbody>tr>td.vert-align{
+  vertical-align: middle;
+}
+table.table.table-hover tbody>tr>td.vert-align{
+  vertical-align: middle;
+}
+/*-------------------------------*/
+
+.pagination {
+	margin-top: 8px!important;
+}
