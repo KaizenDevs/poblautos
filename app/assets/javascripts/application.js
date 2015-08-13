@@ -15,3 +15,4 @@
 //= require_tree .
 //= require bootstrap-wysihtml5
 //= require bootstrap-wysihtml5/locales/es-ES
+//= require cocoon

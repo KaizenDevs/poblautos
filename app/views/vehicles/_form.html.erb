@@ -1,12 +1,44 @@
-<%= puts @vehicle %>
-
 <%= bootstrap_form_for @vehicle, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
-          <%= f.file_field :image, label: "Agrega una imagen:" %>
+          <%= f.select :vehicle_class, options_for_select(Vehicle.vehicle_classes.keys), label: "Carro o moto:" %>
+          Puedes agregar hasta 5 imagenes por vehículos (sin embargo, no es obligatorio). En las vistas de vehículos se mostrará la primera foto que agregues.
+          <div class="row" id="image-for-article">
+            <% if current_page == "new" %>
+              <%= f.fields_for :vehicle_images do |vehicle_image| %>
+                <div class="form-group reg-email">
+                  <div>
+                    <%= vehicle_image.file_field :image, class: "input-file", label: "Imagen: " %>
+                  </div>
+                </div>
+              <% end %>
+            <% elsif current_page == "edit" %>
+              <table class="table">
+                <tr>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                </tr>
+                <tr>
+              <% @vehicle.vehicle_images.each do |vehicle_image| %>
+                <td><%= image_tag(vehicle_image.image.url(:medium)) %></td>
+              <% end %>
+                </tr>
+              </table>
+              <%= f.fields_for :vehicle_images do |vehicle_image| %>
+                <div class="form-group reg-email">
+                  <div>
+                    <%= vehicle_image.file_field :image, class: "input-file", label: "Imagen: " %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:")%>
           <%= f.text_field :name, label: "Nombre del vehículo:" %>
-          <%= f.text_field :vehicle_model, label: "Modelo:" %>
-          <%= f.number_field :year, label: "Año:" %>
+          <%= f.number_field :year, label: "Modelo:" %>
           <%= f.text_field :state, label: "Estado:" %>
           <%= f.number_field :price, label: "Precio:" %>
           <%= f.select :transmission, options_for_select(Vehicle.transmissions.keys), label: "Tipo de tansmisión:" %>

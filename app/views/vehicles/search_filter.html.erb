@@ -1,6 +1,6 @@
 <div class="page-header parallax" style="background-image:url(<%= asset_path(@page.image) %>); margin-top: 150px;" data-mercury="image" id="page_image">
   <div class="container">
-    <h1 class="page-title"><%= navbar_title %></h1>
+    <h1 class="page-title">Búsqueda</h1>
   </div>
 </div>
 <!-- Utiity Bar -->
@@ -10,7 +10,7 @@
       <div class="col-md-8 col-sm-6 col-xs-8">
         <ol class="breadcrumb">
           <li><a href="index.html">Inicio</a></li>
-          <li class="active"><%= navbar_title %></li>
+          <li class="active">Búsqueda</li>
         </ol>
       </div>
       <div class="col-md-4 col-sm-6 col-xs-4">
@@ -136,7 +136,12 @@
         </div>
 
         <div class="toggle-view view-count-choice pull-right">
-          <%= will_paginate @vehicles, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
+          <label>Mostrar</label>
+          <div class="btn-group">
+            <a href="#" class="btn btn-default">10</a>
+            <a href="#" class="btn btn-default active">20</a>
+            <a href="#" class="btn btn-default">50</a>
+          </div>
         </div>
 
         <div class="toggle-view view-format-choice pull-right">
@@ -157,122 +162,6 @@
   <div id="content" class="content full">
     <div class="container">
       <div class="row">
-        <!-- Search Filters -->
-        <div class="col-md-3 search-filters" id="Search-Filters">
-          <div class="filters-sidebar">
-            <h3>Búsqueda</h3>
-            <div class="accordion" id="toggleArea">
-              <!-- Filter by Year -->
-              <div class="accordion-group panel">
-                <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne">Año<i class="fa fa-angle-down"></i> </a> </div>
-                <div id="collapseOne" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    <form class="form-inline">
-                      <div class="form-group">
-                        <label>Min Año</label>
-                        <select name="min-year" class="form-control selectpicker">
-                          <option selected>Todos</option>
-                          <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
-                            <option><%= year %></option>
-                          <% end %>
-                        </select>
-                      </div>
-                      <div class="form-group last-child">
-                        <label>Max año</label>
-                        <select name="max-year" class="form-control selectpicker">
-                          <option selected>Todos</option>
-                          <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
-                            <option><%= year %></option>
-                          <% end %>
-                        </select>
-                        <select name="vehicle_class" class="form-control selectpicker hidden">
-                          <option selected><%= params_vehicle_class %></option>
-                        </select>
-                        <select name="used" class="form-control selectpicker hidden">
-                          <option selected><%= is_used %></option>
-                        </select>
-                      </div>
-                      <%= link_to vehicles_search_filter_path do %>
-                        <button type="submit" class="btn btn-default btn-sm pull-right">Filtro</button>
-                      <% end %>
-                    </form>
-                  </div>
-                </div>
-              </div>
-              <!-- Filter by Make -->
-              <div class="accordion-group panel">
-                <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTwo">Marca<i class="fa fa-angle-down"></i> </a> </div>
-                <div id="collapseTwo" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    <ul class="filter-options-list list-group">
-                      <% Brand.all.each do |brand| %>
-                        <li class="list-group-item"><span class="badge"><%= brand.vehicles.count %></span><a href="#"><%= link_to brand.name, vehicles_search_filter_path(brand: brand, vehicle_class: params_vehicle_class, used: is_used) %></a></li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <!-- Filter by Model -->
-              <div class="accordion-group">
-                <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseThird">Modelo <i class="fa fa-angle-down"></i> </a> </div>
-                <div id="collapseThird" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    <ul class="filter-options-list list-group">
-                      <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
-                        <li class="list-group-item"><a href="#"><%= link_to year, vehicles_search_filter_path(year: year, vehicle_class: params_vehicle_class, used: is_used) %></a></li>
-                      <% end %>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- Filter by Price -->
-              <div class="accordion-group">
-                <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseEight">Precio <i class="fa fa-angle-down"></i> </a> </div>
-                <div id="collapseEight" class="accordion-body collapse">
-                  <div class="accordion-inner">
-                    <form class="form-inline">
-                      <div class="form-group">
-                        <label>Precio Min</label>
-                        <select name="min-price" class="form-control selectpicker">
-                          <option selected>Todos</option>
-                          <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
-                            <option><%= price %></option>
-                          <% end %>
-                        </select>
-                      </div>
-                      <div class="form-group last-child">
-                        <label>Precio Max</label>
-                        <select name="max-price" class="form-control selectpicker">
-                          <option selected>Todos</option>
-                          <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
-                            <option><%= price %></option>
-                          <% end %>
-                        </select>
-                        <select name="vehicle_class" class="form-control selectpicker hidden">
-                          <option selected><%= params_vehicle_class %></option>
-                        </select>
-                        <select name="used" class="form-control selectpicker hidden">
-                          <option selected><%= is_used %></option>
-                        </select>
-                      </div>
-                      <%= link_to vehicles_search_filter_path do %>
-                        <button type="submit" class="btn btn-default btn-sm pull-right">Filtro</button>
-                      <% end %>
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-
-            </div>
-            <!-- End Toggle -->
-            <a href="#" class="btn-default btn-sm btn"><i class="fa fa-refresh"></i> Borrar</a>
-            <a href="#" class="btn-primary btn-sm btn"><i class="fa fa-folder-o"></i> Guardar</a>
-          </div>
-        </div>
-
         <!-- Listing Results -->
         <div class="col-md-9 results-container">
           <div class="results-container-in">
@@ -291,7 +180,7 @@
                 <!-- Result Item -->
                 <div class="result-item format-standard">
                   <div class="result-item-image">
-                    <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image) %></a>
+                    <a href="vehicle-details.html" class="media-box"><%= image_tag(vehicle.image) %></a>
                     <span class="label label-primary vehicle-age"><%= vehicle.year %></span>
                     <span class="label label-success premium-listing"><%= vehicle.used ? "usado" : "nuevo" %></span>
                     <div class="result-item-view-buttons disabled">
@@ -335,11 +224,6 @@
               <% end %>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-xs-12 no-padding text-right text-left-xs">
-
         </div>
       </div>
     </div>

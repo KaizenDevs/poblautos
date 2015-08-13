@@ -1,4 +1,4 @@
-<div class="page-header parallax" style="background-image:url(http://placehold.it/1200x300&amp;text=IMAGE+PLACEHOLDER); margin-top: 150px">
+<div class="page-header parallax" style="background-image:url(<%= asset_path(@page.image) %>); margin-top: 150px;" data-mercury="image" id="page_image">
   <div class="container">
     <h1 class="page-title">Blog</h1>
   </div>
@@ -63,8 +63,7 @@
             <h3 class="widgettitle">Post Categories</h3>
             <ul>
               <% @categories.each do |category| %>
-
-              <li><a href="#"><%= category.name %></a> (<%= category.news.count %>)</li>
+              <li><%= link_to category.name, pages_news_path(category_id: category.id) %> (<%= category.news.count %>)</li>
               <% end %>
             </ul>
           </div>

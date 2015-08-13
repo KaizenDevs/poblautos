@@ -136,7 +136,12 @@
         </div>
 
         <div class="toggle-view view-count-choice pull-right">
-          <%= will_paginate @vehicles, :previous_label => 'Página Anterior', :next_label => 'Página Siguiente' %>
+          <label>Mostrar</label>
+          <div class="btn-group">
+            <a href="#" class="btn btn-default">10</a>
+            <a href="#" class="btn btn-default active">20</a>
+            <a href="#" class="btn btn-default">50</a>
+          </div>
         </div>
 
         <div class="toggle-view view-format-choice pull-right">
@@ -170,7 +175,7 @@
                     <form class="form-inline">
                       <div class="form-group">
                         <label>Min Año</label>
-                        <select name="min-year" class="form-control selectpicker">
+                        <select name="Min Year" class="form-control selectpicker">
                           <option selected>Todos</option>
                           <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
                             <option><%= year %></option>
@@ -179,7 +184,7 @@
                       </div>
                       <div class="form-group last-child">
                         <label>Max año</label>
-                        <select name="max-year" class="form-control selectpicker">
+                        <select name="Max Year" class="form-control selectpicker">
                           <option selected>Todos</option>
                           <% Vehicle.uniq.pluck(:year).sort.each do |year| %>
                             <option><%= year %></option>
@@ -235,7 +240,7 @@
                     <form class="form-inline">
                       <div class="form-group">
                         <label>Precio Min</label>
-                        <select name="min-price" class="form-control selectpicker">
+                        <select name="Min Price" class="form-control selectpicker">
                           <option selected>Todos</option>
                           <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
                             <option><%= price %></option>
@@ -244,7 +249,7 @@
                       </div>
                       <div class="form-group last-child">
                         <label>Precio Max</label>
-                        <select name="max-price" class="form-control selectpicker">
+                        <select name="Max Price" class="form-control selectpicker">
                           <option selected>Todos</option>
                           <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
                             <option><%= price %></option>
@@ -291,7 +296,7 @@
                 <!-- Result Item -->
                 <div class="result-item format-standard">
                   <div class="result-item-image">
-                    <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image) %></a>
+                    <a href="vehicle-details.html" class="media-box"><%= image_tag(vehicle.image) %></a>
                     <span class="label label-primary vehicle-age"><%= vehicle.year %></span>
                     <span class="label label-success premium-listing"><%= vehicle.used ? "usado" : "nuevo" %></span>
                     <div class="result-item-view-buttons disabled">
@@ -335,11 +340,6 @@
               <% end %>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-xs-12 no-padding text-right text-left-xs">
-
         </div>
       </div>
     </div>

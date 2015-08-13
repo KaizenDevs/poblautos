@@ -66,6 +66,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
+    cocoon (1.2.6)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -231,6 +232,7 @@ DEPENDENCIES
   bootstrap-wysihtml5-rails
   bootstrap_form
   byebug
+  cocoon
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-rails

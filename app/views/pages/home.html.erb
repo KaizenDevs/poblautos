@@ -38,9 +38,9 @@
       <div class="tp-banner-container">
         <div class="tp-banner">
           <ul>  <!-- SLIDE  -->
-            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="on"  data-title="Slide 1">
+            <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="on"  data-title="Slide 1" data-mercury="image" id="page_image">
               <!-- MAIN IMAGE -->
-              <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+              <img src="<%= @page.image %>"  alt="fullslide1"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
               <!-- LAYERS -->
 
               <!-- LAYER NR. 1 -->
@@ -92,9 +92,9 @@
         </div>
       </li>
       <!-- SLIDE  -->
-      <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 2">
+      <li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 2" data-mercury="image" id="page_image1">
         <!-- MAIN IMAGE -->
-        <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+        <img src="<%= @page.image1 %>"  alt="fullslide2"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
         <!-- LAYERS -->
 
         <!-- LAYER NR. 1 -->
@@ -110,7 +110,7 @@
         data-endelementdelay="0.1"
         data-endspeed="500"
         data-endeasing="Power4.easeIn"
-        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content3s"><%= @page.content3.html_safe %>
+        style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;" data-mercury="full" id="page_content3"><%= @page.content3.html_safe %>
       </div>
 
       <!-- LAYER NR. 2 -->
@@ -146,9 +146,9 @@
   </div>
 </li>
 <!-- SLIDE  -->
-<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 3">
+<li data-transition="slidevertical" data-slotamount="1" data-masterspeed="1000" data-saveperformance="off"  data-title="Slide 3" data-mercury="image" id="page_image2">
   <!-- MAIN IMAGE -->
-  <img src="http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER"  alt="fullslide6"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+  <img src="<%= @page.image2 %>"  alt="fullslide6"  data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
   <!-- LAYERS -->
 
   <!-- LAYER NR. 1 -->
@@ -267,7 +267,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                     <% @vehicles.each do |vehicle| %>
                       <li class="item">
                       <div class="vehicle-block format-standard">
-                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.image.url, width: "600", height: "400") %></a>
+                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url, width: "600", height: "400") %></a>
                         <div class="vehicle-block-content">
                           <span class="label label-default vehicle-age"><%= vehicle.year %></span>
                           <% if vehicle.used? %>
@@ -286,6 +286,8 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                             <%= image_tag("body-types/coupe.png", width: "30") %>
                           <% elsif vehicle.vehicle_type == "convertible" %>
                             <%= image_tag("body-types/convertible.png", width: "30") %>
+                          <% else %>
+
                           <% end %>
                           </a>
                           <span class="vehicle-cost">$<%= vehicle.price %></span>
@@ -411,13 +413,13 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
             <!-- Search by make -->
             <div class="row">
               <div class="col-md-3 col-sm-4">
-                <h3 class="aliados">Nuestros aliados</h3>
+                <h3 class="aliados" style="font-size: 1.17em;">Nuestros aliados</h3>
               </div>
               <div class="col-md-9 col-sm-8">
                 <div class="row">
                   <ul class="owl-carousel" id="make-carousel" data-columns="5" data-autoplay="6000" data-pagination="no" data-arrows="no" data-single-item="no" data-items-desktop="5" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
                     <% @allies.each do |ally| %>
-                    <li class="item"><a target="_blank" href="<%= ally.link %>"><%= image_tag ally.logo.url(:thumb), alt: "#{ally.name}" %></a></li>
+                    <li class="item"><a target="_blank" href="<%= ally.link %>"><%= image_tag ally.logo.url, alt: "#{ally.name}", width: '100px' %></a></li>
                     <% end %>
                   </ul>
                 </div>

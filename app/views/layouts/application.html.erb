@@ -29,6 +29,9 @@
 <!-- Start Site Header -->
 
 <div class="site-header-wrapper">
+  <% if user_signed_in? %>
+    <%= render 'layouts/admin_nav_bar' %>
+  <% end %>
   <%= render 'layouts/header' %>
   <!-- End Site Header -->
   <%= render 'layouts/nav_bar' %>
