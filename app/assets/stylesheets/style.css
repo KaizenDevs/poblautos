@@ -23,7 +23,7 @@ Last change:	01/15/15
 Author:	imithemes
 -------------------------------------------------------------------*/
 /* Stylesheets and Google fonts import */
-@charset "UTF-8"
+@charset "UTF-8";
 @import url("font-awesome.css");
 @import url('line-icons.css');
 @import url("animations.css");
