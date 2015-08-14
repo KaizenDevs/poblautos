@@ -32,7 +32,7 @@ class PagesController < ApplicationController
     end
     @page = PageContent.find(params[:id])
     @categories = Category.all
-    @most_voted = News.order(:rating).reverse
+    @most_voted = News.order(:rating).last(3).reverse
   end
 
   def contact

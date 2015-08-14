@@ -81,7 +81,7 @@ class VehiclesController < ApplicationController
 
   def new
     @vehicle = Vehicle.new
-    5.times { @vehicle.vehicle_images.build }
+    20.times { @vehicle.vehicle_images.build }
   end
 
   def edit

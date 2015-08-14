@@ -35,7 +35,6 @@
           <header class="single-post-header clearfix">
             <div class="post-actions">
               <div class="post-date"><%= @news.created_at.strftime("%B %d, %Y") %></div>
-              <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 20</a></div>
             </div>
             <h2 class="post-title"><%= @news.title %></h2>
           </header>
@@ -59,46 +58,30 @@
         <!-- Start Sidebar -->
         <div class="col-md-3 sidebar">
           <div class="widget sidebar-widget widget_recent_posts">
-            <h3 class="widgettitle">Recent Posts</h3>
+            <h3 class="widgettitle">Noticias Recientes</h3>
             <ul>
-              <li>
-                <a href="single-post.html"><img src="http://placehold.it/200x200&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"></a>
-                <h5><a href="single-post.html">2015 Proin enim quam, vulputate</a></h5>
-                <div class="post-actions"><div class="post-date">October 30, 2014</div></div>
-              </li>
-              <li>
-                <a href="single-post.html"><img src="http://placehold.it/200x200&amp;text=IMAGE+PLACEHOLDER" alt="" class="img-thumbnail"></a>
-                <h5><a href="single-post.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h5>
-                <div class="post-actions"><div class="post-date">October 30, 2014</div></div>
-              </li>
+              <% News.all.last(2).each do |news| %>
+                <li>
+                  <a href="single-post.html"><img src="<%= asset_path(news.image.url) %>" alt="" class="img-thumbnail"></a>
+                  <h5><a href="single-post.html">2015 Proin enim quam, vulputate</a></h5>
+                  <div class="post-actions"><div class="post-date">October 30, 2014</div></div>
+                </li>
+              <% end %>
             </ul>
           </div>
           <div class="widget sidebar-widget widget_recent_reviews">
             <h3 class="widgettitle">Latest Reviews</h3>
-            <div class="post-block post-review-block">
-              <div class="review-status">
-                <strong>3.6</strong>
-                <span>Out of 5</span>
+            <% @most_voted.each do |news| %>
+              <div class="post-block post-review-block">
+                <div class="review-status">
+                  <strong><%= news.rating %></strong>
+                  <span>Out of 5</span>
+                </div>
+                <h3 class="post-title"><a href="single-post-review.html"><%= news.title %></a></h3>
               </div>
-              <h3 class="post-title"><a href="single-post-review.html">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-            </div>
-            <div class="post-block post-review-block">
-              <div class="review-status">
-                <strong>4.1</strong>
-                <span>Out of 5</span>
-              </div>
-              <h3 class="post-title"><a href="single-post-review.html">Curabitur nec nulla lectus, non hendrerit lorem porttitor eget</a></h3>
-            </div>
-            <div class="post-block post-review-block">
-              <div class="review-status">
-                <strong>5.0</strong>
-                <span>Out of 5</span>
-              </div>
-              <h3 class="post-title"><a href="single-post-review.html">2014 Proin enim quam, vulputate at lobortis quis, condimentum at justo</a></h3>
-            </div>
-          </div>
+            <% end %>
           <div class="widget sidebar-widget widget_categories">
-            <h3 class="widgettitle">Post Categories</h3>
+            <h3 class="widgettitle">Categorías</h3>
             <ul>
               <% @categories.each do |category| %>
                 <li><a href="#"><%= category.name %></a> (<%= category.news.count %>)</li>
