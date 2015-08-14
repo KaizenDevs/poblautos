@@ -413,7 +413,7 @@ a:focus, .btn:focus,
 	-moz-transform: rotate(180deg);
 	-ms-transform: rotate(180deg);
 	-o-transform: rotate(180deg);
-	transform: rotate(180deg);	
+	transform: rotate(180deg);
 }
 .accordion-heading.togglize .accordion-toggle i {
 	margin: -8px 0 0 0;
@@ -458,10 +458,10 @@ a:focus, .btn:focus,
  	position: relative;
   	top: 0px;
   	right: -22px;
-	color: #FFFFFF;	
+	color: #FFFFFF;
 	text-shadow: none;
   	line-height: 20px;
-	
+
 	-webkit-transition: opacity 0.1s linear 0s;
 	-moz-transition: opacity 0.1s linear 0s;
 	-ms-transition: opacity 0.1s linear 0s;
@@ -659,7 +659,7 @@ span.progress-bar-tooltip:after {
 }
 .breadcrumb > li + li:before {
   content: "\203A";
-  color:##999;
+  color: #999;
   padding:0 8px;
 }
 .breadcrumb li:first-child{
@@ -675,8 +675,8 @@ span.progress-bar-tooltip:after {
   color: #666;
 }
 .label{
-	font-size:10px!important;
-	text-transform:uppercase;
+	font-size: 10px !important;
+	text-transform: uppercase;
 	position:relative;
 	top:-2px;
 }

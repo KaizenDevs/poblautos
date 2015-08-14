@@ -2,7 +2,7 @@ class CreateProcedures < ActiveRecord::Migration
   def change
     create_table :procedures do |t|
       t.string :name
-      t.integer :phone
+      t.string :phone
       t.string :email
       t.boolean :startinglicence
       t.boolean :taxpayment

@@ -1,12 +1,13 @@
 class NewsController < ApplicationController
 
   def index
-    @news = News.all    
+    @news = News.all
   end
 
   def show
     @news = News.find(params[:id])
     @categories = Category.all
+    @most_voted = News.order(:rating).last(3).reverse
   end
 
   def new

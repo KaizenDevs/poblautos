@@ -38,7 +38,7 @@
                   <div class="mm-col col-md-5">
                     <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                     <ul class="make-widget">
-                      <% Vehicle.where(used: false, vehicle_class: 0).each do |vehicle| %>
+                      <% Vehicle.where(used: false, vehicle_class: 0).last(10).each do |vehicle| %>
                         <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                       <% end %>
                     </ul>
@@ -48,7 +48,7 @@
                   <div class="mm-col col-md-5">
                    <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                    <ul class="make-widget">
-                    <% Vehicle.where(used: true, vehicle_class: 0).each do |vehicle| %>
+                    <% Vehicle.where(used: true, vehicle_class: 0).last(10).each do |vehicle| %>
                       <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                     <% end %>
                   </ul>
@@ -77,7 +77,7 @@
                 <div class="mm-col col-md-5">
                   <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                   <ul class="make-widget">
-                    <% Vehicle.where(used: false, vehicle_class: 1).each do |vehicle| %>
+                    <% Vehicle.where(used: false, vehicle_class: 1).last(10).each do |vehicle| %>
                       <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                     <% end %>
                   </ul>
@@ -87,7 +87,7 @@
                 <div class="mm-col col-md-5">
                  <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                  <ul class="make-widget">
-                  <% Vehicle.where(used: true, vehicle_class: 1).each do |vehicle| %>
+                  <% Vehicle.where(used: true, vehicle_class: 1).last(10).each do |vehicle| %>
                     <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
                   <% end %>
                 </ul>

@@ -29,6 +29,7 @@ Rails.application.config.assets.precompile += %w( init.js )
 Rails.application.config.assets.precompile += %w( jquery.flexslider.js )
 Rails.application.config.assets.precompile += %w( jquery.themepunch.tools.min.js )
 Rails.application.config.assets.precompile += %w( jquery.themepunch.revolution.min.js )
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 
 
 

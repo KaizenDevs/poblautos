@@ -28,6 +28,7 @@ Rails.application.configure do
   config.assets.paths << "#{Rails.root}/app/assets/fonts"
   config.assets.debug = true
   config.assets.precompile += %w( jquery-1.7.js )
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.

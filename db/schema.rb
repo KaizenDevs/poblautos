@@ -139,7 +139,7 @@ ActiveRecord::Schema.define(version: 20150811175522) do
 
   create_table "procedures", force: :cascade do |t|
     t.string   "name"
-    t.integer  "phone"
+    t.string   "phone"
     t.string   "email"
     t.boolean  "startinglicence"
     t.boolean  "taxpayment"

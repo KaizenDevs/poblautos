@@ -21,7 +21,7 @@ class ProceduresController < ApplicationController
     @procedure = Procedure.find(params[:id])
 
     if @procedure.update(procedure_params)
-      redirect_to index
+      redirect_to procedures_path
     else
       render 'edit'
     end

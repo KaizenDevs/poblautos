@@ -1,7 +1,7 @@
 class Procedure < ActiveRecord::Base
   after_initialize :init
 
-  enum status: [:start,:ongoing, :finished]
+  enum status: [:inicial, :en_proceso, :finalizado]
 
   def init
      self.status ||= 0
