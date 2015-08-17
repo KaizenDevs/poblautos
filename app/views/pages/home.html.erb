@@ -319,7 +319,6 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                               <a href="blog.php" class="media-box post-image"><%= image_tag(news.image.url(:normal)) %></a>
                               <div class="post-actions">
                                 <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
-                                <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 12</a></div>
                               </div>
                               <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
                               <div class="post-content">

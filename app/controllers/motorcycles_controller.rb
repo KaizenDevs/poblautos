@@ -1,4 +1,5 @@
 class MotorcyclesController < ApplicationController
+  before_action :authenticate_user!
 
   def new_motorcycles
     search_params = params

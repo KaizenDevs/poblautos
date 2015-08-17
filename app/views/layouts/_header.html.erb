@@ -15,8 +15,10 @@
             <li><a href="#"><i class="fa fa-car"></i> Compra Ahora</a></li>
             <li><a data-toggle="modal" data-target="#procedures"><i class="fa fa-folder-open"></i> Trámites</a></li>
             <li><a href="#l"><i class="fa fa-user"></i> Subscríbete</a></li>
-            <li><%= link_to "Contraseña", edit_user_registration_path %></li>
-            <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Contraseña", edit_user_registration_path %></li>
+              <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+            <% end %>
           </ul>
       </div>
     </div>
