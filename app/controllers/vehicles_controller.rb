@@ -25,7 +25,7 @@ class VehiclesController < ApplicationController
     puts params
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
-    search_params = {brand: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
+    search_params = {brand_id: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
 
     if params["max-year"] != "Todos" && params["min-year"] == "Todos"
       search_params[:year] = -Float::INFINITY..params["max-year"].to_i

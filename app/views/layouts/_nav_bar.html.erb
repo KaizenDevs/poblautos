@@ -38,8 +38,10 @@
                   <div class="mm-col col-md-5">
                     <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                     <ul class="make-widget">
-                      <% Vehicle.where(used: false, vehicle_class: 0).last(10).each do |vehicle| %>
-                        <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
+                      <% Vehicle.where(vehicle_class: 0, used: false).uniq.pluck(:brand_id).each do |brand| %>
+                        <li class="item"> <%= link_to vehicles_search_filter_path(brand_id: brand, vehicle_class: 0, used: false) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                          <% end %>
+                        </li>
                       <% end %>
                     </ul>
                     <%= link_to "Ver Todo", vehicles_new_vehicles_path %>
@@ -48,8 +50,10 @@
                   <div class="mm-col col-md-5">
                    <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                    <ul class="make-widget">
-                    <% Vehicle.where(used: true, vehicle_class: 0).last(10).each do |vehicle| %>
-                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
+                    <% Vehicle.where(vehicle_class: 0, used: true).uniq.pluck(:brand_id).each do |brand| %>
+                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                        <% end %>
+                      </li>
                     <% end %>
                   </ul>
                   <%= link_to "Ver Todo", vehicles_used_path %>
@@ -77,8 +81,10 @@
                 <div class="mm-col col-md-5">
                   <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                   <ul class="make-widget">
-                    <% Vehicle.where(used: false, vehicle_class: 1).last(10).each do |vehicle| %>
-                      <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
+                    <% Vehicle.where(vehicle_class: 1, used: false).uniq.pluck(:brand_id).each do |brand| %>
+                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: false) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                        <% end %>
+                      </li>
                     <% end %>
                   </ul>
                   <%= link_to "Ver Todo", motorcycles_new_motorcycles_path %>
@@ -87,8 +93,10 @@
                 <div class="mm-col col-md-5">
                  <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                  <ul class="make-widget">
-                  <% Vehicle.where(used: true, vehicle_class: 1).last(10).each do |vehicle| %>
-                    <li class="item"> <a href="<%= vehicle_path(vehicle) %>"><%= image_tag(vehicle.vehicle_images.first.image, class: "vehicle-image", width: "100") %></a></li>
+                  <% Vehicle.where(vehicle_class: 1, used: true).uniq.pluck(:brand_id).each do |brand| %>
+                    <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                      <% end %>
+                    </li>
                   <% end %>
                 </ul>
                 <%= link_to "Ver Todo", motorcycles_used_path  %>
@@ -114,7 +122,7 @@
           <div class="row">
             <div class="col-md-6">
               <label>Marca</label>
-              <select name="brand" class="form-control selectpicker">
+              <select name="brand_id" class="form-control selectpicker">
                 <option selected>Todos</option>
                 <% Brand.all.each do |brand| %>
                   <option value="<%= brand.id %>"><%= brand.name %></option>
