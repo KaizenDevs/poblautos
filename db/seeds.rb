@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(
-  email: 'admin@blintech.com',
-  password: 'blintech2015'
+  email: 'admin@poblautos.com',
+  password: 'poblautos2015'
   )
 
 PageContent.create(id: 1, title: '<h1 class="uppercase strong">Bienvenido a<br><span class="accent-color">Poblautos</span></h1>
