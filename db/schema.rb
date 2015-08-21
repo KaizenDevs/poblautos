@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821143207) do
+ActiveRecord::Schema.define(version: 20150821163857) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(version: 20150821143207) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "links", force: :cascade do |t|
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "mercury_images", force: :cascade do |t|
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -66,8 +72,8 @@ ActiveRecord::Schema.define(version: 20150821143207) do
     t.string   "title"
     t.text     "content"
     t.integer  "category_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -75,6 +81,12 @@ ActiveRecord::Schema.define(version: 20150821143207) do
     t.boolean  "highlight"
     t.integer  "rating"
     t.integer  "raters"
+    t.string   "author"
+    t.text     "about"
+    t.string   "author_image_file_name"
+    t.string   "author_image_content_type"
+    t.integer  "author_image_file_size"
+    t.datetime "author_image_updated_at"
   end
 
   add_index "news", ["category_id"], name: "index_news_on_category_id", using: :btree

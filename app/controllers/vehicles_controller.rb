@@ -7,13 +7,13 @@ class VehiclesController < ApplicationController
       redirect_to vehicles_search_filter_path(search_params)
     end
     @vehicles = Vehicle.where(used: false, vehicle_class: 0)
-    @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
+    @vehicles_paginate = Vehicle.paginate(:page => params[:page], :per_page => 9)
     @page = PageContent.find(params[:id])
   end
 
   def used
     @vehicles = Vehicle.where(used: true, vehicle_class: 0)
-    @vehicles = Vehicle.paginate(:page => params[:page], :per_page => 9)
+    @vehicles_paginate = Vehicle.paginate(:page => params[:page], :per_page => 9)
     search_params = params
     if params.has_key?(:vehicle_class)
       redirect_to vehicles_search_filter_path(search_params)

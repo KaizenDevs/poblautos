@@ -2,12 +2,7 @@
   <h1>Crear nuevo aliado</h1>
   <div class="row">
     <div class="col-md-6">
-      <%= bootstrap_form_for @ally, :url => allies_path , :html => { :multipart => true } do | f | %>
-      <%= f.text_field :name, placeholder: 'Nombre', label: 'Nombre:' %><br/>
-      <%= f.text_field :link, placeholder: 'Link', label: "Link (Que llevará a la página del proveedor):" %><br/>
-      <%= f.file_field :logo, label: 'Logo del proveedor' %>
-      <%= f.submit "Crear aliado", class: "btn btn-primary" %>
-      <% end %>
+      <%= render partial: 'form', locals: { form_submit: "Crear Aliado" } %>
     </div>
   </div>
 </div>

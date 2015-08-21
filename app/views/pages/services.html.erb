@@ -61,7 +61,7 @@
                     <ul class="owl-carousel" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="yes" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="3" data-items-mobile="1">
                       <li class="item">
                         <div class="vehicle-block format-standard">
-                          <a href="https://www.youtube.com/watch?v=P5mvnA4BV7Y" data-rel="prettyPhoto" data-mercury="image" id="page_image2"><img src="<%= @page.image2 %>" alt=""></a>
+                          <a href="https://www.youtube.com/watch?v=<%= Link.find(1).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image2"><img src="<%= @page.image2 %>" alt=""></a>
                           <div class="vehicle-block-content">
                             <span class="label label-primary vehicle-age" data-mercury="full" id="page_content6"><%= @page.content6.html_safe %></span>
                             <h5 class="vehicle-title" data-mercury="full" id="page_content7"><%= @page.content7.html_safe %></h5>
@@ -72,7 +72,7 @@
                       </li>
                       <li class="item">
                         <div class="vehicle-block format-standard">
-                          <a href="https://www.youtube.com/watch?v=P5mvnA4BV7Y" data-rel="prettyPhoto" data-mercury="image" id="page_image3"><img src="<%= @page.image3 %>" alt=""></a>
+                          <a href="https://www.youtube.com/watch?v=<%= Link.find(2).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image3"><img src="<%= @page.image3 %>" alt=""></a>
                           <div class="vehicle-block-content">
                             <span class="label label-primary vehicle-age" data-mercury="full" id="page_content10"><%= @page.content10.html_safe %></span>
                             <h5 class="vehicle-title" data-mercury="full" id="page_content11"><%= @page.content11.html_safe %></h5>
@@ -83,7 +83,7 @@
                       </li>
                       <li class="item">
                         <div class="vehicle-block format-standard">
-                          <a href="#" class="media-box" data-mercury="image" id="page_image4"><img src="<%= @page.image4 %>" alt=""></a>
+                          <a href="https://www.youtube.com/watch?v=<%= Link.find(3).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image4"><img src="<%= @page.image4 %>" alt=""></a>
                           <div class="vehicle-block-content">
                             <span class="label label-default vehicle-age" data-mercury="full" id="page_content14"><%= @page.content14.html_safe %></span>
                             <h5 class="vehicle-title" data-mercury="full" id="page_content15"><%= @page.content15.html_safe %></h5>
@@ -214,5 +214,15 @@
 
       </div>
 
-
     </div>
+
+<style>
+  div.pp_default .pp_content, div.light_rounded .pp_content{
+    background:#000;
+  }
+  .pp_content{
+    background:#000000;
+    height:320px !important;
+    /*padding-top:20px;*/
+  }
+</style>

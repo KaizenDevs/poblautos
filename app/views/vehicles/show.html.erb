@@ -21,14 +21,11 @@
         </ol>
       </div>
       <div class="col-md-4 col-sm-6 col-xs-4">
-        <span class="share-text"><i class="icon-share"></i> Share this</span>
         <ul class="utility-icons social-icons social-icons-colored">
-          <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li class="googleplus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-          <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-          <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
-          <li class="delicious"><a href="#"><i class="fa fa-delicious"></i></a></li>
+          <li class="facebook"><a href="https://www.facebook.com/poblautos.manejatupasion?fref=ts" TARGET="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li class="twitter"><a href="https://twitter.com/poblautos" TARGET="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li class="instagram"><a href="https://instagram.com/poblautos/" TARGET="_blank"><i class="fa fa-instagram"></i></a></li>
+          <li class="youtube"><a href="https://www.youtube.com/channel/UC6ueq_kKTQDggWTjFeHUiJQ" TARGET="_blank"><i class="fa fa-youtube"></i></a></li>
         </ul>
       </div>
     </div>
@@ -55,12 +52,12 @@
           <div class="col-md-8">
             <div class="single-listing-images">
               <div class="featured-image format-image">
-                <a href="http://placehold.it/890x600&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(@vehicle.vehicle_images.first.image.url, class: "main-vehicle", width: "700") %></a>
+                <a href="http://placehold.it/890x600&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(@vehicle.vehicle_images.first.image.url(:main), class: "main-vehicle", width: "700") %></a>
               </div>
               <div class="additional-images">
                 <ul class="owl-carousel" data-columns="4" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
                   <% @vehicle.vehicle_images.each do |vehicle_image| %>
-                  <li class="item format-image"> <a href="<%= vehicle_image.image.url %>" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(vehicle_image.image.url) %></a></li>
+                  <li class="item format-image"> <a href="<%= vehicle_image.image.url %>" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(vehicle_image.image.url(:show)) %></a></li>
                   <% end %>
                 </ul>
               </div>

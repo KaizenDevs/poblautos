@@ -29,10 +29,10 @@
 <!-- Start Body Content -->
 <div class="main" role="main">
   <div id="content" class="content full">
-    <div class="container">      
+    <div class="container">
       <div class="row">
         <div class="col-md-9 posts-archive">
-          
+
           <% @news.each do |news| %>
             <article class="post format-standard">
               <div class="row">
@@ -53,14 +53,10 @@
         <div class="col-md-3 sidebar">
           <div class="widget sidebar-widget search-form-widget">
             <div class="input-group input-group-lg">
-              <input type="text" class="form-control" placeholder="Search Posts...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="fa fa-search fa-lg"></i></button>
-              </span>
             </div>
           </div>
           <div class="widget sidebar-widget widget_categories">
-            <h3 class="widgettitle">Post Categories</h3>
+            <h3 class="widgettitle">Categorías</h3>
             <ul>
               <% @categories.each do |category| %>
               <li><%= link_to category.name, pages_news_path(category_id: category.id) %> (<%= category.news.count %>)</li>
@@ -68,7 +64,7 @@
             </ul>
           </div>
           <div class="widget sidebar-widget widget_recent_reviews">
-            <h3 class="widgettitle">Latest Reviews</h3>
+            <h3 class="widgettitle">Mejor Calificados</h3>
             <% @most_voted.each do |news| %>
               <div class="post-block post-review-block">
                 <div class="review-status">

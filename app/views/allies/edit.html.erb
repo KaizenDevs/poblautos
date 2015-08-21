@@ -1,12 +1,8 @@
-<div style="margin:10em auto 6em auto;" class="container">
+<div style="margin-top: 150px; margin-bottom: 100px" class="container">
+  <h1>Editar aliado</h1>
   <div class="row">
-
-    <%= form_for @ally do | f | %>
-    <%= f.text_field :name, placeholder: 'Nombre' %><br/>
-    <%= f.text_field :link, placeholder: 'Link' %><br/>
-    <%= f.label :logo %>
-    <%= f.file_field :logo %>
-    <%= f.submit "Actualizar aliado", class: "btn btn-primary" %>
-    <% end %>
+    <div class="col-md-6">
+      <%= render partial: 'form', locals: { form_submit: "Editar Aliado" } %>
+    </div>
   </div>
 </div>

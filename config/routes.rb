@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'links/index'
+
+  get 'links/edit'
+
   mount Mercury::Engine => '/'
 
   namespace :mercury do
@@ -37,6 +41,7 @@ Rails.application.routes.draw do
   put '/pages/news', to: 'page_contents#save_page', id: '9'
   put '/pages/contact', to: 'page_contents#save_page', id: '10'
 
+  resources :links, only: [:index, :edit , :update]
   resources :allies, :except => [:show]
   resources :procedures
   resources :opinions
