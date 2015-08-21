@@ -1,0 +1,25 @@
+<%#= render 'shared/bootstrap_table' %>
+<div style="height: 150px"></div>
+<div class="container">
+  <h1>Listado Slides</h1>
+
+  <table class="table" style="overflow: scroll;">
+    <tr class="success">
+      <th class="text-center lead lead-lg">URL</th>
+      <th class="text-center lead lead-lg">Opciones</th>
+    </tr>
+    <tbody>
+      <% @links.each do |link| %>
+      <tr class="text-center">
+        <td>
+          <iframe width="300" height="220" src="https://www.youtube.com/embed/<%= link.url %>" frameborder="0" allowfullscreen></iframe>
+        </td>
+        <td class="lead lead-sm vert-align text-center" style="width: 15%">
+          <%= link_to "Editar #{link.id}", edit_link_path(link), class: "btn btn-ar btn-warning", title: "Editar Imagen" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div style="height: 150px"></div>
