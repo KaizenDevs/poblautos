@@ -1,65 +1,70 @@
 <footer class="site-footer">
-        <div class="site-footer-top">
-          <div class="container">
-                <div class="row">
-                  <div class="col-md-3 col-sm-6 footer_widget widget widget_newsletter">
-                      <h4 class="widgettitle">Nuestro boletín</h4>
-                        <form>
-                          <input type="text" class="form-control" placeholder="Nombre">
-                          <input type="email" class="form-control" placeholder="Email">
-                          <input type="submit" class="btn btn-primary btn-lg" value="SUBSCRIBIRSE">
-                        </form>
-                    </div>
-                  <div class="col-md-2 col-sm-6 footer_widget widget widget_custom_menu widget_links">
-                      <h4 class="widgettitle">Links</h4>
-                        <ul>
-                          <li><a href="<%= vehicles_new_vehicles_path %>">Carros a la venta </a></li>
-                          <li><a href="<%= motorcycles_new_motorcycles_path %>">Motos a la venta</a></li>
-                          <li><a data-toggle="modal" data-target="#procedures">Seguros</a></li>
-                          <li><a href="<%= pages_services_path %>">Servicio Técnico</a></li>
-                        </ul>
-                    </div>
-                  <div class="col-md-2 col-sm-6 footer_widget widget widget_custom_menu widget_links">
-                      <h4 class="widgettitle">Asesoría</h4>
-                        <ul>
-                          <li><a href="<%= vehicles_new_vehicles_path %>">Nuevos</a></li>
-                          <li><a href="<%= vehicles_used_path %>">Usados</a></li>
-                          <li><a href="<%= pages_services_path %>">Comercial</a></li>
-                          <li><a href="<%= pages_contact_path %>">Contáctenos</a></li>
-                        </ul>
-                    </div>
-                  <div class="col-md-5 col-sm-6 footer_widget widget text_widget">
-                      <h4 class="widgettitle">Somos También</h4>
-                        <div class="row">
-                            <div class="thumbnail">
-                              <%= image_tag("logo_blin.png", width: "123", height: "64", alt: "poblautos-medellín") %>
-                              <div class="caption text-center">
-                                <p><a href="http://www.blintech.com.co" target="_blank" class="btn btn_walloom" role="button">Conózcanos</a></p>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-      </div>
-        <div class="site-footer-bottom">
-          <div class="container">
-                <div class="row">
-                  <div class="col-md-6 col-sm-6 copyrights-left">
-                      <p>&copy; 2015 Poblautos. Todos los derechos reservados </p>
-                    </div>
-                    <div class="col-md-6 col-sm-6 copyrights-right">
-                        <ul class="social-icons social-icons-colored pull-right">
-                            <li class="facebook"><a href="https://www.facebook.com/poblautos.manejatupasion?fref=ts" TARGET="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="twitter"><a href="https://twitter.com/poblautos" TARGET="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="instagram"><a href="https://instagram.com/poblautos/" TARGET="_blank"><i class="fa fa-instagram"></i></a></li>
-                            <li class="youtube"><a href="https://www.youtube.com/channel/UC6ueq_kKTQDggWTjFeHUiJQ" TARGET="_blank"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="text-center">
-                        <p>Diseño y desarrollo por:  <a href="http://www.walloom.com" target="_blank"> <span class="accent-color"> WALLOOM </a> </span></p>
-                 </div>
-            </div>
+  <div class="site-footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 footer_widget widget widget_newsletter">
+          <h4 class="widgettitle">Nuestro boletín</h4>
+          <%= form_for Contact.new do |contact| %>
+            <%= contact.text_field :name, class: 'form-control', placeholder: 'Nombre' %>
+            <%= contact.text_field :email, class: 'form-control', placeholder: 'Email' %>
+            <%= contact.submit "SUBSCRIBIRSE", class: 'btn btn-primary btn-lg' %>
+          <% end %>
+         <!--  <form>
+            <input type="text" class="form-control" placeholder="Nombre">
+            <input type="email" class="form-control" placeholder="Email">
+            <input type="submit" class="btn btn-primary btn-lg" value="SUBSCRIBIRSE">
+          </form> -->
         </div>
-    </footer>
+        <div class="col-md-2 col-sm-6 footer_widget widget widget_custom_menu widget_links">
+          <h4 class="widgettitle">Links</h4>
+          <ul>
+            <li><a href="<%= vehicles_new_vehicles_path %>">Carros a la venta </a></li>
+            <li><a href="<%= motorcycles_new_motorcycles_path %>">Motos a la venta</a></li>
+            <li><a data-toggle="modal" data-target="#procedures">Seguros</a></li>
+            <li><a href="<%= pages_services_path %>">Servicio Técnico</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 col-sm-6 footer_widget widget widget_custom_menu widget_links">
+          <h4 class="widgettitle">Asesoría</h4>
+          <ul>
+            <li><a href="<%= vehicles_new_vehicles_path %>">Nuevos</a></li>
+            <li><a href="<%= vehicles_used_path %>">Usados</a></li>
+            <li><a href="<%= pages_services_path %>">Comercial</a></li>
+            <li><a href="<%= pages_contact_path %>">Contáctenos</a></li>
+          </ul>
+        </div>
+        <div class="col-md-5 col-sm-6 footer_widget widget text_widget">
+          <h4 class="widgettitle">Somos También</h4>
+          <div class="row">
+            <div class="thumbnail">
+              <%= image_tag("logo_blin.png", width: "123", height: "64", alt: "poblautos-medellín") %>
+              <div class="caption text-center">
+                <p><a href="http://www.blintech.com.co" target="_blank" class="btn btn_walloom" role="button">Conózcanos</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 copyrights-left">
+          <p>&copy; 2015 Poblautos. Todos los derechos reservados </p>
+        </div>
+        <div class="col-md-6 col-sm-6 copyrights-right">
+          <ul class="social-icons social-icons-colored pull-right">
+            <li class="facebook"><a href="https://www.facebook.com/poblautos.manejatupasion?fref=ts" TARGET="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li class="twitter"><a href="https://twitter.com/poblautos" TARGET="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li class="instagram"><a href="https://instagram.com/poblautos/" TARGET="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li class="youtube"><a href="https://www.youtube.com/channel/UC6ueq_kKTQDggWTjFeHUiJQ" TARGET="_blank"><i class="fa fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center">
+        <p>Diseño y desarrollo por:  <a href="http://www.walloom.com" target="_blank"> <span class="accent-color"> WALLOOM </a> </span></p>
+      </div>
+    </div>
+  </div>
+</footer>
