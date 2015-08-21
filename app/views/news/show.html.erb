@@ -10,8 +10,8 @@
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-8">
         <ol class="breadcrumb">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
+          <li><a href="<%= root_path %>">Home</a></li>
+          <li><a href="<%= pages_news_path %>">Blog</a></li>
           <li class="active"><%= @news.title %></li>
         </ol>
       </div>
@@ -51,10 +51,18 @@
             </div>
             <!-- Pagination -->
             <ul class="pager">
-              <li class="pull-left"><a href="#">&larr; Prev Post</a></li>
-              <li class="pull-right"><a href="#">Next Post &rarr;</a></li>
+              <li class="pull-left"><a href="#">&larr; Anterior Noticia</a></li>
+              <li class="pull-right"><a href="#">Siguiente Noticia &rarr;</a></li>
             </ul>
+        <section class="about-author">
+            <div class="img-thumbnail"> <%= image_tag(@news.author_image.url(:thumb)) %> </div>
+            <div class="post-author-content">
+                <h3><%= @news.author %> <span class="label label-success">Autor</span></h3>
+              <p><%= @news.about %></p>
+            </div>
+        </section>
         </div>
+        <!-- About Author -->
         <!-- Start Sidebar -->
         <div class="col-md-3 sidebar">
           <div class="widget sidebar-widget widget_recent_posts">
