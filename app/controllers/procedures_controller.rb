@@ -1,4 +1,5 @@
 class ProceduresController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @procedures = Procedure.all

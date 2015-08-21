@@ -7,7 +7,7 @@
 
 <div class="page-header parallax" style="background-image:url(<%= asset_path(@vehicle.vehicle_images.first.image) %>); margin-top: 150px">
   <div class="container">
-    <h1 class="page-title">Vehicle Details</h1>
+    <h1 class="page-title">Detalles del Vehículo</h1>
   </div>
 </div>
 <!-- Utiity Bar -->
@@ -60,7 +60,7 @@
               <div class="additional-images">
                 <ul class="owl-carousel" data-columns="4" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
                   <% @vehicle.vehicle_images.each do |vehicle_image| %>
-                    <li class="item format-image"> <a href="<%= vehicle_image.image.url %>" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(vehicle_image.image.url) %></a></li>
+                  <li class="item format-image"> <a href="<%= vehicle_image.image.url %>" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(vehicle_image.image.url) %></a></li>
                   <% end %>
                 </ul>
               </div>
@@ -83,9 +83,131 @@
         </div>
         <div class="spacer-50"></div>
       </article>
-      <div class="clearfix"></div>
+      <div class="spacer-50"></div>
+      <div class="row">
+        <div class="col-md-8">
+         <div class="tabs vehicle-details-tabs">
+           <ul class="nav nav-tabs">
+             <li class="active"> <a data-toggle="tab" href="#vehicle-overview">Descripción</a></li>
+             <li> <a data-toggle="tab" href="#vehicle-specs">Especificaciones</a></li>
+             <li> <a data-toggle="tab" href="#vehicle-add-features">Extras</a></li>
+           </ul>
+           <div class="tab-content">
+             <div id="vehicle-overview" class="tab-pane fade in active">
+               <p><%= @vehicle.description %></p>
+             </div>
+             <div id="vehicle-specs" class="tab-pane fade">
+               <div class="accordion" id="toggleArea">
+                <div class="accordion-group panel">
+                  <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseOne"> Características Internas <i class="fa fa-plus-circle"></i> <i class="fa fa-minus-circle"></i> </a> </div>
+                  <div id="collapseOne" class="accordion-body collapse">
+                    <div class="accordion-inner">
+                      <table class="table-specifications table table-striped table-hover">
+                       <tbody>
+                        <% @vehicle.internal_features.split(",").each do |item| %>
+                          <tr>
+                            <td><%= item %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group panel">
+                <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseTwo"> Características Externas <i class="fa fa-plus-circle"></i> <i class="fa fa-minus-circle"></i> </a> </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <table class="table-specifications table table-striped table-hover">
+                     <tbody>
+                      <% @vehicle.external_features.split(",").each do |item| %>
+                        <tr>
+                          <td><%= item %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group panel">
+              <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseThird"> Características de Seguridad <i class="fa fa-plus-circle"></i> <i class="fa fa-minus-circle"></i> </a> </div>
+              <div id="collapseThird" class="accordion-body collapse">
+                <div class="accordion-inner">
+                  <table class="table-specifications table table-striped table-hover">
+                    <tbody>
+                      <% @vehicle.external_features.split(",").each do |item| %>
+                        <tr>
+                          <td><%= item %></td>
+                        </tr>
+                      <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+      </div>
+      <!-- End Toggle -->
     </div>
-  </div>
+    <div id="vehicle-add-features" class="tab-pane fade">
+      <ul class="add-features-list">
+        <% @vehicle.extras.split(",").each do |item| %>
+          <li><%= item %></li>
+        <% end %>
+      </ul>
+    </div>
+ </div>
+</div>
+<div class="spacer-50"></div>
+<!-- Recently Listed Vehicles -->
+<section class="listing-block recent-vehicles">
+ <div class="listing-header">
+   <h3>Otros Vehículos</h3>
+ </div>
+ <div class="listing-container">
+   <div class="carousel-wrapper">
+     <div class="row">
+       <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+        <% @vehicles.each do |vehicle| %>
+          <li class="item">
+          <div class="vehicle-block format-standard">
+            <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:home)) %></a>
+            <div class="vehicle-block-content">
+              <span class="label label-default vehicle-age"><%= vehicle.year %></span>
+              <% if vehicle.used? %>
+                <span class="label label-success premium-listing">Usado</span>
+              <% else %>
+                <span class="label label-success premium-listing">Nuevo</span>
+              <% end %>
+              <h5 class="vehicle-title"><a href="<%= vehicle_url(vehicle) %>"><%= vehicle.name %></a></h5>
+              <span class="vehicle-meta">Mercedes, <%= vehicle.color %>. </span>
+              <a href="<%= vehicle_url(vehicle) %>" class="vehicle-body-type">
+              <% if vehicle.vehicle_type == "camioneta" %>
+                <%= image_tag("body-types/suv.png", width: "30") %>
+              <% elsif vehicle.vehicle_type == "sedan" %>
+                <%= image_tag("body-types/sedan.png", width: "30") %>
+              <% elsif vehicle.vehicle_type == "coupe" %>
+                <%= image_tag("body-types/coupe.png", width: "30") %>
+              <% elsif vehicle.vehicle_type == "convertible" %>
+                <%= image_tag("body-types/convertible.png", width: "30") %>
+              <% else %>
+
+              <% end %>
+              </a>
+              <span class="vehicle-cost">$<%= vehicle.price %></span>
+            </div>
+          </div>
+        </li>
+        <% end %>
+       </ul>
+     </div>
+   </div>
+ </div>
+</section>
+</div>
+<div class="clearfix"></div>
+</div>
+</div>
 </div>
 
 <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>

@@ -1,4 +1,5 @@
 class VehiclesController < ApplicationController
+  before_action :authenticate_user!, except: [:new_vehicles, :used, :search_filter, :show]
 
   def new_vehicles
     search_params = params
@@ -25,7 +26,7 @@ class VehiclesController < ApplicationController
     puts params
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
-    search_params = {brand: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
+    search_params = {brand_id: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
 
     if params["max-year"] != "Todos" && params["min-year"] == "Todos"
       search_params[:year] = -Float::INFINITY..params["max-year"].to_i
@@ -77,6 +78,7 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @vehicles = Vehicle.last(10)
   end
 
   def new
@@ -122,6 +124,6 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :license_plate_city, :comments, :air_conditioning, :shield, :image, :brand_id, :vehicle_class, vehicle_images_attributes: [:id, :vehicle_id, :image, :done, :_destroy])
+    params.require(:vehicle).permit(:name, :year, :state, :price, :transmission, :gas, :vehicle_model, :engine, :mileage, :upholstery, :vehicle_type, :used, :video, :color, :license_plate, :license_plate_city, :comments, :air_conditioning, :shield, :image, :brand_id, :vehicle_class, :description, :internal_features, :external_features, :safety_features, :extras, vehicle_images_attributes: [:id, :vehicle_id, :image, :done, :_destroy])
   end
 end

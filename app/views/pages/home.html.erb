@@ -1,24 +1,3 @@
-<!-- <!DOCTYPE HTML> -->
-<!-- <html class="no-js">
-  <head> -->
-<!-- Basic Page Needs
-  ================================================== -->
-<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content=""> -->
-<!-- Mobile Specific Metas
-  ================================================== -->
-  <!-- <meta name="format-detection" content="telephone=no"> -->
-<!-- CSS
-  ================================================== -->
-
-  <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
-  <!-- <link href="css/custom.css" rel="stylesheet" type="text/css"> --><!-- CUSTOM STYLESHEET FOR STYLING -->
-  <!-- Color Style -->
-<!-- SCRIPTS
-  ================================================== -->
-  <!-- </head> -->
 
   <style>
     .avatar {
@@ -27,9 +6,6 @@
 
   </style>
   <body class="home">
-<!--[if lt IE 7]>
-  <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-  <![endif]-->
   <div class="body">
     <div class="hero-area">
       <!-- START REVOLUTION SLIDER 4.5.0 fullwidth mode -->
@@ -228,14 +204,14 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
     <div class="container">
       <div class="row">
         <ul class="owl-carousel carousel-alt" data-columns="6" data-autoplay="" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="6" data-items-desktop-small="4" data-items-mobile="3" data-items-tablet="4">
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/wagon.png" alt=""> <span>Wagon</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/minivan.png" alt=""> <span>Minivan</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/coupe.png" alt=""> <span>Coupe</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/convertible.png" alt=""> <span>Convertible</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/crossover.png" alt=""> <span>Crossover</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/suv.png" alt=""> <span>SUV</span></a></li>
-          <li class="item"> <a href="results-list.html#"><img src="images/body-types/minicar.png" alt=""> <span>Minicar</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/sedan.png" alt=""> <span>Sedan</span></a></li>
+          <% Vehicle.all.uniq.pluck(:brand_id).each do |brand| %>
+            <li class="item">
+              <%= link_to vehicles_search_filter_path(brand_id: brand) do %>
+              <%= image_tag Brand.find(brand).image.url(:nav_bar), width: '89px' %>
+              <span><%= Brand.find(brand).name %></span>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -267,7 +243,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                     <% @vehicles.each do |vehicle| %>
                       <li class="item">
                       <div class="vehicle-block format-standard">
-                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url, width: "600", height: "400") %></a>
+                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:home)) %></a>
                         <div class="vehicle-block-content">
                           <span class="label label-default vehicle-age"><%= vehicle.year %></span>
                           <% if vehicle.used? %>
@@ -306,7 +282,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
             <div class="col-md-8 col-sm-6">
               <section class="listing-block latest-news">
                 <div class="listing-header">
-                  <a href="blog.php" class="btn btn-sm btn-default pull-right">Todas las noticias</a>
+                  <a href="<%= pages_news_path %>" class="btn btn-sm btn-default pull-right">Todas las noticias</a>
                   <h3>Noticias Destacadas</h3>
                 </div>
                 <div class="listing-container">
@@ -316,10 +292,9 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                         <% @news.each do |news| %>
                           <li class="item">
                             <div class="post-block format-standard">
-                              <a href="blog.php" class="media-box post-image"><%= image_tag(news.image.url(:normal)) %></a>
+                              <a href="blog.php" class="media-box post-image"><%= image_tag(news.image.url(:home)) %></a>
                               <div class="post-actions">
                                 <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
-                                <div class="comment-count"><a href="single-post.html"><i class="icon-dialogue-text"></i> 12</a></div>
                               </div>
                               <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
                               <div class="post-content">
@@ -419,7 +394,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                 <div class="row">
                   <ul class="owl-carousel" id="make-carousel" data-columns="5" data-autoplay="6000" data-pagination="no" data-arrows="no" data-single-item="no" data-items-desktop="5" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
                     <% @allies.each do |ally| %>
-                    <li class="item"><a target="_blank" href="<%= ally.link %>"><%= image_tag ally.logo.url, alt: "#{ally.name}", width: '100px' %></a></li>
+                    <li class="item"><a target="_blank" href="<%= ally.link %>"><%= image_tag ally.logo.url(:thumb), alt: "#{ally.name}" %></a></li>
                     <% end %>
                   </ul>
                 </div>

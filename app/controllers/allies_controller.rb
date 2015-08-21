@@ -1,4 +1,6 @@
 class AlliesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @allies = Ally.all
   end

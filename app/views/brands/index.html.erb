@@ -7,13 +7,15 @@
   <table class="table">
     <tr>
       <th>Marca</th>
+      <th>Imagen</th>
       <th colspan="2"></th>
     </tr>
     <% @brands.each do |brand| %>
       <tr>
         <td><%= brand.name %></td>
+        <td><%= image_tag(brand.image.url(:thumb), width: '50px') %></td>
         <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_brand_path(brand) %></td>
-        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, brand_path(brand), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar esta categoría? Recuerda que si lo haces cualquier noticia asociada a esta será eliminada' } %></td>
+        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, brand_path(brand), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar esta categoría? Recuerda que si lo haces cualquier automovil asociada a esta será eliminada' } %></td>
       </tr>
     <% end %>
   </table>
