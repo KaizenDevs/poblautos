@@ -204,14 +204,14 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
     <div class="container">
       <div class="row">
         <ul class="owl-carousel carousel-alt" data-columns="6" data-autoplay="" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="6" data-items-desktop-small="4" data-items-mobile="3" data-items-tablet="4">
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/wagon.png" alt=""> <span>Wagon</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/minivan.png" alt=""> <span>Minivan</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/coupe.png" alt=""> <span>Coupe</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/convertible.png" alt=""> <span>Convertible</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/crossover.png" alt=""> <span>Crossover</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/suv.png" alt=""> <span>SUV</span></a></li>
-          <li class="item"> <a href="results-list.html#"><img src="images/body-types/minicar.png" alt=""> <span>Minicar</span></a></li>
-          <li class="item"> <a href="results-list.html"><img src="images/body-types/sedan.png" alt=""> <span>Sedan</span></a></li>
+          <% Vehicle.all.uniq.pluck(:brand_id).each do |brand| %>
+            <li class="item">
+              <%= link_to vehicles_search_filter_path(brand_id: brand) do %>
+              <%= image_tag Brand.find(brand).image.url(:nav_bar), width: '89px' %>
+              <span><%= Brand.find(brand).name %></span>
+              <% end %>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
