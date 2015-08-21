@@ -39,24 +39,24 @@
                     <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                     <ul class="make-widget">
                       <% Vehicle.where(vehicle_class: 0, used: false).uniq.pluck(:brand_id).each do |brand| %>
-                        <li class="item"> <%= link_to vehicles_search_filter_path(brand_id: brand, vehicle_class: 0, used: false) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                        <li class="item"> <%= link_to vehicles_search_filter_path(brand_id: brand, vehicle_class: 0, used: false) do %><%= image_tag(Brand.find(brand).image.url(:nav_bar), class: "vehicle-image", width: '60px') %>
                           <% end %>
                         </li>
                       <% end %>
                     </ul>
-                    <%= link_to "Ver Todo", vehicles_new_vehicles_path %>
+                    <%= link_to "Ver Todo", vehicles_new_vehicles_path, class: 'basic-link' %>
                   </div>
 
                   <div class="mm-col col-md-5">
                    <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                    <ul class="make-widget">
                     <% Vehicle.where(vehicle_class: 0, used: true).uniq.pluck(:brand_id).each do |brand| %>
-                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url(:nav_bar), class: "vehicle-image", width: '60px') %>
                         <% end %>
                       </li>
                     <% end %>
                   </ul>
-                  <%= link_to "Ver Todo", vehicles_used_path %>
+                  <%= link_to "Ver Todo", vehicles_used_path, class: 'basic-link' %>
                 </div>
               </div>
             </div>
@@ -82,24 +82,24 @@
                   <span class="megamenu-sub-title"><span class="accent-color"><strong>NUEVOS</strong></span></span>
                   <ul class="make-widget">
                     <% Vehicle.where(vehicle_class: 1, used: false).uniq.pluck(:brand_id).each do |brand| %>
-                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: false) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: false) do %><%= image_tag(Brand.find(brand).image.url(:nav_bar), class: "vehicle-image") %>
                         <% end %>
                       </li>
                     <% end %>
                   </ul>
-                  <%= link_to "Ver Todo", motorcycles_new_motorcycles_path %>
+                  <%= link_to "Ver Todo".html_safe, motorcycles_new_motorcycles_path, class: 'basic-link' %>
                 </div>
 
                 <div class="mm-col col-md-5">
                  <span class="megamenu-sub-title"><span class="accent-color"><strong>USADOS</strong></span></span>
                  <ul class="make-widget">
                   <% Vehicle.where(vehicle_class: 1, used: true).uniq.pluck(:brand_id).each do |brand| %>
-                    <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url, class: "vehicle-image", width: "100") %>
+                    <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url(:nav_bar), class: "vehicle-image") %>
                       <% end %>
                     </li>
                   <% end %>
                 </ul>
-                <%= link_to "Ver Todo", motorcycles_used_path  %>
+                <%= link_to "Ver Todo", motorcycles_used_path, class: 'basic-link'  %>
               </div>
             </div>
           </div>
