@@ -1,0 +1,36 @@
+<h1>Links#edit</h1>
+<p>Find me in app/views/links/edit.html.erb</p>
+
+<style>
+  label {
+    display: block;
+  }
+  select {
+    height: 30px;
+  }
+</style>
+
+<div style="height: 150px; margin-top:100px;"></div>
+<div class="container">
+  <h1 style="display:inline-block;">Editar link |</h1>
+  <%= link_to "Volver", :back %>
+  <div>
+    <iframe width="300" height="220" src="https://www.youtube.com/embed/<%= @link.url %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <%= form_for(@link) do |link| %>
+
+  <p class="small">Recuerda, solo la el código al final de laurl del link de youtube, ej: en https://www.youtube.com/watch?v=qVFOC9_T8Pw solo el <strong>qVFOC9_T8Pw</strong></p>
+  <br>
+  <div class="field form-group">
+    <%= link.label :url, "URL del video:", class: "lead lead-lg" %>
+    <%= link.text_field :url, class: "form-control" %>
+  </div>
+
+
+  <div class="actions form-group text-center">
+    <%= link.submit "Guardar Link", class: "btn btn-ar btn-lg btn-success" %>
+  </div>
+</div>
+<% end %>
+</div>
+<div style="height: 150px"></div>
