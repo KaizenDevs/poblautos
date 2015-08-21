@@ -6,7 +6,7 @@
           <h4 class="widgettitle">Nuestro boletín</h4>
           <%= form_for Contact.new do |contact| %>
             <%= contact.text_field :name, class: 'form-control', placeholder: 'Nombre' %>
-            <%= contact.text_field :email, class: 'form-control', placeholder: 'Email' %>
+            <%= contact.email_field :email, class: 'form-control', placeholder: 'Email' %>
             <%= contact.submit "SUBSCRIBIRSE", class: 'btn btn-primary btn-lg' %>
           <% end %>
          <!--  <form>

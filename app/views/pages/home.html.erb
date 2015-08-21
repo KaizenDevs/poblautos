@@ -371,7 +371,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
               <section class="connect-with-us widget-block">
                 <h4><i class="fa fa-rss"></i> Conéctese con nosotros</h4>
                   <%= form_for @contact do |contact| %>
-                    <%= contact.text_field :email, required: true, class: "form-control", placeholder:"Subscribirse" %>
+                    <%= contact.email_field :email, required: true, class: "form-control", placeholder:"Subscribirse" %>
                     <button type="submit" class="btn btn-sm btn-primary"></button>
                     <span class="meta-data">Subscríbase </span>
                   <% end %>
