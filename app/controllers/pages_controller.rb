@@ -8,6 +8,7 @@ class PagesController < ApplicationController
     @most_voted = News.order(:rating).reverse
     @page = PageContent.find(params[:id])
     @allies = Ally.all
+    @contact = Contact.new
     search_params = params
     if params.has_key?(:brand)
       redirect_to vehicles_search_filter_path(search_params)

@@ -1,11 +1,15 @@
 class ContactsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create, :show]
+
+  def show
+    @contact = Contact.find(params[:id])
+  end
 
 	def create
 		@contact = Contact.new(contact_params)
 		if @contact.save
   	  # flash[:notice] = "La categoria #{@contact.name} fue creada con exito"
-  	  redirect_to root_path
+  	  redirect_to @contact
   	else
   		# flash[:alert] = "Ha ocurrido un error y la categoria #{@contact.name}, no ha sido almacenado"
     	render :action => 'new'
