@@ -1,0 +1,10 @@
+<%= bootstrap_form_for @ally, :html => { :multipart => true } do |f| %>
+  <%= f.text_field :name, placeholder: 'Nombre', label: 'Nombre:' %><br/>
+  <%= f.text_field :link, placeholder: 'Link', label: "Link (Que llevará a la página del proveedor):" %><br/>
+  <%= f.file_field :logo, label: 'Logo del proveedor' %>
+  <%= f.submit form_submit, class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to allies_path do %>
+  <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>

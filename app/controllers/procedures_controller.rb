@@ -1,5 +1,5 @@
 class ProceduresController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:create, :show]
 
   def index
     @procedures = Procedure.all
