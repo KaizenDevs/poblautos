@@ -51,8 +51,8 @@
             </div>
             <!-- Pagination -->
             <ul class="pager">
-              <li class="pull-left"><a href="#">&larr; Anterior Noticia</a></li>
-              <li class="pull-right"><a href="#">Siguiente Noticia &rarr;</a></li>
+              <li class="pull-left"><%= link_to("Anterior Noticia", @news.previous) if @news.previous %></li>
+              <li class="pull-right"><%= link_to("Anterior Noticia", @news.next) if @news.next %></li>
             </ul>
         <section class="about-author">
             <div class="img-thumbnail"> <%= image_tag(@news.author_image.url(:thumb)) %> </div>
