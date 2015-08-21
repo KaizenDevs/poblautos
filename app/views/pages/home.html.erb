@@ -370,12 +370,11 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
               <!-- Connect with us -->
               <section class="connect-with-us widget-block">
                 <h4><i class="fa fa-rss"></i> Conéctese con nosotros</h4>
-                <form role="form">
-                  <label for="NewsletterInput" class="sr-only">Email</label>
-                  <input type="email" class="form-control" id="NewsletterInput" placeholder="Subscribirse">
-                  <button type="submit" class="btn btn-sm btn-primary"></button>
-                  <span class="meta-data">Subscríbase </span>
-                </form>
+                  <%= form_for @contact do |contact| %>
+                    <%= contact.text_field :email, required: true, class: "form-control", placeholder:"Subscribirse" %>
+                    <button type="submit" class="btn btn-sm btn-primary"></button>
+                    <span class="meta-data">Subscríbase </span>
+                  <% end %>
                 <hr>
                 <h4><i class="fa fa-twitter"></i> Síguenos en Twitter</h4>
                 <a class="btn btn-sm btn-primary" href="https://twitter.com/poblautos" TARGET="_blank">@poblautos</a>
