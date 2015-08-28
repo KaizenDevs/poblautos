@@ -12,7 +12,8 @@ class LinksController < ApplicationController
   end
 
   def index
-    @links = Link.all.order("id ASC")
+    @services_links = Link.where(page_type: 0).order("id ASC")
+    @company_links = Link.where(page_type: 1).order("id ASC")
   end
 
   private

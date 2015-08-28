@@ -23,6 +23,9 @@ class VehiclesController < ApplicationController
 
   def search_filter
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "I enter here!!!!"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts params
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
