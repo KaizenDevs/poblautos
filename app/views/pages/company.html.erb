@@ -44,7 +44,7 @@
                 <div class="col-sm-6 col-md-4">
                   <div class="thumbnail">
                     <div data-mercury="image" id="page_image1">
-                      <a href="#"><img src="<%= @page.image1 %>" alt="..."> </a>
+                      <a href="<%= Link.find(4).url %>" target="_blank"><img src="<%= @page.image1 %>" alt="..."> </a>
                     </div>
                     <div class="caption">
                       <p class="text-center accent-color" data-mercury="full" id="page_content1"><%= @page.content1.html_safe %></p>
@@ -55,7 +55,7 @@
 
                 <div class="col-sm-6 col-md-4">
                   <div class="thumbnail" data-mercury="image" id="page_image2">
-                    <a href="#"><img src="<%= @page.image2 %>" alt="..."> </a>
+                    <a href="<%= Link.find(5).url %>" target="_blank"><img src="<%= @page.image2 %>" alt="..."> </a>
                     <div class="caption">
                       <p class="text-center accent-color" data-mercury="full" id="page_content2"><%= @page.content2.html_safe %></p>
                     </div>
@@ -65,7 +65,7 @@
 
                 <div class="col-sm-6 col-md-4">
                   <div class="thumbnail" data-mercury="image" id="page_image3">
-                    <a href="#"><img src="<%= @page.image3 %>" alt="..."> </a>
+                    <a href="<%= Link.find(6).url %>" target="_blank"><img src="<%= @page.image3 %>" alt="..."> </a>
                     <div class="caption">
                       <p class="text-center accent-color" data-mercury="full" id="page_content3"><%= @page.content3.html_safe %></p>
                     </div>

@@ -47,60 +47,7 @@
         <div class="spacer-60"></div>
       </div>
 
-      <div class="dark-bg parallax parallax1" style="background-image:url(http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER);">
-        <div class="overlay-transparent padding-tb75">
-          <div class="container">
-            <!-- Recently Listed Vehicles -->
-            <section class="listing-block recent-vehicles">
-              <div class="text-align-center">
-                <h3>Nuestro Trabajo</h3>
-              </div>
-              <div class="listing-container">
-                <div class="carousel-wrapper">
-                  <div class="row">
-                    <ul class="owl-carousel" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="yes" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="3" data-items-mobile="1">
-                      <li class="item">
-                        <div class="vehicle-block format-standard">
-                          <a href="https://www.youtube.com/watch?v=<%= Link.find(1).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image2"><img src="<%= @page.image2 %>" alt=""></a>
-                          <div class="vehicle-block-content">
-                            <span class="label label-primary vehicle-age" data-mercury="full" id="page_content6"><%= @page.content6.html_safe %></span>
-                            <h5 class="vehicle-title" data-mercury="full" id="page_content7"><%= @page.content7.html_safe %></h5>
-                            <span class="vehicle-meta" data-mercury="full" id="page_content8"><%= @page.content8.html_safe %></span>
-                            <span class="vehicle-cost" data-mercury="full" id="page_content9"><%= @page.content9.html_safe %></span>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="item">
-                        <div class="vehicle-block format-standard">
-                          <a href="https://www.youtube.com/watch?v=<%= Link.find(2).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image3"><img src="<%= @page.image3 %>" alt=""></a>
-                          <div class="vehicle-block-content">
-                            <span class="label label-primary vehicle-age" data-mercury="full" id="page_content10"><%= @page.content10.html_safe %></span>
-                            <h5 class="vehicle-title" data-mercury="full" id="page_content11"><%= @page.content11.html_safe %></h5>
-                            <span class="vehicle-meta" data-mercury="full" id="page_content12"><%= @page.content12.html_safe %></span>
-                            <span class="vehicle-cost" data-mercury="full" id="page_content13"><%= @page.content13.html_safe %></span>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="item">
-                        <div class="vehicle-block format-standard">
-                          <a href="https://www.youtube.com/watch?v=<%= Link.find(3).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image4"><img src="<%= @page.image4 %>" alt=""></a>
-                          <div class="vehicle-block-content">
-                            <span class="label label-default vehicle-age" data-mercury="full" id="page_content14"><%= @page.content14.html_safe %></span>
-                            <h5 class="vehicle-title" data-mercury="full" id="page_content15"><%= @page.content15.html_safe %></h5>
-                            <span class="vehicle-meta" data-mercury="full" id="page_content16"><%= @page.content16.html_safe %></span>
-                            <span class="vehicle-cost" data-mercury="full" id="page_content17"><%= @page.content17.html_safe %></span>
-                          </div>
-                        </div>
-                      </li>
 
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
 
       <div class="spacer-75"></div>
       <div class="container">
@@ -212,8 +159,62 @@
         </div>
         <div class="spacer-60"></div>
 
-      </div>
 
+      </div>
+      <div class="dark-bg parallax parallax1" style="background-image:url(http://placehold.it/1400x500&amp;text=IMAGE+PLACEHOLDER);">
+        <div class="overlay-transparent padding-tb75">
+          <div class="container">
+            <!-- Recently Listed Vehicles -->
+            <section class="listing-block recent-vehicles">
+              <div class="text-align-center">
+                <h3>Nuestro Trabajo</h3>
+              </div>
+              <div class="listing-container">
+                <div class="carousel-wrapper">
+                  <div class="row">
+                    <ul class="owl-carousel" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="yes" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="3" data-items-mobile="1">
+                      <li class="item">
+                        <div class="vehicle-block format-standard">
+                          <a href="https://www.youtube.com/watch?v=<%= Link.find(1).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image2"><img src="<%= @page.image2 %>" alt=""></a>
+                          <div class="vehicle-block-content">
+                            <span class="label label-primary vehicle-age" data-mercury="full" id="page_content6"><%= @page.content6.html_safe %></span>
+                            <h5 class="vehicle-title" data-mercury="full" id="page_content7"><%= @page.content7.html_safe %></h5>
+                            <span class="vehicle-meta" data-mercury="full" id="page_content8"><%= @page.content8.html_safe %></span>
+                            <span class="vehicle-cost" data-mercury="full" id="page_content9"><%= @page.content9.html_safe %></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="vehicle-block format-standard">
+                          <a href="https://www.youtube.com/watch?v=<%= Link.find(2).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image3"><img src="<%= @page.image3 %>" alt=""></a>
+                          <div class="vehicle-block-content">
+                            <span class="label label-primary vehicle-age" data-mercury="full" id="page_content10"><%= @page.content10.html_safe %></span>
+                            <h5 class="vehicle-title" data-mercury="full" id="page_content11"><%= @page.content11.html_safe %></h5>
+                            <span class="vehicle-meta" data-mercury="full" id="page_content12"><%= @page.content12.html_safe %></span>
+                            <span class="vehicle-cost" data-mercury="full" id="page_content13"><%= @page.content13.html_safe %></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <div class="vehicle-block format-standard">
+                          <a href="https://www.youtube.com/watch?v=<%= Link.find(3).url %>" data-rel="prettyPhoto" data-mercury="image" id="page_image4"><img src="<%= @page.image4 %>" alt=""></a>
+                          <div class="vehicle-block-content">
+                            <span class="label label-default vehicle-age" data-mercury="full" id="page_content14"><%= @page.content14.html_safe %></span>
+                            <h5 class="vehicle-title" data-mercury="full" id="page_content15"><%= @page.content15.html_safe %></h5>
+                            <span class="vehicle-meta" data-mercury="full" id="page_content16"><%= @page.content16.html_safe %></span>
+                            <span class="vehicle-cost" data-mercury="full" id="page_content17"><%= @page.content17.html_safe %></span>
+                          </div>
+                        </div>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </div>
 
 <style>

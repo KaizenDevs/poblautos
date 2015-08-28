@@ -14,13 +14,16 @@
 <div class="container">
   <h1 style="display:inline-block;">Editar link |</h1>
   <%= link_to "Volver", :back %>
-  <div>
-    <iframe width="300" height="220" src="https://www.youtube.com/embed/<%= @link.url %>" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <%= form_for(@link) do |link| %>
-
-  <p class="small">Recuerda, solo la el código al final de laurl del link de youtube, ej: en https://www.youtube.com/watch?v=qVFOC9_T8Pw solo el <strong>qVFOC9_T8Pw</strong></p>
-  <br>
+  <% if @link.page_type == 0 %>
+    <div>
+      <iframe width="300" height="220" src="https://www.youtube.com/embed/<%= @link.url %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <% end %>
+    <%= form_for(@link) do |link| %>
+    <% if @link.page_type == 0 %>
+    <p class="small">Recuerda, solo la el código al final de laurl del link de youtube, ej: en https://www.youtube.com/watch?v=qVFOC9_T8Pw solo el <strong>qVFOC9_T8Pw</strong></p>
+    <br>
+    <% end %>
   <div class="field form-group">
     <%= link.label :url, "URL del video:", class: "lead lead-lg" %>
     <%= link.text_field :url, class: "form-control" %>

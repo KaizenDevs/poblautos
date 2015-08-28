@@ -12,12 +12,15 @@
       </div>
       <div class="topnav dd-menu">
           <ul class="top-navigation sf-menu">
+          <% if user_signed_in? %>
+            <li><%= link_to "Servicios-links", links_path %></li>
+            <li><%= link_to "Contraseña", edit_user_registration_path %></li>
+            <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><a href="<%= vehicles_new_vehicles_path %>"><i class="fa fa-car"></i> Compra Ahora</a></li>
             <li><a data-toggle="modal" data-target="#procedures"><i class="fa fa-folder-open"></i> Trámites</a></li>
-            <% if user_signed_in? %>
-              <li><%= link_to "Servicios-links", links_path %></li>
-              <li><%= link_to "Contraseña", edit_user_registration_path %></li>
-              <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
-            <% end %>
+            <li><a href="<%= pages_contact_path %>"><i class="fa fa-user"></i> Escríbanos</a></li>
+          <% end %>
           </ul>
       </div>
     </div>
