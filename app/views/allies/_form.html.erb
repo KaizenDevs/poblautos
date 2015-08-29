@@ -1,6 +1,5 @@
 <%= bootstrap_form_for @ally, :html => { :multipart => true } do |f| %>
-  <%= f.text_field :name, placeholder: 'Nombre', label: 'Nombre:' %><br/>
-  <%= f.text_field :link, placeholder: 'Link', label: "Link (Que llevará a la página del proveedor):" %><br/>
+  <%= f.text_field :name, placeholder: 'Nombre', label: 'Nombre:' %><br/><br/>
   <%= f.file_field :logo, label: 'Logo del proveedor' %>
   <%= f.submit form_submit, class: "btn btn-primary" %>
 <% end %>

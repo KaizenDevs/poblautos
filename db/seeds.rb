@@ -37,12 +37,15 @@ PageContent.create(id: 6, image: 'http://placehold.it/1200x300&amp;text=IMAGE+PL
 PageContent.create(id: 7, image: 'http://placehold.it/1200x300&amp;text=IMAGE+PLACEHOLDER')
 PageContent.create(id: 8, image: 'http://placehold.it/1200x300&amp;text=IMAGE+PLACEHOLDER')
 PageContent.create(id: 9, image: 'http://placehold.it/1200x300&amp;text=IMAGE+PLACEHOLDER')
-PageContent.create(id: 10, content: '<i class="fa fa-home"></i></span> <b>Grupo Poblautos</b><br> Carrera 43 A 11 B-115 <br>Poblado, Medellín<br><br><br> <i class="fa fa-phone"></i> <b>+57 (4) 3122222</b><br><i class="fa fa-envelope"></i> <a href="mailto:example@info.com">info@poblautos.com</a><br><br><i class="fa fa-home"></i> <b>Lúnes - Viernes 8.00 am - 6.00pm</b><br><i class="fa fa-home"></i> Sábado 8.00 am -1.00 pm')
+PageContent.create(id: 10, content: '<i class="fa fa-home"></i></span> <b>Grupo Poblautos</b><br> Cra. 43 # A11 B 115 <br>Poblado, Medellín<br><br><br> <i class="fa fa-phone"></i> <b>+57 (4) 3122222</b><br><i class="fa fa-envelope"></i> <a href="mailto:example@info.com">info@poblautos.com</a><br><br><i class="fa fa-home"></i> <b>Lunes - Viernes 8.00 am - 6.00pm</b><br><i class="fa fa-home"></i> Sábado 8.00 am -1.00 pm')
 
 
-Link.create(id:1, url: "https://www.youtube.com/watch?v=qVFOC9_T8Pw")
-Link.create(id:2, url: "https://www.youtube.com/watch?v=qVFOC9_T8Pw")
-Link.create(id:3, url: "https://www.youtube.com/watch?v=qVFOC9_T8Pw")
+Link.create(id:1, url: "https://www.youtube.com/watch?v=qVFOC9_T8Pw", page_type: 0)
+Link.create(id:2, url: "https://www.youtube.com/watch?v=qVFOC9_T8Pw", page_type: 0)
+Link.create(id:3, url: "https://www.youtube.com/watch?v=qVFOC9_T8Pw", page_type: 0)
+Link.create(id:4, url: "https://www.google.com.co", page_type: 1)
+Link.create(id:5, url: "https://www.google.com.co", page_type: 1)
+Link.create(id:6, url: "https://www.google.com.co", page_type: 1)
 
 # PageContent.create(title: "Párrafos Secundarios", html: '<p>Dentro de los productos que ofrecemos se encuentran marcas como Mercedes, BMW, Audi, Toyota, Land Rover, Hummer, Mini Cooper, Porsche, Mazda, Chevrolet, Kia, Yamaha, Bombardier, Suzuki y las diferentes marcas de vehículos y motocicletas de todo el mundo</p>
 # <p>También contamos con un área de vehículos recreativos y todoterreno especializada en la importación y comercializacion de vehículos anfibios, FourTracks y motocicletas de alto cilindraje.</p>

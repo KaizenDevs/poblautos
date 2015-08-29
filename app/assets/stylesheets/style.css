@@ -1549,7 +1549,7 @@ body.boxed .body{
 	font-size:0;
 }
 .site-logo img{
-	max-width:250px;
+	max-width:300px;
 	max-height:60px;
 	-webkit-transition: max-height 0.1s linear 0s;
 	-moz-transition: max-height 0.1s linear 0s;
