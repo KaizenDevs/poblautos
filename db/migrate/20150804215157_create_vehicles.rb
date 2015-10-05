@@ -10,7 +10,7 @@ class CreateVehicles < ActiveRecord::Migration
       t.string :model
       t.string :engine
       t.integer :mileage
-      t.string :upholstery
+      t.integer :upholstery
       t.integer :type
       t.boolean :used
       t.string :video

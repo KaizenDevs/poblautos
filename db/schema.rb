@@ -209,7 +209,7 @@ ActiveRecord::Schema.define(version: 20150821163857) do
     t.string   "vehicle_model"
     t.string   "engine"
     t.integer  "mileage"
-    t.string   "upholstery"
+    t.integer  "upholstery"
     t.integer  "vehicle_type"
     t.boolean  "used"
     t.string   "video"

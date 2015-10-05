@@ -45,7 +45,7 @@
           <%= f.select :gas, options_for_select(Vehicle.gas.keys), label: "Tipo de combustible:" %>
           <%= f.text_field :engine, required: true, label: "Motor:" %>
           <%= f.number_field :mileage, required: true, label: "Kilometraje:" %>
-          <%= f.text_field :upholstery, required: true, label: "Cojinería" %>
+          <%= f.select :upholstery, options_for_select(Vehicle.upholsteries.keys), label: "Cojinería" %>
           <%= f.select :vehicle_type, options_for_select(Vehicle.vehicle_types.keys), label: "Tipo de vehículo:" %>
           <%= f.text_field :video, label: "Link de video (si lo hay):" %>
           <%= f.text_field :color, required: true, label: "Color:" %>
