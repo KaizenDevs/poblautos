@@ -37,8 +37,8 @@ class Vehicle < ActiveRecord::Base
   accepts_nested_attributes_for :vehicle_images, :limit => 20, :reject_if => :all_blank, allow_destroy: true
   belongs_to :brand
   enum transmission: [:mecánico, :automático]
-  enum gas: [:gasolina, :"a gas", :eléctrico]
-  enum vehicle_type: [:camioneta, :sedan, :coupe, :convertible, :"no aplica"]
+  enum gas: [:gasolina, :"a gas", :eléctrico, :diesel]
+  enum vehicle_type: [:camioneta, :sedan, :automóvil, :cabriolet, :campero, :"no aplica"]
   enum vehicle_class: [:vehículo, :moto]
   enum upholstery: [:cuero, :tela, :semicuero]
 

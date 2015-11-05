@@ -46,7 +46,7 @@
           <h2 class="post-title"><%= @vehicle.name %></h2>
         </div>
         <div class="single-listing-actions">
-          <div class="btn btn-info price">$<%= @vehicle.price %></div>
+          <div class="btn btn-info price">$<%= currency(@vehicle.price) %></div>
         </div>
         <div class="row">
           <div class="col-md-8">
@@ -69,7 +69,7 @@
                 <li class="list-group-item"> <span class="badge">Año</span> <%= @vehicle.year %></li>
                 <li class="list-group-item"> <span class="badge">Marca</span> <%= @vehicle.brand.name %></li>
                 <li class="list-group-item"> <span class="badge">Tipo</span> <%= @vehicle.vehicle_type.capitalize %></li>
-                <li class="list-group-item"> <span class="badge">Kilometraje</span> <%= @vehicle.mileage %>km</li>
+                <li class="list-group-item"> <span class="badge">Kilometraje</span> <%= currency(@vehicle.mileage) %> km</li>
                 <li class="list-group-item"> <span class="badge">Transmisión</span> <%= @vehicle.transmission.capitalize %></li>
                 <li class="list-group-item"> <span class="badge">Condición</span> <%= @vehicle.state %></li>
                 <li class="list-group-item"> <span class="badge">Motor</span> <%= @vehicle.engine %></li>
@@ -133,7 +133,7 @@
                 <div class="accordion-inner">
                   <table class="table-specifications table table-striped table-hover">
                     <tbody>
-                      <% @vehicle.external_features.split(",").each do |item| %>
+                      <% @vehicle.safety_features.split(",").each do |item| %>
                         <tr>
                           <td><%= item %></td>
                         </tr>
@@ -191,7 +191,7 @@
 
               <% end %>
               </a>
-              <span class="vehicle-cost">$<%= vehicle.price %></span>
+              <span class="vehicle-cost">$<%= currency(vehicle.price) %></span>
             </div>
           </div>
         </li>
