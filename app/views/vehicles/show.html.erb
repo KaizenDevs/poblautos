@@ -4,8 +4,11 @@
   max-height: 600px;
 }
 </style>
-
-<div class="page-header parallax" style="background-image:url(<%= asset_path(@vehicle.vehicle_images.first.image) %>); margin-top: 150px">
+  <% if !@vehicle.vehicle_images.first.nil? %>
+    <div class="page-header parallax" style="background-image:url(<%= asset_path(@vehicle.vehicle_images.first.image) %>); margin-top: 150px">
+  <% else %>
+    <div class="page-header parallax" style="background-image:url(http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png); margin-top: 150px">
+  <% end %>
   <div class="container">
     <h1 class="page-title">Detalles del Vehículo</h1>
   </div>
@@ -46,13 +49,17 @@
           <h2 class="post-title"><%= @vehicle.name %></h2>
         </div>
         <div class="single-listing-actions">
-          <div class="btn btn-info price">$<%= @vehicle.price %></div>
+          <div class="btn btn-info price" style="background-color: #EBC500">$<%= currency(@vehicle.price) %></div>
         </div>
         <div class="row">
           <div class="col-md-8">
             <div class="single-listing-images">
               <div class="featured-image format-image">
-                <a href="http://placehold.it/890x600&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(@vehicle.vehicle_images.first.image.url(:main), class: "main-vehicle", width: "700") %></a>
+                <% if !@vehicle.vehicle_images.first.nil? %>
+                  <a href="http://placehold.it/890x600&amp;text=IMAGE+PLACEHOLDER" data-rel="prettyPhoto[gallery]" class="media-box"><%= image_tag(@vehicle.vehicle_images.first.image.url(:main), class: "main-vehicle", width: "700") %></a>
+                <% else %>
+                  <a href="<%= vehicle_url(@vehicle) %>" class="media-box"><img src="http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png" alt="" style="width: 700px"></a>
+                <% end %>
               </div>
               <div class="additional-images">
                 <ul class="owl-carousel" data-columns="4" data-pagination="no" data-arrows="yes" data-single-item="no" data-items-desktop="4" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
@@ -69,7 +76,7 @@
                 <li class="list-group-item"> <span class="badge">Año</span> <%= @vehicle.year %></li>
                 <li class="list-group-item"> <span class="badge">Marca</span> <%= @vehicle.brand.name %></li>
                 <li class="list-group-item"> <span class="badge">Tipo</span> <%= @vehicle.vehicle_type.capitalize %></li>
-                <li class="list-group-item"> <span class="badge">Kilometraje</span> <%= @vehicle.mileage %>km</li>
+                <li class="list-group-item"> <span class="badge">Kilometraje</span> <%= currency(@vehicle.mileage) %> km</li>
                 <li class="list-group-item"> <span class="badge">Transmisión</span> <%= @vehicle.transmission.capitalize %></li>
                 <li class="list-group-item"> <span class="badge">Condición</span> <%= @vehicle.state %></li>
                 <li class="list-group-item"> <span class="badge">Motor</span> <%= @vehicle.engine %></li>
@@ -133,7 +140,7 @@
                 <div class="accordion-inner">
                   <table class="table-specifications table table-striped table-hover">
                     <tbody>
-                      <% @vehicle.external_features.split(",").each do |item| %>
+                      <% @vehicle.safety_features.split(",").each do |item| %>
                         <tr>
                           <td><%= item %></td>
                         </tr>
@@ -168,7 +175,11 @@
         <% @vehicles.each do |vehicle| %>
           <li class="item">
           <div class="vehicle-block format-standard">
-            <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:home)) %></a>
+            <% if !vehicle.vehicle_images.first.nil? %>
+              <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:home)) %></a>
+            <% else %>
+              <a href="<%= vehicle_url(vehicle) %>" class="media-box"><img src="http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png" alt=""></a>
+            <% end %>
             <div class="vehicle-block-content">
               <span class="label label-default vehicle-age"><%= vehicle.year %></span>
               <% if vehicle.used? %>
@@ -191,7 +202,7 @@
 
               <% end %>
               </a>
-              <span class="vehicle-cost">$<%= vehicle.price %></span>
+              <span class="vehicle-cost">$<%= currency(vehicle.price) %></span>
             </div>
           </div>
         </li>

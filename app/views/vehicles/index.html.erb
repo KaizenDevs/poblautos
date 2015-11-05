@@ -21,7 +21,13 @@
     <% @vehicles.each do |vehicle| %>
       <tr>
         <td><%= vehicle.name %> <%= vehicle.brand.name %></td>
-        <td><%= image_tag(vehicle.vehicle_images.first.image.url(:thumb), class: 'avatar', width: "50px") %></td>
+        <td>
+          <% if !vehicle.vehicle_images.first.nil? %>
+            <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:thumb)) %></a>
+          <% else %>
+            <a href="<%= vehicle_url(vehicle) %>" class="media-box"><img src="http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png" alt="" style="width: 100px"></a>
+          <% end %>
+        </td>
         <td><%= vehicle.vehicle_class.capitalize %></td>
         <td><%= vehicle.year %></td>
         <td><%= vehicle.state %></td>
@@ -31,7 +37,7 @@
         <td><%= vehicle.engine %></td>
         <td><%= vehicle.comments %></td>
         <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_vehicle_path(vehicle) %></td>
-        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, vehicle_path(vehicle), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar esta pregunta?' } %></td>
+        <td><%= link_to "<span class='fa fa-trash'></span>".html_safe, vehicle_path(vehicle), method: :delete, data: { confirm: '¿Esta seguro que desea eliminar este vehículo?' } %></td>
       </tr>
     <% end %>
   </table>

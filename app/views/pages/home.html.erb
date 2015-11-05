@@ -187,7 +187,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
       <div class="col-md-4 col-sm-6 col-xs-8">
         <div class="toggle-make">
           <a href="#"><i class="fa fa-navicon"></i></a>
-          <span>Buscar por marcas</span>
+          <span style="color: black"><strong>Buscar por marcas</strong></span>
         </div>
       </div>
       <div class="col-md-8 col-sm-6 col-xs-4">
@@ -207,7 +207,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
           <% Vehicle.all.uniq.pluck(:brand_id).each do |brand| %>
             <li class="item">
               <%= link_to vehicles_search_filter_path(brand_id: brand) do %>
-              <%= image_tag Brand.find(brand).image.url(:nav_bar), width: '89px' %>
+              <%= image_tag Brand.find(brand).image.url(:nav_bar), width: '50px' %>
               <span><%= Brand.find(brand).name %></span>
               <% end %>
             </li>
@@ -243,7 +243,11 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                     <% @vehicles.each do |vehicle| %>
                       <li class="item">
                       <div class="vehicle-block format-standard">
-                        <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:home)) %></a>
+                        <% if !vehicle.vehicle_images.first.nil? %>
+                          <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image.url(:home)) %></a>
+                        <% else %>
+                          <a href="<%= vehicle_url(vehicle) %>" class="media-box"><img src="http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png" alt=""></a>
+                        <% end %>
                         <div class="vehicle-block-content">
                           <span class="label label-default vehicle-age"><%= vehicle.year %></span>
                           <% if vehicle.used? %>
@@ -266,7 +270,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
 
                           <% end %>
                           </a>
-                          <span class="vehicle-cost">$<%= vehicle.price %></span>
+                          <span class="vehicle-cost">$<%= currency(vehicle.price) %></span>
                         </div>
                       </div>
                     </li>

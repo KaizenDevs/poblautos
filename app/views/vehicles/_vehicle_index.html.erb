@@ -178,7 +178,11 @@
                 <!-- Result Item -->
                 <div class="result-item format-standard">
                   <div class="result-item-image">
-                    <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image(:home)) %></a>
+                    <% if !vehicle.vehicle_images.first.nil? %>
+                      <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image(:home)) %></a>
+                    <% else %>
+                      <a href="<%= vehicle_url(vehicle) %>" class="media-box"><img src="http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png" alt=""></a>
+                    <% end %>
                     <span class="label label-primary vehicle-age"><%= vehicle.year %></span>
                     <span class="label label-success premium-listing"><%= vehicle.used ? "usado" : "nuevo" %></span>
                     <div class="result-item-view-buttons disabled">
@@ -195,7 +199,7 @@
                     <div class="result-item-cont">
                       <div class="result-item-block col2">
                         <div class="result-item-pricing">
-                          <div class="price">$<%= vehicle.price %></div>
+                          <div class="price">$<%= currency(vehicle.price) %></div>
                         </div>
                         <div class="result-item-action-buttons">
                           <a href="<%= pages_contact_path %>" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Contacto</a>
@@ -209,7 +213,7 @@
                         <li>Combustible: <%= vehicle.gas.capitalize %></li>
                         <li>Modelo: <%= vehicle.year %> </li></br>
                         <li>Motor: <%= vehicle.engine %></li>
-                        <li>Kilometraje: <%= vehicle.mileage %> Kms</li>
+                        <li>Kilometraje: <%= currency(vehicle.mileage) %> Kms</li>
                         <li>Cojineria:  <%= vehicle.upholstery %></li>
                         <li>Color:  <%= vehicle.color %></li>
                         <li>Placa: <%= "#{vehicle.license_plate_city} (Terminada en #{vehicle.license_plate})" %></li>
