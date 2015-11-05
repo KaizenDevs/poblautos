@@ -36,7 +36,7 @@
               <% end %>
             <% end %>
           </div>
-          <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:")%>
+          <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:", :required => true ) %>
           <%= f.text_field :name, required: true, label: "Nombre del vehículo:" %>
           <%= f.number_field :year, required: true, label: "Modelo:" %>
           <%= f.text_field :state, required: true, label: "Estado:" %>

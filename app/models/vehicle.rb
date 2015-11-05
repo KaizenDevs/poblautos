@@ -12,7 +12,7 @@
 #  vehicle_model      :string
 #  engine             :string
 #  mileage            :integer
-#  upholstery         :string
+#  upholstery         :integer
 #  vehicle_type       :integer
 #  used               :boolean
 #  video              :string
@@ -28,6 +28,13 @@
 #  air_conditioning   :boolean
 #  shield             :boolean
 #  license_plate_city :string
+#  brand_id           :integer
+#  vehicle_class      :integer
+#  description        :text
+#  internal_features  :text
+#  external_features  :text
+#  safety_features    :text
+#  extras             :text
 #
 
 class Vehicle < ActiveRecord::Base

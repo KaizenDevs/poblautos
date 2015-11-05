@@ -2,5 +2,9 @@
   <h1>Agregar un nuevo vehículo</h1>
   <p>Recuerda que antes de crear un vehículo debes crear una nueva marca. Puedes hacerlo haciendo click <a href="<%= new_brand_path %>">aquí</a>. <br> Para que las imágenes se vean consistentes en las páginas debes agregar imágenes de 600 pixeles de ancho por 400px de alto.</p>
   <hr>
-  <%= render partial: 'form', locals: { form_submit: "Crear Vehículo", current_page: "new" } %>
+  <% if Brand.all.count > 0 %>
+    <%= render partial: 'form', locals: { form_submit: "Crear Vehículo", current_page: "new" } %>
+  <% else %>
+    <p>Antes de crear tu primer vehículo debes crear una marca haciendo click <a href="<%= new_brand_path %>">aquí.</a></p>
+  <% end %>
 </div>
