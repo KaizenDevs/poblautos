@@ -2,5 +2,9 @@
   <h1>Agrega una nueva noticia</h1>
   <p>Antes de crear una noticia asegurate de haber creado categorías <%= link_to "aquí", new_category_path %>. Recuerda que para que los posts se vean consistentes en las vistas debes agregar imágenes de 600 pixeles de ancho por 400px de alto.</p>
   <hr>
-  <%= render partial: 'form', locals: { form_submit: "Crear Noticia" } %>
+  <% if Category.all.count > 0 %>
+    <%= render partial: 'form', locals: { form_submit: "Crear Noticia" } %>
+  <% else %>
+    <p>Aún no has creado categorías. Asegurate de haber creado una haciendo click <%= link_to "aquí", new_category_path %>.</p>
+  <% end %>
 </div>

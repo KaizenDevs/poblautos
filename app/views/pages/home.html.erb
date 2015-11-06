@@ -296,7 +296,7 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">03
                         <% @news.each do |news| %>
                           <li class="item">
                             <div class="post-block format-standard">
-                              <a href="blog.php" class="media-box post-image"><%= image_tag(news.image.url(:home)) %></a>
+                              <a href="<%= news_url(news) %>" class="media-box post-image"><%= image_tag(news.image.url(:home)) %></a>
                               <div class="post-actions">
                                 <div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div>
                               </div>
