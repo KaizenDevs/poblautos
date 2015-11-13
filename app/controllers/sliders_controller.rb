@@ -1,4 +1,6 @@
 class SlidersController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @sliders = Slider.all
   end
