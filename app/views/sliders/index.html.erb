@@ -1,0 +1,22 @@
+<div class="container" style="margin-top: 150px">
+  <h1>Listando Marcas</h1>
+  <p>Aquí puedes modificar los sliders de la página principal.</p>
+  <table class="table">
+    <tr>
+      <th>Slider #</th>
+      <th>Título</th>
+      <th>Subtítulo</th>
+      <th>Imagen</th>
+      <th></th>
+    </tr>
+    <% @sliders.each do |slider| %>
+      <tr>
+        <td><%= slider.id %></td>
+        <td><%= slider.title %></td>
+        <td><%= slider.subtitle %></td>
+        <td><%= image_tag(slider.image.url(:thumb), width: '50px') %></td>
+        <td><%= link_to "<span class='fa fa-pencil'></span>".html_safe, edit_slider_path(slider) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -9,6 +9,9 @@ class PagesController < ApplicationController
     @page = PageContent.find(params[:id])
     @allies = Ally.all
     @contact = Contact.new
+    @slider1 = Slider.find(1)
+    @slider2 = Slider.find(2)
+    @slider3 = Slider.find(3)
     search_params = params
     if params.has_key?(:brand)
       redirect_to vehicles_search_filter_path(search_params)
