@@ -2,7 +2,7 @@ class SlidersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @sliders = Slider.all
+    @sliders = Slider.all.order("id ASC")
   end
 
   def new
