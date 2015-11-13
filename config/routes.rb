@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'links/index'
-
-  get 'links/edit'
 
   mount Mercury::Engine => '/'
 
@@ -50,6 +47,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :page_contents
   resources :brands
+  resources :sliders
   resources :news do
     get 'rate', on: :member
   end

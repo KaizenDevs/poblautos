@@ -13,6 +13,7 @@
       <div class="topnav dd-menu">
           <ul class="top-navigation sf-menu">
           <% if user_signed_in? %>
+            <li><%= link_to "Sliders-home", sliders_path %></li>
             <li><%= link_to "Servicios-links", links_path %></li>
             <li><%= link_to "Contraseña", edit_user_registration_path %></li>
             <li><%= link_to "Salir", destroy_user_session_path, method: :delete %></li>
