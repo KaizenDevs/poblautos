@@ -22,57 +22,52 @@ class VehiclesController < ApplicationController
   end
 
   def search_filter
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "I enter here!!!!"
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts params
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    if params[:mercury_frame] == "true"
+      @vehicles = Vehicle.all
+      @page = PageContent.find(params[:id])
+    else
+      search_params = {brand_id: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
 
-    search_params = {brand_id: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
+      if params["max-year"] != "Todos" && params["min-year"] == "Todos"
+        search_params[:year] = -Float::INFINITY..params["max-year"].to_i
+      elsif params["min-year"] != "Todos" && params["max-year"] == "Todos"
+        search_params[:year] = params["min-year"].to_i..Float::INFINITY
+      elsif params["min-year"] != "Todos" && params["max-year"] != "Todos" && params.has_key?("min-year")
+        search_params[:year] = params["min-year"].to_i..params["max-year"].to_i
+      end
 
-    if params["max-year"] != "Todos" && params["min-year"] == "Todos"
-      search_params[:year] = -Float::INFINITY..params["max-year"].to_i
-    elsif params["min-year"] != "Todos" && params["max-year"] == "Todos"
-      search_params[:year] = params["min-year"].to_i..Float::INFINITY
-    elsif params["min-year"] != "Todos" && params["max-year"] != "Todos" && params.has_key?("min-year")
-      search_params[:year] = params["min-year"].to_i..params["max-year"].to_i
-    end
+      if params["max-price"] != "Todos" && params["min-price"] == "Todos"
+        search_params[:price] = -Float::INFINITY..params["max-price"].to_i
+      elsif params["min-price"] != "Todos" && params["max-price"] == "Todos"
+        search_params[:price] = params["min-price"].to_i..Float::INFINITY
+      elsif params["min-price"] != "Todos" && params["max-price"] != "Todos" && params.has_key?("min-price")
+        search_params[:price] = params["min-price"].to_i..params["max-price"].to_i
+      end
 
-    if params["max-price"] != "Todos" && params["min-price"] == "Todos"
-      search_params[:price] = -Float::INFINITY..params["max-price"].to_i
-    elsif params["min-price"] != "Todos" && params["max-price"] == "Todos"
-      search_params[:price] = params["min-price"].to_i..Float::INFINITY
-    elsif params["min-price"] != "Todos" && params["max-price"] != "Todos" && params.has_key?("min-price")
-      search_params[:price] = params["min-price"].to_i..params["max-price"].to_i
-    end
-
-    params.each do |k, v|
-      if v != "Todos" && v != "search_filter" && v !=  "BUSCAR" && v != "vehicles" && k != "id"
-        if v == "true"
-          search_params[k] = true
-        elsif v == "false"
-          search_params[k] = false
-        elsif v == "Par"
-          search_params[k] = [0, 2, 4, 6, 8]
-        elsif v == "Impar"
-          search_params[k] = [1, 3, 5, 7, 9]
-        else
-          search_params[k] = params[k]
+      params.each do |k, v|
+        if v != "Todos" && v != "search_filter" && v !=  "BUSCAR" && v != "vehicles" && k != "id"
+          if v == "true"
+            search_params[k] = true
+          elsif v == "false"
+            search_params[k] = false
+          elsif v == "Par"
+            search_params[k] = [0, 2, 4, 6, 8]
+          elsif v == "Impar"
+            search_params[k] = [1, 3, 5, 7, 9]
+          else
+            search_params[k] = params[k]
+          end
         end
       end
+      search_params.delete_if { |k, v| v.nil? || k == "max-year" || k == "min-year" || k == "max-price" || k == "min-price" }
+      if search_params.count == 0
+        @vehicles = Vehicle.all
+        @page = PageContent.find(params[:id])
+      else
+        @vehicles = Vehicle.where(search_params)
+        @page = PageContent.find(params[:id])
+      end
     end
-    search_params.delete_if { |k, v| v.nil? || k == "max-year" || k == "min-year" || k == "max-price" || k == "min-price" }
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts search_params
-    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    if search_params.count == 0
-      @vehicles = Vehicle.all
-    else
-      @vehicles = Vehicle.where(search_params)
-      puts @vehicles
-    end
-    @page = PageContent.find(params[:id])
   end
 
   def index
