@@ -1,10 +1,10 @@
 <%= bootstrap_form_for @vehicle, :html => { :multipart => true } do |f| %>
     <div class="row">
       <div class="col-md-6">
-          <%= f.select :vehicle_class, options_for_select(Vehicle.vehicle_classes.keys), label: "Carro o moto:" %>
+          <%= f.select :vehicle_class, options_for_select(Vehicle.vehicle_classes.keys, @vehicle.vehicle_class), label: "Carro o moto:" %>
           <label for="radio">Usado:</label>
-          <%= f.radio_button :used, true, label: "Sí", required: true %>
-          <%= f.radio_button :used, false, label: "No", required: true %>
+          <%= f.radio_button :used, true, :checked => (@vehicle.used == true), label: "Sí", required: true %>
+          <%= f.radio_button :used, false, :checked => (@vehicle.used == false), label: "No", required: true %>
           <%= f.collection_select( :brand_id, Brand.all, :id, :name, label: "Marca:", :required => true ) %>
           Puedes agregar hasta 5 imagenes por vehículos (sin embargo, no es obligatorio). En las vistas de vehículos se mostrará la primera foto que agregues.
           <div class="row" id="image-for-article">
