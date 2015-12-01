@@ -181,18 +181,69 @@
               <label>Precio Min</label>
               <select name="min-price" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
-                  <option><%= price %></option>
-                <% end %>
+                  <option value="0">Menos de $5.000.000</option>
+                  <option value="5000000">$5.000.000</option>
+                  <option value="10000000">$10.000.000</option>
+                  <option value="20000000">$20.000.000</option>
+                  <option value="30000000">$30.000.000</option>
+                  <option value="40000000">$40.000.000</option>
+                  <option value="60000000">$60.000.000</option>
+                  <option value="70000000">$70.000.000</option>
+                  <option value="80000000">$80.000.000</option>
+                  <option value="90000000">$90.000.000</option>
+                  <option value="100000000">$100.000.000</option>
+                  <option value="120000000">$120.000.000</option>
+                  <option value="130000000">$130.000.000</option>
+                  <option value="140000000">$140.000.000</option>
+                  <option value="150000000">$150.000.000</option>
+                  <option value="160000000">$160.000.000</option>
+                  <option value="170000000">$170.000.000</option>
+                  <option value="180000000">$180.000.000</option>
+                  <option value="190000000">$190.000.000</option>
+                  <option value="200000000">$200.000.000</option>
+                  <option value="230000000">$230.000.000</option>
+                  <option value="250000000">$250.000.000</option>
+                  <option value="270000000">$270.000.000</option>
+                  <option value="300000000">$300.000.000</option>
+                  <option value="400000000">$400.000.000</option>
+                  <option value="500000000">$500.000.000</option>
+                  <option value="600000000">$600.000.000</option>
+                  <option value="700000000">$700.000.000</option>
+                  <option value="800000000">$800.000.000</option>
               </select>
             </div>
             <div class="col-md-6">
               <label>Precio Máx</label>
               <select name="max-price" class="form-control selectpicker">
                 <option selected>Todos</option>
-                <% Vehicle.uniq.pluck(:price).sort.each do |price| %>
-                  <option><%= price %></option>
-                <% end %>
+                <option value="5000000">$5.000.000</option>
+                <option value="10000000">$10.000.000</option>
+                <option value="20000000">$20.000.000</option>
+                <option value="30000000">$30.000.000</option>
+                <option value="40000000">$40.000.000</option>
+                <option value="60000000">$60.000.000</option>
+                <option value="70000000">$70.000.000</option>
+                <option value="80000000">$80.000.000</option>
+                <option value="90000000">$90.000.000</option>
+                <option value="100000000">$100.000.000</option>
+                <option value="120000000">$120.000.000</option>
+                <option value="130000000">$130.000.000</option>
+                <option value="140000000">$140.000.000</option>
+                <option value="150000000">$150.000.000</option>
+                <option value="160000000">$160.000.000</option>
+                <option value="170000000">$170.000.000</option>
+                <option value="180000000">$180.000.000</option>
+                <option value="190000000">$190.000.000</option>
+                <option value="200000000">$200.000.000</option>
+                <option value="230000000">$230.000.000</option>
+                <option value="250000000">$250.000.000</option>
+                <option value="270000000">$270.000.000</option>
+                <option value="300000000">$300.000.000</option>
+                <option value="400000000">$400.000.000</option>
+                <option value="500000000">$500.000.000</option>
+                <option value="600000000">$600.000.000</option>
+                <option value="700000000">$700.000.000</option>
+                <option value="800000000">$800.000.000</option>
               </select>
             </div>
           </div>
