@@ -55,6 +55,7 @@ class PageContentsController < ApplicationController
     page.content26 = params[:content][:page_content26][:value] if page.content26 != nil
     page.content27 = params[:content][:page_content27][:value] if page.content27 != nil
     page.content28 = params[:content][:page_content28][:value] if page.content28 != nil
+    page.content29 = params[:content][:page_content29][:value] if page.content29 != nil
     page.image = params[:content][:page_image][:attributes][:src] if params[:content] && params[:content][:page_image] && params[:content][:page_image][:attributes]
     page.image1 = params[:content][:page_image1][:attributes][:src] if params[:content] && params[:content][:page_image1] && params[:content][:page_image1][:attributes]
     page.image2 = params[:content][:page_image2][:attributes][:src] if params[:content] && params[:content][:page_image2] && params[:content][:page_image2][:attributes]
