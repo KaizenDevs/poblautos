@@ -69,7 +69,7 @@
                    <span class="megamenu-sub-title"><span class="accent-color"><strong class="vehicle-font">USADOS</strong></span></span>
                    <ul class="make-widget">
                     <% Vehicle.where(vehicle_class: 0, used: true).uniq.pluck(:brand_id).each do |brand| %>
-                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 1, used: true) do %><%= image_tag(Brand.find(brand).image.url(:nav_bar), class: "vehicle-image", width: '60px') %>
+                      <li class="item"> <%= link_to vehicles_search_filter_path(:brand_id => brand, vehicle_class: 0, used: true) do %><%= image_tag(Brand.find(brand).image.url(:nav_bar), class: "vehicle-image", width: '60px') %>
                         <% end %>
                       </li>
                     <% end %>
