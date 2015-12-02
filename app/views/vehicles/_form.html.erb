@@ -48,19 +48,27 @@
           <%= f.select :gas, options_for_select(Vehicle.gas.keys, @vehicle.gas), label: "Tipo de combustible:" %>
           <%= f.text_field :engine, required: true, label: "Motor:" %>
           <%= f.number_field :mileage, required: true, label: "Kilometraje:" %>
-          <%= f.select :upholstery, options_for_select(Vehicle.upholsteries.keys, @vehicle.upholstery), label: "Cojinería" %>
+          <div class='upholstery'>
+            <%= f.select :upholstery, options_for_select(Vehicle.upholsteries.keys, @vehicle.upholstery), label: "Cojinería" %>
+          </div>
           <%= f.select :vehicle_type, options_for_select(Vehicle.vehicle_types.keys, @vehicle.vehicle_type), label: "Tipo de vehículo:" %>
           <%= f.text_field :video, label: "Link de video (si lo hay):" %>
           <%= f.text_field :color, required: true, label: "Color:" %>
-          <%= f.text_field :license_plate_city, required: true, label: "Ciudad de la placa:" %>
-          <%= f.number_field :license_plate, required: true, label: "Placa (último dígito):" %>
+          <div class='license-plate'>
+            <%= f.text_field :license_plate_city, required: true, label: "Ciudad de la placa:" %>
+            <%= f.number_field :license_plate, required: true, label: "Placa (último dígito):" %>
+          </div>
           <%= f.text_area :comments, required: true, label: "Comentarios:" %>
-          <label for="radio">Aire Acondicionado:</label>
-          <%= f.radio_button :air_conditioning, true, label: "Sí", required: true %>
-          <%= f.radio_button :air_conditioning, false, label: "No", required: true %>
-          <label for="radio">Blindado:</label>
-          <%= f.radio_button :shield, true, label: "Sí", required: true %>
-          <%= f.radio_button :shield, false, label: "No", required: true %>
+          <div class='air-conditioning'>
+            <label for="radio">Aire Acondicionado:</label>
+            <%= f.radio_button :air_conditioning, true, label: "Sí", required: true %>
+            <%= f.radio_button :air_conditioning, false, label: "No", required: true %>
+          </div>
+          <div class='shielding'>
+            <label for="radio">Blindado:</label>
+            <%= f.radio_button :shield, true, label: "Sí", required: true %>
+            <%= f.radio_button :shield, false, label: "No", required: true %>
+          </div>
           <hr>
           <p>Los siguientes datos se usarán para organizar las vistas del vehículo.</p>
           <%= f.text_area :description, required: true, label: "Descripción general:" %>
@@ -71,10 +79,28 @@
           <%= f.submit form_submit %>
       </div>
     </div>
-<% end %>
 
 <hr>
 
 <%= link_to vehicles_path do %>
   <button class="btn btn-default" style="margin-top: 20px;"><span class="fa fa-arrow-left"></span> Atrás</button>
+<% end %>
+
+<script>
+  $('#vehicle_vehicle_class').on('change', function() {
+    var formValue = $('#vehicle_vehicle_class').val();
+    if (formValue == 'moto') {
+      console.log('Hello World');
+      $('.shielding').html('');
+      $('.air-conditioning').html('');
+      $('.upholstery').html('');
+      $('.license-plate').html('');
+    } else {
+      $('.shielding').html("<label for='radio'>Blindado:</label> <%=j f.radio_button :shield, true, label: 'Sí', required: true %> <%=j f.radio_button :shield, false, label: 'No', required: true %>");
+      $('.air-conditioning').html('<label for="radio">Aire Acondicionado:</label> <%=j f.radio_button :air_conditioning, true, label: "Sí", required: true %> <%=j f.radio_button :air_conditioning, false, label: "No", required: true %>');
+      $('.upholstery').html('<%=j f.select :upholstery, options_for_select(Vehicle.upholsteries.keys, @vehicle.upholstery), label: "Cojinería" %>');
+      $('.license-plate').html('<%=j f.text_field :license_plate_city, required: true, label: "Ciudad de la placa:" %> <%=j f.number_field :license_plate, required: true, label: "Placa (último dígito):" %>');
+    }
+  })
+</script>
 <% end %>
