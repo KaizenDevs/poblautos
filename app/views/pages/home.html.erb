@@ -268,13 +268,15 @@ style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
                           <span class="vehicle-meta">Mercedes, <%= vehicle.color %>. </span>
                           <a href="<%= vehicle_url(vehicle) %>" class="vehicle-body-type">
                           <% if vehicle.vehicle_type == "camioneta" %>
-                            <%= image_tag("body-types/suv.png", width: "30") %>
-                          <% elsif vehicle.vehicle_type == "sedan" %>
-                            <%= image_tag("body-types/sedan.png", width: "30") %>
-                          <% elsif vehicle.vehicle_type == "coupe" %>
-                            <%= image_tag("body-types/coupe.png", width: "30") %>
-                          <% elsif vehicle.vehicle_type == "convertible" %>
-                            <%= image_tag("body-types/convertible.png", width: "30") %>
+                            <%= image_tag("body-types/camioneta.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "sedan" || vehicle.vehicle_type == 'automovil' %>
+                            <%= image_tag("body-types/automovil.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "cabriolet" %>
+                            <%= image_tag("body-types/cabriolet.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == "campero" %>
+                            <%= image_tag("body-types/campero.png", width: "30") %>
+                          <% elsif vehicle.vehicle_type == 'motocicleta' %>
+                            <%= image_tag("body-types/moto.png", width: "30") %>
                           <% else %>
 
                           <% end %>

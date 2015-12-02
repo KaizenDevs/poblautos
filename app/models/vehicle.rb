@@ -45,7 +45,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :brand
   enum transmission: [:mecánico, :automático]
   enum gas: [:gasolina, :"a gas", :eléctrico, :diesel]
-  enum vehicle_type: [:camioneta, :sedan, :automóvil, :cabriolet, :campero, :"no aplica"]
+  enum vehicle_type: [:camioneta, :sedan, :automóvil, :cabriolet, :campero, :motocicleta, :"no aplica"]
   enum vehicle_class: [:vehículo, :moto]
   enum upholstery: [:cuero, :tela, :semicuero]
 
