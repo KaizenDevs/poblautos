@@ -1,5 +1,5 @@
  <!-- Start Page header -->
- <div class="page-header parallax" style="background-image:url(http://placehold.it/1200x300&amp;text=IMAGE+PLACEHOLDER); margin-top: 150px">
+ <div class="page-header parallax" style="background-image:url(<%= asset_path(@news.image) %>); margin-top: 150px">
   <div class="container">
     <h1 class="page-title">Blog</h1>
   </div>
@@ -52,15 +52,8 @@
             <!-- Pagination -->
             <ul class="pager">
               <li class="pull-left"><%= link_to("Anterior Noticia", @news.previous) if @news.previous %></li>
-              <li class="pull-right"><%= link_to("Anterior Noticia", @news.next) if @news.next %></li>
+              <li class="pull-right"><%= link_to("Siguiente Noticia", @news.next) if @news.next %></li>
             </ul>
-        <section class="about-author">
-            <div class="img-thumbnail"> <%= image_tag(@news.author_image.url(:thumb)) %> </div>
-            <div class="post-author-content">
-                <h3><%= @news.author %> <span class="label label-success">Autor</span></h3>
-              <p><%= @news.about %></p>
-            </div>
-        </section>
         </div>
         <!-- About Author -->
         <!-- Start Sidebar -->
@@ -70,15 +63,15 @@
             <ul>
               <% News.all.last(2).each do |news| %>
                 <li>
-                  <a href="single-post.html"><img src="<%= asset_path(news.image.url) %>" alt="" class="img-thumbnail"></a>
-                  <h5><a href="single-post.html">2015 Proin enim quam, vulputate</a></h5>
-                  <div class="post-actions"><div class="post-date">October 30, 2014</div></div>
+                  <a href="<%= news_path(news) %>"><img src="<%= asset_path(news.image.url) %>" alt="" class="img-thumbnail"></a>
+                  <h5><a href="<%= news_path(news) %>"><%= news.title %></a></h5>
+                  <div class="post-actions"><div class="post-date"><%= news.created_at.strftime("%B %d, %Y") %></div></div>
                 </li>
               <% end %>
             </ul>
           </div>
           <div class="widget sidebar-widget widget_recent_reviews">
-            <h3 class="widgettitle">Latest Reviews</h3>
+            <h3 class="widgettitle">Últimas Calificaciones</h3>
             <% @most_voted.each do |news| %>
               <div class="post-block post-review-block">
                 <div class="review-status">
