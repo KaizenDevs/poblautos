@@ -43,7 +43,7 @@
                   </div>
                   <h3 class="post-title"><a href="<%= news_url(news) %>"><%= news.title %></a></h3>
                   <p><%= raw news.content.split(" ").first(50).join(" ") %>... <a href="<%= news_url(news) %>" class="continue-reading">Seguir leyendo <i class="fa fa-long-arrow-right"></i></a></p>
-                  <div class="post-meta">Categoría: <a href="#"><%= news.category.name %></a></div>
+                  <div class="post-meta">Categoría: <%= link_to news.category.name, pages_news_path(category_id: news.category.id) %></a></div>
                 </div>
               </div>
             </article>

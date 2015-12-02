@@ -31,7 +31,6 @@
           </div>
         </div>
         <!-- Small Screens Filters Toggle Button -->
-        <button class="btn btn-default visible-xs" id="Show-Filters">Search Filters</button>
       </div>
     </div>
   </div>
@@ -178,7 +177,6 @@
                     <% else %>
                       <a href="<%= vehicle_url(vehicle) %>" class="media-box"><img src="http://i592.photobucket.com/albums/tt5/Mardini03/imagen-no-disponible.png" alt=""></a>
                     <% end %>
-                    <a href="<%= vehicle_url(vehicle) %>" class="media-box"><%= image_tag(vehicle.vehicle_images.first.image(:home)) %></a>
                     <span class="label label-primary vehicle-age"><%= vehicle.year %></span>
                     <span class="label label-success premium-listing"><%= vehicle.used ? "usado" : "nuevo" %></span>
                     <div class="result-item-view-buttons disabled">
@@ -200,7 +198,6 @@
                         <div class="result-item-action-buttons">
                           <a href="<%= pages_contact_path %>" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Contacto</a>
                           <a href="<%= vehicle_url(vehicle) %>" class="btn btn-default btn-sm">Ver</a><br>
-                          <a href="#" class="distance-calc"><i class="fa fa-map-marker"></i> Distance from me?</a>
                         </div>
                       </div>
                     </div>
@@ -211,9 +208,7 @@
                         <li>Modelo: <%= vehicle.year %> </li></br>
                         <li>Motor: <%= vehicle.engine %></li>
                         <li>Kilometraje: <%= currency(vehicle.mileage) %> Kms</li>
-                        <li>Cojineria:  <%= vehicle.upholstery %></li>
                         <li>Color:  <%= vehicle.color %></li>
-                        <li>Placa: <%= "#{vehicle.license_plate_city} (Terminada en #{vehicle.license_plate})" %></li>
                         <li>COMENTARIOS: <%= vehicle.comments %></li>
                       </ul>
                     </div>

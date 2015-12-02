@@ -7,9 +7,6 @@
           <%= f.text_field :title, required: true, label: "Título:" %>
           <%= f.file_field :image, label: "Agrega una imagen:" %>
           <%= f.text_area :content, required: true, label: "Contenido:" %> <br>
-          <%= f.text_field :author, required: true, label: "Nombre y apellidos del autor:" %>
-          <%= f.text_area :about, required: true, label: "Sobre el autor:" %>
-          <%= f.file_field :author_image, label: "Imagen del autor:" %>
           <label for="radio">Destacada (aparecerá en la página principal):</label>
           <%= f.radio_button :highlight, true, label: "Sí" %>
           <%= f.radio_button :highlight, false, label: "No" %>

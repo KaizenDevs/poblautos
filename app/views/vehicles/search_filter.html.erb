@@ -31,7 +31,6 @@
           </div>
         </div>
         <!-- Small Screens Filters Toggle Button -->
-        <button class="btn btn-default visible-xs" id="Show-Filters">Search Filters</button>
       </div>
     </div>
   </div>
@@ -79,9 +78,8 @@
                           <div class="price">$<%= currency(vehicle.price) %></div>
                         </div>
                         <div class="result-item-action-buttons">
-                          <a href="#" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Save</a>
-                          <a href="vehicle-details.html" class="btn btn-default btn-sm">Enquire</a><br>
-                          <a href="#" class="distance-calc"><i class="fa fa-map-marker"></i> Distance from me?</a>
+                          <a href="<%= pages_contact_path %>" class="btn btn-default btn-sm"><i class="fa fa-star-o"></i> Contacto</a>
+                          <a href="<%= vehicle_path(vehicle) %>" class="btn btn-default btn-sm">Ver</a><br>
                         </div>
                       </div>
                     </div>
