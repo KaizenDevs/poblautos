@@ -6,14 +6,12 @@ class VehiclesController < ApplicationController
     if params.has_key?(:vehicle_class)
       redirect_to vehicles_search_filter_path(search_params)
     end
-    @vehicles = Vehicle.where(used: false, vehicle_class: 0)
-    @vehicles_paginate = Vehicle.paginate(:page => params[:page], :per_page => 9)
+    @vehicles = Vehicle.where(used: false, vehicle_class: 0).paginate(:page => params[:page], :per_page => 9)
     @page = PageContent.find(params[:id])
   end
 
   def used
-    @vehicles = Vehicle.where(used: true, vehicle_class: 0)
-    @vehicles_paginate = Vehicle.paginate(:page => params[:page], :per_page => 9)
+    @vehicles = Vehicle.where(used: true, vehicle_class: 0).paginate(:page => params[:page], :per_page => 9)
     search_params = params
     if params.has_key?(:vehicle_class)
       redirect_to vehicles_search_filter_path(search_params)
@@ -23,7 +21,7 @@ class VehiclesController < ApplicationController
 
   def search_filter
     if params[:mercury_frame] == "true"
-      @vehicles = Vehicle.all
+      @vehicles = Vehicle.all.paginate(:page => params[:page], :per_page => 9)
       @page = PageContent.find(params[:id])
     else
       search_params = {brand_id: nil, color: nil, shield: nil, model: nil, price: nil, year: nil, gas: nil, license_plate: nil, transmission: nil, air_conditioning: nil, vehicle_class: nil, used: nil}
@@ -61,10 +59,10 @@ class VehiclesController < ApplicationController
       end
       search_params.delete_if { |k, v| v.nil? || k == "max-year" || k == "min-year" || k == "max-price" || k == "min-price" }
       if search_params.count == 0
-        @vehicles = Vehicle.all
+        @vehicles = Vehicle.all.paginate(:page => params[:page], :per_page => 9)
         @page = PageContent.find(params[:id])
       else
-        @vehicles = Vehicle.where(search_params)
+        @vehicles = Vehicle.where(search_params).paginate(:page => params[:page], :per_page => 9)
         @page = PageContent.find(params[:id])
       end
     end
