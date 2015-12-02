@@ -28,11 +28,9 @@ class PagesController < ApplicationController
 
   def news
     if params.has_key?(:category_id)
-      @news = News.where(category: Category.find(params[:category_id])).reverse
-      @news = News.paginate(:page => params[:page], :per_page => 4)
+      @news = News.where(id: "id DESC", category: Category.find(params[:category_id])).paginate(:page => params[:page], :per_page => 4)
     else
-      @news = News.all.reverse
-      @news = News.paginate(:page => params[:page], :per_page => 4)
+      @news = News.order("id DESC").paginate(:page => params[:page], :per_page => 4)
     end
     @page = PageContent.find(params[:id])
     @categories = Category.all
