@@ -20,6 +20,7 @@ gem 'hirb'
 gem 'paperclip'
 gem 'aws-sdk', '< 2.0'
 gem "cocoon"
+gem 'puma'
 
 
 group :development, :test do
